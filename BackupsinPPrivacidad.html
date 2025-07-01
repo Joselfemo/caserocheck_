@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaseroCheck - Reseñas Reales de Alquileres en Madrid</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary: #06b6d4;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-header {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.7) 0%, rgba(29, 78, 216, 0.75) 50%, rgba(6, 182, 212, 0.7) 100%),
+                        url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            padding: 80px 40px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 100%);
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 30%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            letter-spacing: -0.05em;
+            text-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title::before {
+            content: '🏠';
+            position: absolute;
+            left: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3.5rem;
+            animation: pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, #06b6d4 50%, transparent 100%);
+            border-radius: 2px;
+        }
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 20px;
+            font-weight: 600;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 18px 36px;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 200px;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            color: var(--primary);
+            box-shadow: 0 8px 32px rgba(255,255,255,0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255,255,255,0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: var(--gray-50);
+            padding: 12px;
+            margin: 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 16px 12px;
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            color: var(--gray-600);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .nav-tab.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-tab-icon {
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            padding: 40px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-section {
+            background: var(--gray-50);
+            padding: 32px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .form-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .required {
+            color: var(--danger);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            background: var(--white);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .rating-group {
+            margin-bottom: 24px;
+        }
+
+        .rating-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .star {
+            font-size: 2rem;
+            color: var(--gray-300);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #fbbf24;
+            transform: scale(1.1);
+        }
+
+        .rating-value {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-top: 4px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-large {
+            padding: 18px 36px;
+            font-size: 1.1rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--gray-200);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .stat-trend {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .stat-trend.up {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .stat-trend.down {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .result-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 24px;
+        }
+
+        .result-address {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .result-rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rating-score {
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        .result-body {
+            padding: 24px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--gray-50);
+            border-radius: 8px;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        .detail-value {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .price-analysis {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            padding: 16px;
+            border-radius: 12px;
+            margin: 16px 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .review-text {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 16px;
+            font-style: italic;
+            border-left: 4px solid var(--primary);
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .chart-container {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+        }
+
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .map-container {
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .insights-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .insight-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+            position: relative;
+        }
+
+        .insight-card.warning {
+            border-left: 4px solid var(--warning);
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+
+        .insight-card.success {
+            border-left: 4px solid var(--accent);
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+
+        .insight-card.info {
+            border-left: 4px solid var(--secondary);
+            background: linear-gradient(135deg, #cffafe 0%, #a5f3fc 100%);
+        }
+
+        .insight-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .insight-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .insight-text {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--gray-600);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+
+        .error {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: var(--danger);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #fca5a5;
+        }
+
+        .success {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            color: #065f46;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #6ee7b7;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 24px;
+            }
+
+            .form-section {
+                padding: 24px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                gap: 8px;
+                padding: 16px;
+            }
+
+            .nav-tab {
+                justify-content: center;
+                margin: 0;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Header -->
+        <div class="hero-header">
+            <div class="hero-content">
+                <h1 class="hero-title">🏠 CaseroCheck</h1>
+                <p class="hero-subtitle">🏙️ <strong>La primera plataforma de reseñas reales</strong> para alquileres en Madrid</p>
+                <p class="hero-description">Descubre experiencias auténticas de inquilinos como tú. Conoce la verdad sobre precios, caseros y propiedades antes de firmar tu contrato. <strong>Información real, decisiones inteligentes.</strong></p>
+
+                <div class="hero-cta">
+                    <button class="cta-primary" onclick="switchTabAndScroll('search')">
+                        🔍 Buscar Propiedades
+                    </button>
+                    <button class="cta-secondary" onclick="switchTabAndScroll('write')">
+                        ✍️ Escribir Reseña
+                    </button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" id="totalReviews">0</div>
+                        <div class="hero-stat-label">Reseñas Verificadas</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" id="avgRating">4.2</div>
+                        <div class="hero-stat-label">Rating Promedio</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" id="districts">21</div>
+                        <div class="hero-stat-label">Distritos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navegación -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('search')">
+                <span class="nav-tab-icon">🔍</span>
+                <span>Buscar Reseñas</span>
+            </button>
+            <button class="nav-tab" onclick="switchTab('write')">
+                <span class="nav-tab-icon">✍️</span>
+                <span>Escribir Reseña</span>
+            </button>
+            <button class="nav-tab" onclick="switchTab('analytics')">
+                <span class="nav-tab-icon">📊</span>
+                <span>Estadísticas</span>
+            </button>
+            <button class="nav-tab" onclick="switchTab('map')">
+                <span class="nav-tab-icon">🗺️</span>
+                <span>Mapa</span>
+            </button>
+            <button class="nav-tab" onclick="switchTab('insights')">
+                <span class="nav-tab-icon">💡</span>
+                <span>Análisis IA</span>
+            </button>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <!-- Tab: Búsqueda -->
+            <div id="search-tab" class="tab-content active">
+                <div class="form-section animate-on-scroll">
+                    <h3>🔍 Buscar Reseñas de Propiedades</h3>
+                    <form class="form-grid" id="searchForm">
+                        <div class="form-group">
+                            <label for="direccion">📍 Dirección o Calle</label>
+                            <input type="text" id="direccion" placeholder="Gran Vía, Calle Mayor...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="distrito">🏘️ Distrito</label>
+                            <select id="distrito">
+                                <option value="">Todos los distritos</option>
+                                <option value="Centro">Centro</option>
+                                <option value="Arganzuela">Arganzuela</option>
+                                <option value="Retiro">Retiro</option>
+                                <option value="Salamanca">Salamanca</option>
+                                <option value="Chamartín">Chamartín</option>
+                                <option value="Tetuán">Tetuán</option>
+                                <option value="Chamberí">Chamberí</option>
+                                <option value="Fuencarral-El Pardo">Fuencarral-El Pardo</option>
+                                <option value="Moncloa-Aravaca">Moncloa-Aravaca</option>
+                                <option value="Latina">Latina</option>
+                                <option value="Carabanchel">Carabanchel</option>
+                                <option value="Usera">Usera</option>
+                                <option value="Puente de Vallecas">Puente de Vallecas</option>
+                                <option value="Moratalaz">Moratalaz</option>
+                                <option value="Ciudad Lineal">Ciudad Lineal</option>
+                                <option value="Hortaleza">Hortaleza</option>
+                                <option value="Villaverde">Villaverde</option>
+                                <option value="Villa de Vallecas">Villa de Vallecas</option>
+                                <option value="Vicálvaro">Vicálvaro</option>
+                                <option value="San Blas-Canillejas">San Blas-Canillejas</option>
+                                <option value="Barajas">Barajas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="precioMin">💰 Precio Mínimo</label>
+                            <input type="number" id="precioMin" placeholder="400">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="precioMax">💰 Precio Máximo</label>
+                            <input type="number" id="precioMax" placeholder="1500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="habitaciones">🛏️ Habitaciones</label>
+                            <select id="habitaciones">
+                                <option value="">Cualquier número</option>
+                                <option value="1">1 habitación</option>
+                                <option value="2">2 habitaciones</option>
+                                <option value="3">3 habitaciones</option>
+                                <option value="4">4+ habitaciones</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tipoPropiedad">🏠 Tipo</label>
+                            <select id="tipoPropiedad">
+                                <option value="">Todos los tipos</option>
+                                <option value="Piso">Piso</option>
+                                <option value="Estudio">Estudio</option>
+                                <option value="Ático">Ático</option>
+                                <option value="Loft">Loft</option>
+                                <option value="Casa">Casa</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            🚀 Buscar Propiedades
+                        </button>
+                    </form>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Analizando reseñas...</p>
+                </div>
+
+                <div id="searchResults"></div>
+            </div>
+            <!-- Tab: Escribir Reseña -->
+            <div id="write-tab" class="tab-content">
+                <form id="reviewForm">
+                    <!-- Información del Piso -->
+                    <div class="form-section animate-on-scroll">
+                        <h3>🏠 Información del Piso</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="direccionCompleta">Dirección completa <span class="required">*</span></label>
+                                <input type="text" id="direccionCompleta" name="direccionCompleta" required placeholder="Calle, número, piso...">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="codigoPostal">Código Postal <span class="required">*</span></label>
+                                <input type="text" id="codigoPostal" name="codigoPostal" required placeholder="28001">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="distritoForm">Distrito <span class="required">*</span></label>
+                                <select id="distritoForm" name="distrito" required>
+                                    <option value="">Selecciona distrito</option>
+                                    <option value="Centro">Centro</option>
+                                    <option value="Arganzuela">Arganzuela</option>
+                                    <option value="Retiro">Retiro</option>
+                                    <option value="Salamanca">Salamanca</option>
+                                    <option value="Chamartín">Chamartín</option>
+                                    <option value="Tetuán">Tetuán</option>
+                                    <option value="Chamberí">Chamberí</option>
+                                    <option value="Fuencarral-El Pardo">Fuencarral-El Pardo</option>
+                                    <option value="Moncloa-Aravaca">Moncloa-Aravaca</option>
+                                    <option value="Latina">Latina</option>
+                                    <option value="Carabanchel">Carabanchel</option>
+                                    <option value="Usera">Usera</option>
+                                    <option value="Puente de Vallecas">Puente de Vallecas</option>
+                                    <option value="Moratalaz">Moratalaz</option>
+                                    <option value="Ciudad Lineal">Ciudad Lineal</option>
+                                    <option value="Hortaleza">Hortaleza</option>
+                                    <option value="Villaverde">Villaverde</option>
+                                    <option value="Villa de Vallecas">Villa de Vallecas</option>
+                                    <option value="Vicálvaro">Vicálvaro</option>
+                                    <option value="San Blas-Canillejas">San Blas-Canillejas</option>
+                                    <option value="Barajas">Barajas</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipoPropiedadForm">Tipo de Propiedad <span class="required">*</span></label>
+                                <select id="tipoPropiedadForm" name="tipoPropiedad" required>
+                                    <option value="">Selecciona tipo</option>
+                                    <option value="Piso">Piso</option>
+                                    <option value="Ático">Ático</option>
+                                    <option value="Estudio">Estudio</option>
+                                    <option value="Loft">Loft</option>
+                                    <option value="Habitación">Habitación</option>
+                                    <option value="Casa">Casa</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metros">Metros² <span class="required">*</span></label>
+                                <input type="number" id="metros" name="metros" required placeholder="75">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="habitacionesForm">Habitaciones <span class="required">*</span></label>
+                                <select id="habitacionesForm" name="habitaciones" required>
+                                    <option value="">Nº hab.</option>
+                                    <option value="0">Estudio</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="banos">Baños <span class="required">*</span></label>
+                                <select id="banos" name="banos" required>
+                                    <option value="">Nº baños</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amueblado">¿Amueblado? <span class="required">*</span></label>
+                                <select id="amueblado" name="amueblado" required>
+                                    <option value="">Selecciona</option>
+                                    <option value="Sí">Sí</option>
+                                    <option value="No">No</option>
+                                    <option value="Semi-amueblado">Semi-amueblado</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información Económica -->
+                    <div class="form-section animate-on-scroll">
+                        <h3>💰 Información Económica</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="precioPagado">Precio pagado mensual (€) <span class="required">*</span></label>
+                                <input type="number" id="precioPagado" name="precioPagado" required placeholder="850">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="precioAnunciado">Precio anunciado (€)</label>
+                                <input type="number" id="precioAnunciado" name="precioAnunciado" placeholder="900">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duracionAlquiler">Duración del alquiler <span class="required">*</span></label>
+                                <select id="duracionAlquiler" name="duracionAlquiler" required>
+                                    <option value="">Selecciona duración</option>
+                                    <option value="Menos de 6 meses">Menos de 6 meses</option>
+                                    <option value="6-12 meses">6-12 meses</option>
+                                    <option value="1-2 años">1-2 años</option>
+                                    <option value="2-3 años">2-3 años</option>
+                                    <option value="Más de 3 años">Más de 3 años</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Calificaciones -->
+                    <div class="form-section animate-on-scroll">
+                        <h3>⭐ Califica tu Experiencia</h3>
+
+                        <div class="rating-group">
+                            <label class="rating-label">Calificación Global <span class="required">*</span></label>
+                            <div class="rating-stars" data-rating="calificacionGlobal">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
+                            </div>
+                            <div class="rating-value" id="calificacionGlobal-value">Selecciona una puntuación</div>
+                            <input type="hidden" id="calificacionGlobal" name="calificacionGlobal" required>
+                        </div>
+
+                        <div class="rating-group">
+                            <label class="rating-label">Estado del Piso</label>
+                            <div class="rating-stars" data-rating="estadoPiso">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
+                            </div>
+                            <div class="rating-value" id="estadoPiso-value">Opcional</div>
+                            <input type="hidden" id="estadoPiso" name="estadoPiso">
+                        </div>
+
+                        <div class="rating-group">
+                            <label class="rating-label">Limpieza</label>
+                            <div class="rating-stars" data-rating="limpieza">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
+                            </div>
+                            <div class="rating-value" id="limpieza-value">Opcional</div>
+                            <input type="hidden" id="limpieza" name="limpieza">
+                        </div>
+
+                        <div class="rating-group">
+                            <label class="rating-label">Ubicación</label>
+                            <div class="rating-stars" data-rating="ubicacion">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
+                            </div>
+                            <div class="rating-value" id="ubicacion-value">Opcional</div>
+                            <input type="hidden" id="ubicacion" name="ubicacion">
+                        </div>
+
+                        <div class="rating-group">
+                            <label class="rating-label">Calidad-Precio</label>
+                            <div class="rating-stars" data-rating="calidadPrecio">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
+                            </div>
+                            <div class="rating-value" id="calidadPrecio-value">Opcional</div>
+                            <input type="hidden" id="calidadPrecio" name="calidadPrecio">
+                        </div>
+
+                        <div class="rating-group">
+                            <label class="rating-label">Comunicación Casero</label>
+                            <div class="rating-stars" data-rating="comunicacionCasero">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
+                            </div>
+                            <div class="rating-value" id="comunicacionCasero-value">Opcional</div>
+                            <input type="hidden" id="comunicacionCasero" name="comunicacionCasero">
+                        </div>
+                    </div>
+
+                    <!-- Tu Experiencia -->
+                    <div class="form-section animate-on-scroll">
+                        <h3>📝 Tu Experiencia</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="tiempoRespuesta">Tiempo de respuesta del casero</label>
+                                <select id="tiempoRespuesta" name="tiempoRespuesta">
+                                    <option value="">Selecciona</option>
+                                    <option value="Inmediato (< 1 hora)">Inmediato (< 1 hora)</option>
+                                    <option value="Mismo día">Mismo día</option>
+                                    <option value="24 horas">24 horas</option>
+                                    <option value="2-3 días">2-3 días</option>
+                                    <option value="Más de 3 días">Más de 3 días</option>
+                                    <option value="No responde">No responde</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="devolucionFianza">¿Te devolvieron la fianza?</label>
+                                <select id="devolucionFianza" name="devolucionFianza">
+                                    <option value="">Selecciona</option>
+                                    <option value="Sí, completa">Sí, completa</option>
+                                    <option value="Sí, parcial">Sí, parcial</option>
+                                    <option value="No">No</option>
+                                    <option value="Aún no he terminado">Aún no he terminado</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="problemasReportados">Problemas reportados (opcional)</label>
+                                <textarea id="problemasReportados" name="problemasReportados" placeholder="Describe cualquier problema que hayas tenido..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="resenaDetallada">Reseña detallada <span class="required">*</span></label>
+                                <textarea id="resenaDetallada" name="resenaDetallada" required placeholder="Cuenta tu experiencia: qué te gustó, qué mejorarías, recomendaciones..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recomendarias">¿Recomendarías esta propiedad? <span class="required">*</span></label>
+                                <select id="recomendarias" name="recomendarias" required>
+                                    <option value="">Selecciona</option>
+                                    <option value="Sí">Sí</option>
+                                    <option value="No">No</option>
+                                    <option value="Con reservas">Con reservas</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Contacto -->
+                    <div class="form-section animate-on-scroll">
+                        <h3>📧 Información de Contacto</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                                <small style="color: var(--gray-600); font-size: 0.8rem;">Solo para confirmar tu reseña. No lo usaremos para spam.</small>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large" style="margin-top: 24px;">
+                            📤 Enviar Reseña
+                        </button>
+                    </div>
+                </form>
+
+                <div id="formResponse"></div>
+            </div>
+
+            <!-- Tab: Analytics -->
+            <div id="analytics-tab" class="tab-content">
+                <div class="charts-section animate-on-scroll">
+                    <div class="chart-container">
+                        <h3 class="chart-title">📈 Evolución de Precios</h3>
+                        <canvas id="priceChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3 class="chart-title">⭐ Ratings por Distrito</h3>
+                        <canvas id="ratingChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="insights-section animate-on-scroll">
+                    <div class="insight-card success">
+                        <div class="insight-icon">💰</div>
+                        <div class="insight-title">Mejor Relación Calidad-Precio</div>
+                        <div class="insight-text">Usera y Carabanchel ofrecen los mejores precios con ratings decentes (4.2/5 promedio)</div>
+                    </div>
+                    <div class="insight-card warning">
+                        <div class="insight-icon">⚠️</div>
+                        <div class="insight-title">Red Flag: Centro</div>
+                        <div class="insight-text">85% de diferencias entre precio anunciado vs real. Promedio: €180 más caro</div>
+                    </div>
+                    <div class="insight-card info">
+                        <div class="insight-icon">🔥</div>
+                        <div class="insight-title">Trending: Malasaña</div>
+                        <div class="insight-text">Precios subiendo 12% este trimestre. Demanda alta, poca oferta.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Mapa -->
+            <div id="map-tab" class="tab-content">
+                <div class="animate-on-scroll">
+                    <div class="map-container">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Insights -->
+            <div id="insights-tab" class="tab-content">
+                <div class="insights-section animate-on-scroll">
+                    <div class="insight-card success">
+                        <div class="insight-icon">⚡</div>
+                        <div class="insight-title">Devolución de Fianza Rápida</div>
+                        <div class="insight-text">Salamanca y Chamberí: 95% devuelven fianza en <15 días</div>
+                    </div>
+                    <div class="insight-card warning">
+                        <div class="insight-icon">🚨</div>
+                        <div class="insight-title">Zonas de Riesgo</div>
+                        <div class="insight-text">Lavapiés: 40% reportan problemas con caseros. Tiempo respuesta: >48h</div>
+                    </div>
+                    <div class="insight-card info">
+                        <div class="insight-icon">📊</div>
+                        <div class="insight-title">Predicción IA</div>
+                        <div class="insight-text">Pisos en Retiro: 78% probabilidad de mantener precio estable próximos 6 meses</div>
+                    </div>
+                    <div class="insight-card success">
+                        <div class="insight-icon">🎯</div>
+                        <div class="insight-title">Sweet Spot</div>
+                        <div class="insight-text">Tetuán: Balance perfecto precio/calidad. Rating 4.4/5, precio 18% bajo promedio</div>
+                    </div>
+                </div>
+
+                <div class="chart-container animate-on-scroll">
+                    <h3 class="chart-title">🎯 Predictor de Precios IA</h3>
+                    <canvas id="predictionChart" width="800" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+        // ==========================================
+        // CONFIGURACIÓN COMPLETA CASEROCHECK v2.0
+        // ==========================================
+        const CONFIG = {
+            SHEET_ID: '1hsiAtQCmagED_5iDbhT8xHxHRZ5AYpi1bz0LTBO1DaQ',
+            API_KEY: 'AIzaSyDLP_UxlbG8OHIwAYvfbps4PkcZmzjkLJw',
+            RANGE: 'Reseñas!A2:AC1000',
+            APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw5D8_5MlK0KLnQgWT6gTluxbaHpVdl9DbG9qd4MbWFDlffzZlFuP4A1As0ITryNAxeuw/exec',
+            CACHE_TIMEOUT: 5 * 60 * 1000, // 5 minutos
+            OFFLINE_CACHE_TIMEOUT: 30 * 60 * 1000 // 30 minutos
+        };
+
+        // Variables globales mejoradas
+        let allData = [];
+        let map = null;
+        let charts = {};
+        let dataCache = {
+            lastUpdate: null,
+            data: null,
+            isLoading: false
+        };
+
+        // Configuración de columnas
+        const COLUMNS = {
+            ID: 0, FECHA: 1, DIRECCION: 2, CODIGO_POSTAL: 3, DISTRITO: 4,
+            PRECIO_PAGADO: 5, PRECIO_ANUNCIADO: 6, DURACION_ALQUILER: 7,
+            TIPO_PROPIEDAD: 8, METROS: 9, HABITACIONES: 10, BANOS: 11,
+            AMUEBLADO: 12, CALIFICACION_GLOBAL: 13, ESTADO_PISO: 14,
+            LIMPIEZA: 15, UBICACION: 16, CALIDAD_PRECIO: 17,
+            COMUNICACION_CASERO: 18, TIEMPO_RESPUESTA: 19,
+            PROBLEMAS_REPORTADOS: 20, RESOLUCION_PROBLEMAS: 21,
+            DEVOLUCION_FIANZA: 22, TIEMPO_DEVOLUCION: 23,
+            RESENA_DETALLADA: 24, RECOMENDARIAS: 25, EMAIL_USUARIO: 26,
+            VERIFICADO: 27, ESTADO_MODERACION: 28, NOTAS_ADMIN: 29
+        };
+
+        // Clase principal
+        class CaseroCheck {
+            constructor() {
+                this.mapLoaded = false;
+                this.loadData();
+                this.initializeCharts();
+                this.initializeMap();
+                this.initializeAnimations();
+                this.initializeRatingSystem();
+                this.initializeForm();
+            }
+
+            async loadData() {
+                console.log('🚀 CaseroCheck v2.0 - Sistema Real Iniciando...');
+
+                // Evitar múltiples cargas simultáneas
+                if (dataCache.isLoading) {
+                    console.log('⏳ Carga ya en proceso...');
+                    return;
+                }
+
+                // Verificar caché válido
+                if (this.isCacheValid()) {
+                    console.log('📋 Usando datos en caché válidos');
+                    allData = dataCache.data;
+                    this.updateHeroStats();
+                    return;
+                }
+
+                dataCache.isLoading = true;
+
+                try {
+                    console.log('🌐 Cargando datos reales desde Google Sheets...');
+                    const url = `https://sheets.googleapis.com/v4/spreadsheets/${CONFIG.SHEET_ID}/values/${CONFIG.RANGE}?key=${CONFIG.API_KEY}`;
+
+                    const response = await fetch(url);
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.values && data.values.length > 0) {
+                            console.log('✅ Datos reales cargados:', data.values.length, 'filas');
+                            allData = this.processData(data.values);
+
+                            // Actualizar caché
+                            dataCache.data = allData;
+                            dataCache.lastUpdate = Date.now();
+
+                            // Guardar en localStorage para acceso offline
+                            this.saveToLocalStorage(allData);
+
+                            this.updateHeroStats();
+                            console.log('📊 Sistema real activo con', allData.length, 'reseñas');
+                            dataCache.isLoading = false;
+                            return;
+                        }
+                    } else {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                } catch (error) {
+                    console.log('⚠️ Error conectando con Google Sheets:', error.message);
+
+                    // Intentar cargar desde localStorage
+                    if (this.loadFromLocalStorage()) {
+                        dataCache.isLoading = false;
+                        return;
+                    }
+                }
+
+                console.log('💡 Fallback a datos demo');
+                this.generateDemoData();
+                dataCache.isLoading = false;
+            }
+
+            // Funciones auxiliares del caché
+            isCacheValid() {
+                return dataCache.data &&
+                       dataCache.lastUpdate &&
+                       (Date.now() - dataCache.lastUpdate) < CONFIG.CACHE_TIMEOUT;
+            }
+
+            saveToLocalStorage(data) {
+                try {
+                    const cacheData = {
+                        data: data,
+                        timestamp: Date.now(),
+                        version: '2.0'
+                    };
+                    localStorage.setItem('caserocheck_cache', JSON.stringify(cacheData));
+                    console.log('💾 Datos guardados en caché local');
+                } catch(e) {
+                    console.log('⚠️ No se pudo guardar caché local:', e.message);
+                }
+            }
+
+            loadFromLocalStorage() {
+                try {
+                    const cached = localStorage.getItem('caserocheck_cache');
+                    if (cached) {
+                        const parsedCache = JSON.parse(cached);
+                        const age = Date.now() - parsedCache.timestamp;
+
+                        if (age < CONFIG.OFFLINE_CACHE_TIMEOUT && parsedCache.version === '2.0') {
+                            allData = parsedCache.data;
+                            dataCache.data = allData;
+                            dataCache.lastUpdate = parsedCache.timestamp;
+                            this.updateHeroStats();
+                            console.log('📱 Datos cargados desde caché offline (', Math.round(age/60000), 'min antiguos)');
+                            return true;
+                        }
+                    }
+                } catch (error) {
+                    console.log('❌ Error leyendo caché local:', error);
+                }
+                return false;
+            }
+
+            processData(rawData) {
+                return rawData.map(row => ({
+                    id: row[COLUMNS.ID] || Math.random().toString(36),
+                    fecha: row[COLUMNS.FECHA] || new Date().toLocaleDateString(),
+                    direccion: row[COLUMNS.DIRECCION] || '',
+                    codigoPostal: row[COLUMNS.CODIGO_POSTAL] || '',
+                    distrito: row[COLUMNS.DISTRITO] || '',
+                    precioPagado: parseFloat(row[COLUMNS.PRECIO_PAGADO]) || 0,
+                    precioAnunciado: parseFloat(row[COLUMNS.PRECIO_ANUNCIADO]) || 0,
+                    duracionAlquiler: row[COLUMNS.DURACION_ALQUILER] || '',
+                    tipoPropiedad: row[COLUMNS.TIPO_PROPIEDAD] || '',
+                    metros: parseFloat(row[COLUMNS.METROS]) || 0,
+                    habitaciones: parseInt(row[COLUMNS.HABITACIONES]) || 0,
+                    banos: parseInt(row[COLUMNS.BANOS]) || 0,
+                    amueblado: row[COLUMNS.AMUEBLADO] || '',
+                    calificacionGlobal: parseFloat(row[COLUMNS.CALIFICACION_GLOBAL]) || 0,
+                    estadoPiso: parseFloat(row[COLUMNS.ESTADO_PISO]) || 0,
+                    limpieza: parseFloat(row[COLUMNS.LIMPIEZA]) || 0,
+                    ubicacion: parseFloat(row[COLUMNS.UBICACION]) || 0,
+                    calidadPrecio: parseFloat(row[COLUMNS.CALIDAD_PRECIO]) || 0,
+                    comunicacionCasero: parseFloat(row[COLUMNS.COMUNICACION_CASERO]) || 0,
+                    tiempoRespuesta: row[COLUMNS.TIEMPO_RESPUESTA] || '',
+                    problemasReportados: row[COLUMNS.PROBLEMAS_REPORTADOS] || '',
+                    resolucionProblemas: parseFloat(row[COLUMNS.RESOLUCION_PROBLEMAS]) || 0,
+                    devolucionFianza: row[COLUMNS.DEVOLUCION_FIANZA] || '',
+                    tiempoDevolucion: row[COLUMNS.TIEMPO_DEVOLUCION] || '',
+                    resenaDetallada: row[COLUMNS.RESENA_DETALLADA] || '',
+                    recomendarias: row[COLUMNS.RECOMENDARIAS] || '',
+                    verificado: row[COLUMNS.VERIFICADO] || '',
+                    estadoModeracion: row[COLUMNS.ESTADO_MODERACION] || ''
+                })).filter(item => item.direccion && item.calificacionGlobal > 0);
+            }
+
+            generateDemoData() {
+                const distritos = ['Centro', 'Salamanca', 'Chamberí', 'Malasaña', 'Retiro', 'Usera', 'Carabanchel', 'Tetuán'];
+                const direcciones = [
+                    'Gran Vía 45', 'Calle Fuencarral 23', 'Plaza Mayor 12', 'Calle Alcalá 67',
+                    'Paseo del Prado 89', 'Calle Serrano 34', 'Avenida de América 56', 'Calle Malasaña 78',
+                    'Plaza de España 23', 'Calle Princesa 45', 'Avenida Menéndez Pelayo 67', 'Calle Atocha 89'
+                ];
+                const tipos = ['Piso', 'Estudio', 'Ático', 'Loft'];
+
+                allData = [];
+                for (let i = 0; i < 42; i++) {
+                    const distrito = distritos[Math.floor(Math.random() * distritos.length)];
+                    let precioBase = 900;
+
+                    switch(distrito) {
+                        case 'Centro': precioBase = 1300; break;
+                        case 'Salamanca': precioBase = 1500; break;
+                        case 'Chamberí': precioBase = 1200; break;
+                        case 'Malasaña': precioBase = 1100; break;
+                        case 'Retiro': precioBase = 1250; break;
+                        case 'Usera': precioBase = 750; break;
+                        case 'Carabanchel': precioBase = 800; break;
+                        case 'Tetuán': precioBase = 950; break;
+                    }
+
+                    const precio = precioBase + Math.random() * 300 - 150;
+                    const rating = distrito === 'Salamanca' ? 4.2 + Math.random() * 0.8 :
+                                  distrito === 'Centro' ? 3.5 + Math.random() * 1.0 :
+                                  3.8 + Math.random() * 1.2;
+
+                    allData.push({
+                        id: `demo-${i}`,
+                        fecha: new Date(2024, Math.floor(Math.random() * 6) + 6, Math.floor(Math.random() * 28) + 1).toLocaleDateString('es-ES'),
+                        direccion: direcciones[Math.floor(Math.random() * direcciones.length)],
+                        distrito: distrito,
+                        precioPagado: Math.round(precio),
+                        precioAnunciado: Math.round(precio + Math.random() * 200 - 50),
+                        tipoPropiedad: tipos[Math.floor(Math.random() * tipos.length)],
+                        metros: Math.round(50 + Math.random() * 100),
+                        habitaciones: 1 + Math.floor(Math.random() * 3),
+                        banos: 1 + Math.floor(Math.random() * 2),
+                        amueblado: Math.random() > 0.4 ? 'Sí' : 'No',
+                        calificacionGlobal: Math.round(rating * 10) / 10,
+                        estadoPiso: Math.round((3 + Math.random() * 2) * 10) / 10,
+                        limpieza: Math.round((3.5 + Math.random() * 1.5) * 10) / 10,
+                        ubicacion: Math.round((3.5 + Math.random() * 1.5) * 10) / 10,
+                        calidadPrecio: Math.round((2.5 + Math.random() * 2.5) * 10) / 10,
+                        comunicacionCasero: Math.round((3 + Math.random() * 2) * 10) / 10,
+                        devolucionFianza: Math.random() > 0.3 ? 'Sí, completa' : 'Sí, parcial',
+                        resenaDetallada: `Alquiler en ${distrito}. ${Math.random() > 0.5 ? 'Experiencia positiva en general.' : 'Algunas cosas a mejorar pero aceptable.'} ${Math.random() > 0.7 ? 'Recomiendo especialmente la zona.' : ''}`,
+                        recomendarias: Math.random() > 0.25 ? 'Sí' : 'No',
+                        verificado: 'Sí',
+                        estadoModeracion: 'Aprobada'
+                    });
+                }
+
+                console.log(`✅ ${allData.length} propiedades demo cargadas`);
+                this.updateHeroStats();
+            }
+
+            updateHeroStats() {
+                const totalReviews = allData.length;
+                const avgRating = allData.length > 0 ?
+                    allData.reduce((sum, item) => sum + item.calificacionGlobal, 0) / allData.length : 0;
+
+                // Calcular número de distritos únicos
+                const uniqueDistricts = [...new Set(allData.map(item => item.distrito))].length;
+
+                document.getElementById('totalReviews').textContent = totalReviews;
+                document.getElementById('avgRating').textContent = Math.round(avgRating * 10) / 10;
+                document.getElementById('districts').textContent = uniqueDistricts;
+
+                console.log(`📊 Stats actualizadas: ${totalReviews} reseñas, ${avgRating.toFixed(1)} rating, ${uniqueDistricts} distritos`);
+            }
+
+            async search(filters) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        const results = allData.filter(item => {
+                            if (filters.direccion && !item.direccion.toLowerCase().includes(filters.direccion.toLowerCase())) {
+                                return false;
+                            }
+                            if (filters.distrito && item.distrito !== filters.distrito) {
+                                return false;
+                            }
+                            if (filters.precioMin && item.precioPagado < filters.precioMin) {
+                                return false;
+                            }
+                            if (filters.precioMax && item.precioPagado > filters.precioMax) {
+                                return false;
+                            }
+                            if (filters.habitaciones && item.habitaciones != filters.habitaciones) {
+                                return false;
+                            }
+                            if (filters.tipoPropiedad && !item.tipoPropiedad.toLowerCase().includes(filters.tipoPropiedad.toLowerCase())) {
+                                return false;
+                            }
+                            return true;
+                        }).sort((a, b) => b.calificacionGlobal - a.calificacionGlobal);
+
+                        const stats = this.calculateStats(results);
+                        resolve({ results, stats, total: results.length });
+                    }, 1500);
+                });
+            }
+
+            calculateStats(results) {
+                if (results.length === 0) {
+                    return { avgRating: 0, avgPrice: 0, recommendationRate: 0 };
+                }
+
+                const avgRating = results.reduce((sum, item) => sum + item.calificacionGlobal, 0) / results.length;
+                const avgPrice = results.reduce((sum, item) => sum + item.precioPagado, 0) / results.length;
+                const recommendations = results.filter(item => item.recomendarias.toLowerCase().includes('sí')).length;
+                const recommendationRate = (recommendations / results.length) * 100;
+
+                return {
+                    avgRating: Math.round(avgRating * 10) / 10,
+                    avgPrice: Math.round(avgPrice),
+                    recommendationRate: Math.round(recommendationRate)
+                };
+            }
+
+            initializeCharts() {
+                setTimeout(() => {
+                    const ctx1 = document.getElementById('priceChart');
+                    if (ctx1) {
+                        charts.price = new Chart(ctx1, {
+                            type: 'line',
+                            data: {
+                                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                                datasets: [{
+                                    label: 'Precio Promedio €',
+                                    data: [1200, 1250, 1180, 1320, 1280, 1350],
+                                    borderColor: '#2563eb',
+                                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                                    tension: 0.4,
+                                    fill: true
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: { legend: { display: false } },
+                                scales: { y: { beginAtZero: false } }
+                            }
+                        });
+                    }
+
+                    const ctx2 = document.getElementById('ratingChart');
+                    if (ctx2) {
+                        charts.rating = new Chart(ctx2, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Centro', 'Salamanca', 'Chamberí', 'Retiro', 'Usera'],
+                                datasets: [{
+                                    label: 'Rating Promedio',
+                                    data: [3.8, 4.5, 4.3, 4.1, 4.2],
+                                    backgroundColor: ['#ef4444', '#10b981', '#06b6d4', '#f59e0b', '#8b5cf6']
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: { legend: { display: false } },
+                                scales: { y: { beginAtZero: true, max: 5 } }
+                            }
+                        });
+                    }
+
+                    const ctx3 = document.getElementById('predictionChart');
+                    if (ctx3) {
+                        charts.prediction = new Chart(ctx3, {
+                            type: 'line',
+                            data: {
+                                labels: ['Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                                datasets: [{
+                                    label: 'Precio Actual',
+                                    data: [1350, null, null, null, null, null, null],
+                                    borderColor: '#2563eb'
+                                }, {
+                                    label: 'Predicción IA',
+                                    data: [null, 1380, 1420, 1390, 1450, 1480, 1520],
+                                    borderColor: '#06b6d4',
+                                    borderDash: [5, 5]
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: { legend: { display: true } }
+                            }
+                        });
+                    }
+                }, 1000);
+            }
+
+            initializeMap() {
+                // No cargar el mapa inmediatamente
+                this.mapLoaded = false;
+
+                // Crear observer para cargar cuando la pestaña sea visible
+                const mapTabButton = document.querySelector('.nav-tab[onclick*="map"]');
+                if (mapTabButton) {
+                    mapTabButton.addEventListener('click', () => {
+                        if (!this.mapLoaded) {
+                            this.loadMapLazy();
+                        }
+                    });
+                }
+            }
+            loadMapLazy() {
+                const mapContainer = document.getElementById('map');
+                if (!mapContainer) return;
+
+                // Mostrar loading
+                mapContainer.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: var(--gray-50); border-radius: 16px;">
+                        <div style="text-align: center; color: var(--gray-600);">
+                            <div class="spinner" style="margin: 0 auto 16px;"></div>
+                            <p style="font-weight: 500;">🗺️ Cargando mapa de Madrid...</p>
+                        </div>
+                    </div>
+                `;
+
+                // Cargar mapa después de un pequeño delay
+                setTimeout(() => {
+                    try {
+                        mapContainer.innerHTML = '';
+
+                        map = L.map('map').setView([40.4168, -3.7038], 11);
+
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '© OpenStreetMap contributors',
+                            maxZoom: 18
+                        }).addTo(map);
+
+                        // Usar datos reales procesados
+                        const locations = this.processMapData();
+
+                        locations.forEach(loc => {
+                            const color = loc.rating >= 4.5 ? '#10b981' : loc.rating >= 4.0 ? '#f59e0b' : '#ef4444';
+
+                            L.circleMarker([loc.lat, loc.lng], {
+                                color: color,
+                                fillColor: color,
+                                fillOpacity: 0.8,
+                                radius: Math.min(6 + loc.count, 15),
+                                weight: 2
+                            }).addTo(map).bindPopup(`
+                                <div style="font-family: Inter, sans-serif; min-width: 200px;">
+                                    <h4 style="margin: 0 0 8px 0; color: var(--primary);">${loc.distrito}</h4>
+                                    <p style="margin: 4px 0;"><strong>Rating:</strong> ${loc.rating}/5 ⭐</p>
+                                    <p style="margin: 4px 0;"><strong>Precio promedio:</strong> €${loc.precio}</p>
+                                    <p style="margin: 4px 0;"><strong>Reseñas:</strong> ${loc.count}</p>
+                                </div>
+                            `);
+                        });
+
+                        this.mapLoaded = true;
+                        console.log('✅ Mapa cargado exitosamente con datos reales');
+
+                    } catch (error) {
+                        console.error('❌ Error cargando mapa:', error);
+                        mapContainer.innerHTML = `
+                            <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: var(--gray-50); border-radius: 16px; color: var(--gray-600);">
+                                <div style="text-align: center;">
+                                    <p style="font-size: 2rem; margin-bottom: 16px;">🗺️</p>
+                                    <p><strong>Error cargando el mapa</strong></p>
+                                    <p style="font-size: 0.9rem;">Intenta recargar la página</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }, 200);
+            }
+
+            processMapData() {
+                // Procesar datos reales por distrito
+                const districts = {};
+
+                allData.forEach(item => {
+                    if (!districts[item.distrito]) {
+                        districts[item.distrito] = {
+                            ratings: [],
+                            prices: [],
+                            count: 0
+                        };
+                    }
+                    districts[item.distrito].ratings.push(item.calificacionGlobal);
+                    districts[item.distrito].prices.push(item.precioPagado);
+                    districts[item.distrito].count++;
+                });
+
+                // Coordenadas aproximadas de distritos de Madrid
+                const coordinates = {
+                    'Centro': [40.4168, -3.7038],
+                    'Salamanca': [40.4240, -3.6882],
+                    'Chamberí': [40.4378, -3.7044],
+                    'Retiro': [40.4030, -3.6753],
+                    'Usera': [40.3791, -3.6996],
+                    'Carabanchel': [40.3891, -3.7296],
+                    'Tetuán': [40.4550, -3.6983],
+                    'Arganzuela': [40.3983, -3.6947],
+                    'Latina': [40.3833, -3.7500],
+                    'Moncloa-Aravaca': [40.4378, -3.7294],
+                    'Fuencarral-El Pardo': [40.5000, -3.7000],
+                    'Hortaleza': [40.4667, -3.6500],
+                    'Ciudad Lineal': [40.4500, -3.6167],
+                    'Villaverde': [40.3500, -3.7000],
+                    'Puente de Vallecas': [40.3833, -3.6500],
+                    'Moratalaz': [40.4083, -3.6417],
+                    'Villa de Vallecas': [40.3667, -3.6000],
+                    'Vicálvaro': [40.4000, -3.6000],
+                    'San Blas-Canillejas': [40.4333, -3.6000],
+                    'Barajas': [40.4667, -3.5833],
+                    'Malasaña': [40.4250, -3.7020]
+                };
+
+                return Object.keys(districts).map(distrito => {
+                    const data = districts[distrito];
+                    const avgRating = data.ratings.reduce((a, b) => a + b, 0) / data.ratings.length;
+                    const avgPrice = data.prices.reduce((a, b) => a + b, 0) / data.prices.length;
+                    const coords = coordinates[distrito] || [40.4168, -3.7038];
+
+                    return {
+                        distrito,
+                        lat: coords[0],
+                        lng: coords[1],
+                        rating: Math.round(avgRating * 10) / 10,
+                        precio: Math.round(avgPrice),
+                        count: data.count
+                    };
+                }).filter(item => item.count > 0);
+            }
+
+            initializeAnimations() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            initializeRatingSystem() {
+                document.querySelectorAll('.rating-stars').forEach(ratingContainer => {
+                    const stars = ratingContainer.querySelectorAll('.star');
+                    const ratingName = ratingContainer.getAttribute('data-rating');
+                    const valueDisplay = document.getElementById(`${ratingName}-value`);
+                    const hiddenInput = document.getElementById(ratingName);
+
+                    stars.forEach((star, index) => {
+                        star.addEventListener('click', () => {
+                            const rating = index + 1;
+
+                            stars.forEach((s, i) => {
+                                if (i <= index) {
+                                    s.classList.add('active');
+                                } else {
+                                    s.classList.remove('active');
+                                }
+                            });
+
+                            hiddenInput.value = rating;
+                            const labels = ['Muy malo', 'Malo', 'Regular', 'Bueno', 'Excelente'];
+                            valueDisplay.textContent = `${rating}/5 - ${labels[rating - 1]}`;
+                        });
+
+                        star.addEventListener('mouseenter', () => {
+                            stars.forEach((s, i) => {
+                                if (i <= index) {
+                                    s.style.color = '#fbbf24';
+                                } else {
+                                    s.style.color = '#d1d5db';
+                                }
+                            });
+                        });
+                    });
+
+                    ratingContainer.addEventListener('mouseleave', () => {
+                        stars.forEach((star, i) => {
+                            if (star.classList.contains('active')) {
+                                star.style.color = '#fbbf24';
+                            } else {
+                                star.style.color = '#d1d5db';
+                            }
+                        });
+                    });
+                });
+            }
+
+            initializeForm() {
+                const form = document.getElementById('reviewForm');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitReview(new FormData(form));
+                });
+            }
+
+            async submitReview(formData) {
+                const responseDiv = document.getElementById('formResponse');
+
+                try {
+                    responseDiv.innerHTML = `
+                        <div class="loading show">
+                            <div class="spinner"></div>
+                            <p>Enviando tu reseña...</p>
+                        </div>
+                    `;
+
+                    const reviewData = {};
+                    for (let [key, value] of formData.entries()) {
+                        reviewData[key] = value;
+                    }
+
+                    reviewData.timestamp = new Date().toISOString();
+                    reviewData.id = 'review_' + Date.now();
+
+                    await this.sendToGoogleSheets(reviewData);
+                    await this.sendNotificationEmail(reviewData);
+
+                    responseDiv.innerHTML = `
+                        <div class="success">
+                            <h3>✅ ¡Reseña enviada con éxito!</h3>
+                            <p>Gracias por compartir tu experiencia. Tu reseña será procesada automáticamente y aparecerá en las búsquedas.</p>
+                            <p style="font-size: 0.9rem; margin-top: 12px;">💡 <strong>Tip:</strong> Revisa tu email para la confirmación.</p>
+                        </div>
+                    `;
+
+                    document.getElementById('reviewForm').reset();
+                    this.resetRatings();
+
+                } catch (error) {
+                    console.error('Error enviando reseña:', error);
+                    responseDiv.innerHTML = `
+                        <div class="error">
+                            <h3>⚠️ Error al enviar</h3>
+                            <p>Ha ocurrido un error. Por favor, inténtalo de nuevo.</p>
+                        </div>
+                    `;
+                }
+            }
+
+            async sendToGoogleSheets(data) {
+                try {
+                    console.log('📤 Enviando a Google Sheets via Apps Script...', data);
+
+                    // Preparar FormData
+                    const formData = new FormData();
+
+                    // Mapear campos del formulario a nombres esperados por Apps Script
+                    const fieldMapping = {
+                        'direccionCompleta': 'direccion',
+                        'precioPagado': 'precioPagado',
+                        'precioAnunciado': 'precioAnunciado',
+                        'distrito': 'distrito',
+                        'codigoPostal': 'codigoPostal',
+                        'tipoPropiedad': 'tipoPropiedad',
+                        'metros': 'metros',
+                        'habitaciones': 'habitaciones',
+                        'banos': 'banos',
+                        'amueblado': 'amueblado',
+                        'duracionAlquiler': 'duracionAlquiler',
+                        'calificacionGlobal': 'calificacionGlobal',
+                        'estadoPiso': 'estadoPiso',
+                        'limpieza': 'limpieza',
+                        'ubicacion': 'ubicacion',
+                        'calidadPrecio': 'calidadPrecio',
+                        'comunicacionCasero': 'comunicacionCasero',
+                        'tiempoRespuesta': 'tiempoRespuesta',
+                        'problemasReportados': 'problemasReportados',
+                        'devolucionFianza': 'devolucionFianza',
+                        'resenaDetallada': 'resenaDetallada',
+                        'recomendarias': 'recomendarias',
+                        'email': 'email'
+                    };
+
+                    // Agregar todos los campos al FormData
+                    Object.keys(data).forEach(key => {
+                        const mappedKey = fieldMapping[key] || key;
+                        if (data[key] !== undefined && data[key] !== null && data[key] !== '') {
+                            formData.append(mappedKey, String(data[key]));
+                        }
+                    });
+
+                    // Enviar a Apps Script
+                    const response = await fetch(CONFIG.APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors' // Requerido para Apps Script
+                    });
+
+                    console.log('✅ Datos enviados correctamente a Google Sheets');
+
+                    // Invalidar caché para forzar recarga
+                    dataCache.lastUpdate = null;
+                    localStorage.removeItem('caserocheck_cache');
+
+                    // Recargar datos después de 3 segundos
+                    setTimeout(() => {
+                        this.loadData();
+                    }, 3000);
+
+                    return { success: true };
+
+                } catch (error) {
+                    console.error('❌ Error enviando a Google Sheets:', error);
+                    throw error;
+                }
+            }
+
+            async sendNotificationEmail(data) {
+                // Los emails se envían automáticamente desde Apps Script
+                console.log('📧 Emails se enviarán automáticamente desde Apps Script');
+                return Promise.resolve();
+            }
+
+            resetRatings() {
+                document.querySelectorAll('.rating-stars .star').forEach(star => {
+                    star.classList.remove('active');
+                    star.style.color = '#d1d5db';
+                });
+                document.querySelectorAll('.rating-value').forEach(valueDisplay => {
+                    valueDisplay.textContent = valueDisplay.id.includes('Global') ? 'Selecciona una puntuación' : 'Opcional';
+                });
+                document.querySelectorAll('input[type="hidden"]').forEach(input => {
+                    input.value = '';
+                });
+            }
+        }
+
+        // Funciones globales
+        function switchTab(tabName) {
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Activar la pestaña correcta
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                if (tab.onclick && tab.onclick.toString().includes(tabName)) {
+                    tab.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+
+        function switchTabAndScroll(tabName) {
+            // Cambiar tab
+            switchTab(tabName);
+
+            // Hacer scroll suave a la sección de navegación
+            setTimeout(() => {
+                document.querySelector('.nav-tabs').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+        }
+
+        function displayResults(data) {
+            const container = document.getElementById('searchResults');
+
+            if (data.total === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">🏠</div>
+                        <h3>No se encontraron propiedades</h3>
+                        <p>Prueba ajustando los filtros o sé el primero en reseñar.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = `
+                <div class="stats-dashboard">
+                    <div class="stat-card">
+                        <div class="stat-number">${data.total}</div>
+                        <div class="stat-label">Propiedades encontradas</div>
+                        <div class="stat-trend up">↗ Datos verificados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${data.stats.avgRating}/5</div>
+                        <div class="stat-label">Rating promedio</div>
+                        <div class="stat-trend ${data.stats.avgRating >= 4 ? 'up' : 'down'}">
+                            ${data.stats.avgRating >= 4 ? '↗ Excelente' : '↘ Regular'}
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">€${data.stats.avgPrice}</div>
+                        <div class="stat-label">Precio promedio</div>
+                        <div class="stat-trend up">💰 Precio real</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${data.stats.recommendationRate}%</div>
+                        <div class="stat-label">Recomendación</div>
+                        <div class="stat-trend ${data.stats.recommendationRate >= 70 ? 'up' : 'down'}">
+                            ${data.stats.recommendationRate >= 70 ? '↗ Alta' : '↘ Baja'}
+                        </div>
+                    </div>
+                </div>
+                <div class="results-grid">
+            `;
+
+            data.results.forEach(item => {
+                const stars = '⭐'.repeat(Math.round(item.calificacionGlobal));
+                const priceDiff = item.precioAnunciado - item.precioPagado;
+                const priceDiffText = priceDiff > 0 ? `€${priceDiff} ahorro vs anunciado` :
+                                   priceDiff < 0 ? `€${Math.abs(priceDiff)} extra vs anunciado` :
+                                   'Precio igual al anunciado';
+
+                html += `
+                    <div class="result-card animate-on-scroll">
+                        <div class="result-header">
+                            <div class="result-address">${item.direccion}</div>
+                            <div class="result-rating">
+                                <span class="rating-score">${item.calificacionGlobal}</span>
+                                <span class="rating-stars">${stars}</span>
+                            </div>
+                        </div>
+
+                        <div class="result-body">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">📍 Distrito</span>
+                                    <span class="detail-value">${item.distrito}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">💰 Precio</span>
+                                    <span class="detail-value">€${item.precioPagado}/mes</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">🏠 Tipo</span>
+                                    <span class="detail-value">${item.tipoPropiedad}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">🛏️ Habitaciones</span>
+                                    <span class="detail-value">${item.habitaciones}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">📐 Metros²</span>
+                                    <span class="detail-value">${Math.round(item.metros)}m²</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">🪑 Amueblado</span>
+                                    <span class="detail-value">${item.amueblado}</span>
+                                </div>
+                            </div>
+
+                            ${priceDiff !== 0 ? `
+                                <div class="price-analysis">
+                                    <strong>💡 Análisis de Precio:</strong> ${priceDiffText}
+                                </div>
+                            ` : ''}
+
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">🏠 Estado</span>
+                                    <span class="detail-value">${item.estadoPiso}/5 ⭐</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">🧹 Limpieza</span>
+                                    <span class="detail-value">${item.limpieza}/5 ⭐</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">📍 Ubicación</span>
+                                    <span class="detail-value">${item.ubicacion}/5 ⭐</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">💰 Calidad-Precio</span>
+                                    <span class="detail-value">${item.calidadPrecio}/5 ⭐</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">📞 Comunicación</span>
+                                    <span class="detail-value">${item.comunicacionCasero}/5 ⭐</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">💳 Devolución Fianza</span>
+                                    <span class="detail-value">${item.devolucionFianza}</span>
+                                </div>
+                            </div>
+
+                            ${item.resenaDetallada ? `
+                                <div class="review-text">
+                                    <strong>📝 Reseña:</strong> "${item.resenaDetallada}"
+                                </div>
+                            ` : ''}
+
+                            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--gray-200); font-size: 0.9rem; color: var(--gray-600);">
+                                <p><strong>👍 Recomendaría:</strong> ${item.recomendarias}</p>
+                                <p><strong>📅 Fecha:</strong> ${item.fecha}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            container.innerHTML = html;
+
+            document.querySelectorAll('#searchResults .animate-on-scroll').forEach(el => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                });
+                observer.observe(el);
+            });
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = new CaseroCheck();
+
+            document.getElementById('searchForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const filters = {
+                    direccion: document.getElementById('direccion').value,
+                    distrito: document.getElementById('distrito').value,
+                    precioMin: document.getElementById('precioMin').value ? parseInt(document.getElementById('precioMin').value) : null,
+                    precioMax: document.getElementById('precioMax').value ? parseInt(document.getElementById('precioMax').value) : null,
+                    habitaciones: document.getElementById('habitaciones').value ? parseInt(document.getElementById('habitaciones').value) : null,
+                    tipoPropiedad: document.getElementById('tipoPropiedad').value
+                };
+
+                document.getElementById('loading').classList.add('show');
+                document.getElementById('searchResults').innerHTML = '';
+
+                try {
+                    const results = await app.search(filters);
+                    displayResults(results);
+                } catch (error) {
+                    document.getElementById('searchResults').innerHTML = `
+                        <div class="error">
+                            <h3>⚠️ Error en la búsqueda</h3>
+                            <p>No se pudieron cargar los resultados. Inténtalo de nuevo.</p>
+                        </div>
+                    `;
+                } finally {
+                    document.getElementById('loading').classList.remove('show');
+                }
+            });
+
+            document.getElementById('searchResults').innerHTML = `
+                <div class="no-results">
+                    <div class="no-results-icon">🚀</div>
+                    <h3>¡Bienvenido a CaseroCheck!</h3>
+                    <p>Usa los filtros para encontrar información detallada sobre alquileres en Madrid.</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
