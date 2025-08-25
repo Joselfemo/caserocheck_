@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaseroCheck - Reseñas Reales de Alquileres en Madrid</title>
+   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%232563eb'/><path d='M20 55L50 25L80 55V75A5 5 0 0175 80H25A5 5 0 0120 75Z' fill='url(%23g)'/><rect x='40' y='60' width='20' height='20' fill='%232563eb'/><rect x='30' y='45' width='8' height='12' fill='%23fbbf24'/><rect x='62' y='45' width='8' height='12' fill='%23fbbf24'/></svg>">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKWYK023X6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BKWYK023X6');
+    </script>
+
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Reseñas reales de alquileres en Madrid. Descubre experiencias de inquilinos y evita sorpresas antes de firmar tu contrato.">
+    <meta name="keywords" content="alquiler Madrid, reseñas caseros, experiencias alquiler, propiedades Madrid, inquilinos">
+
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="CaseroCheck - Reseñas Reales de Alquileres en Madrid">
+    <meta property="og:description" content="La primera plataforma de reseñas verificadas de alquileres en Madrid. Información real, decisiones inteligentes.">
+    <meta property="og:url" content="https://caserocheck.es">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CaseroCheck - Reseñas Reales de Alquileres en Madrid">
+    <meta name="twitter:description" content="La primera plataforma de reseñas verificadas de alquileres en Madrid.">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -45,9 +69,19 @@
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+        @keyframes float {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-55%) scale(1.05);
+        opacity: 0.9;
+    }
+}
 
         .container {
-            max-width: 1400px;
+            max-width: min(1400px, 95vw);
             margin: 0 auto;
             background: var(--white);
             border-radius: 24px;
@@ -102,7 +136,7 @@
         }
 
         .hero-title {
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 900;
             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 30%, #e2e8f0 100%);
             -webkit-background-clip: text;
@@ -116,15 +150,20 @@
         }
 
         .hero-title::before {
-            content: '🏠';
-            position: absolute;
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 3.5rem;
-            animation: pulse 2s ease-in-out infinite;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
-        }
+    content: '';
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12.97 2.59a1.5 1.5 0 00-1.94 0l-7.5 6.363A1.5 1.5 0 003 10.097V19.5A1.5 1.5 0 004.5 21h4.75a.75.75 0 00.75-.75V14h4v6.25c0 .414.336.75.75.75H19.5a1.5 1.5 0 001.5-1.5v-9.403c0-.44-.194-.859-.53-1.144l-7.5-6.363z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 16px rgba(255,255,255,0.4));
+    border-radius: 12px;
+}
 
         .hero-title::after {
             content: '';
@@ -138,7 +177,7 @@
             border-radius: 2px;
         }
         .hero-subtitle {
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             color: rgba(255,255,255,0.95);
             margin-bottom: 20px;
             font-weight: 600;
@@ -313,7 +352,7 @@
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
             gap: 24px;
         }
 
@@ -707,7 +746,7 @@
             border: 1px solid #6ee7b7;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -755,6 +794,123 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* ESTILOS PARA MODERACIÓN AUTOMÁTICA */
+.moderation-status {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.status-safe {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    border: 1px solid #10b981;
+    color: #065f46;
+}
+
+.status-warning {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 1px solid #f59e0b;
+    color: #92400e;
+}
+
+.status-danger {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border: 1px solid #ef4444;
+    color: #991b1b;
+}
+
+.status-blocked {
+    background: linear-gradient(135deg, #fecaca, #fca5a5);
+    border: 2px solid #dc2626;
+    color: #7f1d1d;
+    font-weight: bold;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.moderation-issues {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.textarea-blocked {
+    border-color: #dc2626 !important;
+    background: #fef2f2 !important;
+}
+
+.textarea-warning {
+    border-color: #f59e0b !important;
+    background: #fefbf3 !important;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+/* Responsive mejorado para el icono */
+@media (max-width: 768px) {
+    .hero-title::before {
+        left: -50px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title::before {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+}
+        /* Breakpoints modernos para móviles grandes */
+@media (min-width: 414px) and (max-width: 600px) {
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+
+    .nav-tab {
+        font-size: 0.85rem;
+    }
+}
+
+/* Breakpoint para pantallas grandes */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    .main-content {
+        padding: 40px 60px;
+    }
+
+    .hero-header {
+        padding: 80px 60px 100px;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 800px;
+        margin: 50px auto 0;
+    }
+}
+
+/* Breakpoint para monitores extra grandes */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1700px;
+    }
+
+    .main-content {
+        padding: 40px 80px;
+    }
+}
     </style>
 </head>
 <body>
@@ -762,7 +918,7 @@
         <!-- Hero Header -->
         <div class="hero-header">
             <div class="hero-content">
-                <h1 class="hero-title">🏠 CaseroCheck</h1>
+                <h1 class="hero-title">CaseroCheck</h1>
                 <p class="hero-subtitle">🏙️ <strong>La primera plataforma de reseñas reales</strong> para alquileres en Madrid</p>
                 <p class="hero-description">Descubre experiencias auténticas de inquilinos como tú. Conoce la verdad sobre precios, caseros y propiedades antes de firmar tu contrato. <strong>Información real, decisiones inteligentes.</strong></p>
 
@@ -960,8 +1116,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="metros">Metros² <span class="required">*</span></label>
-                                <input type="number" id="metros" name="metros" required placeholder="75">
+                                <label for="metros">Metros²</label>
+                                <input type="number" id="metros" name="metros" placeholder="75">
                             </div>
 
                             <div class="form-group">
@@ -1145,7 +1301,9 @@
 
                             <div class="form-group">
                                 <label for="resenaDetallada">Reseña detallada <span class="required">*</span></label>
-                                <textarea id="resenaDetallada" name="resenaDetallada" required placeholder="Cuenta tu experiencia: qué te gustó, qué mejorarías, recomendaciones..."></textarea>
+                                <textarea id="resenaDetallada" name="resenaDetallada" required placeholder="Cuenta tu experiencia: qué te gustó, qué mejorarías, recomendaciones..." maxlength="800"></textarea>
+                                <div class="char-counter" id="charCounter">0/800 caracteres</div>
+                                <div id="moderationStatus" class="moderation-status" style="display: none;"></div>
                             </div>
 
                             <div class="form-group">
@@ -1170,7 +1328,17 @@
                                 <small style="color: var(--gray-600); font-size: 0.8rem;">Solo para confirmar tu reseña. No lo usaremos para spam.</small>
                             </div>
                         </div>
-
+                        <div class="form-group" style="margin-top: 20px;">
+    <div style="display: flex; align-items: flex-start; gap: 10px; max-width: 100%;">
+        <input type="checkbox" id="acceptTerms" name="acceptTerms" required style="margin-top: 2px; width: 18px; height: 18px; flex-shrink: 0;">
+        <label for="acceptTerms" style="font-size: 0.9rem; line-height: 1.4; cursor: pointer; margin: 0; flex: 1;">
+            He leído y acepto la
+            <a href="#" onclick="openLegalModal('privacidad')" style="color: var(--primary); text-decoration: underline;">Política de Privacidad</a>,
+            los <a href="#" onclick="openLegalModal('terminos')" style="color: var(--primary); text-decoration: underline;">Términos de Uso</a>
+            y la <a href="#" onclick="openLegalModal('cookies')" style="color: var(--primary); text-decoration: underline;">Política de Cookies</a> <span style="color: var(--danger);">*</span>
+        </label>
+    </div>
+</div>
                         <button type="submit" class="btn btn-primary btn-large" style="margin-top: 24px;">
                             📤 Enviar Reseña
                         </button>
@@ -1223,6 +1391,9 @@
 
             <!-- Tab: Insights -->
             <div id="insights-tab" class="tab-content">
+                <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 16px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #065f46;">
+        🚀 <strong>Próximamente:</strong> Análisis IA revolucionario con datos reales. Una vez alcancemos masa crítica de reseñas, desbloquearemos predicciones de precios, detección de zonas emergentes y patrones de comportamiento que cambiarán cómo buscas alquiler en Madrid.
+    </div>
                 <div class="insights-section animate-on-scroll">
                     <div class="insight-card success">
                         <div class="insight-icon">⚡</div>
@@ -1300,6 +1471,7 @@
                 this.initializeAnimations();
                 this.initializeRatingSystem();
                 this.initializeForm();
+                this.initializeModerationSystem();
             }
 
             async loadData() {
@@ -1840,9 +2012,105 @@
                     this.submitReview(new FormData(form));
                 });
             }
+            initializeModerationSystem() {
+    const textarea = document.getElementById('resenaDetallada');
+    const statusDiv = document.getElementById('moderationStatus');
+    const charCounter = document.getElementById('charCounter');
+    let debounceTimer;
+
+    // Función para actualizar la UI
+    function updateModerationUI(analysis) {
+        if (!analysis) {
+            statusDiv.style.display = 'none';
+            textarea.classList.remove('textarea-blocked', 'textarea-warning');
+            return;
+        }
+
+        statusDiv.style.display = 'block';
+        textarea.classList.remove('textarea-blocked', 'textarea-warning');
+
+        let statusClass, statusIcon, statusText;
+
+        switch(analysis.riskLevel) {
+            case 'critical':
+                statusClass = 'status-blocked';
+                statusIcon = '🚨';
+                statusText = 'CONTENIDO BLOQUEADO - No se puede enviar';
+                textarea.classList.add('textarea-blocked');
+                break;
+            case 'high':
+                statusClass = 'status-danger';
+                statusIcon = '⚠️';
+                statusText = 'REVISIÓN MANUAL REQUERIDA';
+                textarea.classList.add('textarea-warning');
+                break;
+            case 'medium':
+                statusClass = 'status-warning';
+                statusIcon = '🔍';
+                statusText = 'Contenido marcado para revisión';
+                textarea.classList.add('textarea-warning');
+                break;
+            default:
+                statusClass = 'status-safe';
+                statusIcon = '✅';
+                statusText = 'Contenido verificado y seguro';
+        }
+
+        statusDiv.className = `moderation-status ${statusClass}`;
+        statusDiv.innerHTML = `
+            <div>${statusIcon} <strong>${statusText}</strong></div>
+            ${analysis.issues.length > 0 ? `
+                <div class="moderation-issues">
+                    ${analysis.issues.join(' • ')}
+                </div>
+            ` : ''}
+        `;
+    }
+
+    // Event listener para analizar texto
+    textarea.addEventListener('input', () => {
+        const text = textarea.value;
+        const count = text.length;
+
+        // Actualizar contador
+        charCounter.textContent = `${count}/800 caracteres`;
+        charCounter.className = count > 600 ? 'char-counter warning' :
+                               count > 750 ? 'char-counter danger' : 'char-counter';
+
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            if (text.trim()) {
+                lastModerationAnalysis = moderationSystem.analyzeText(text);
+                updateModerationUI(lastModerationAnalysis);
+            } else {
+                lastModerationAnalysis = null;
+                updateModerationUI(null);
+            }
+        }, 500);
+    });
+}
 
             async submitReview(formData) {
                 const responseDiv = document.getElementById('formResponse');
+
+                // VALIDACIÓN DE MODERACIÓN
+                if (lastModerationAnalysis && lastModerationAnalysis.blocked) {
+                    responseDiv.innerHTML = `
+                        <div class="error">
+                            <h3>🚨 Envío Bloqueado</h3>
+                            <p>Tu reseña contiene contenido que no cumple nuestras políticas. Por favor, revísala y modifícala.</p>
+                            <p><strong>Problemas detectados:</strong> ${lastModerationAnalysis.issues.join(', ')}</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Si hay texto limpio, usarlo
+                if (lastModerationAnalysis && lastModerationAnalysis.cleanText) {
+                    formData.set('resenaDetallada', lastModerationAnalysis.cleanText);
+                    formData.set('moderationStatus', lastModerationAnalysis.riskLevel);
+                    formData.set('moderationIssues', lastModerationAnalysis.issues.join(', '));
+                }
 
                 try {
                     responseDiv.innerHTML = `
@@ -2199,6 +2467,376 @@
                 </div>
             `;
         });
+        // ==========================================
+// SISTEMA DE MODERACIÓN AUTOMÁTICA
+// ==========================================
+class AutoModerationSystem {
+    constructor() {
+        this.initializeDictionaries();
+        this.initializePatterns();
+    }
+
+    initializeDictionaries() {
+        // Palabras que BLOQUEAN la reseña completamente
+        this.criticalWords = [
+            'estafador', 'estafa', 'ladrón', 'robar', 'robo', 'chorizo', 'criminal',
+            'delincuente', 'timador', 'fraude', 'rata', 'sinvergüenza',
+            'dinero negro', 'sin declarar', 'evadir', 'blanqueo', 'soborno',
+            'mafioso', 'chantaje', 'amenaza', 'extorsión', 'ilegal'
+        ];
+
+        // Palabrotas que se REEMPLAZAN automáticamente
+        this.profanityWords = [
+            'cabrón', 'cabron', 'hijo de puta', 'hdp', 'gilipollas', 'gilipolla',
+            'imbecil', 'imbécil', 'idiota', 'estúpido', 'subnormal', 'retrasado',
+            'joder', 'jodido', 'coño', 'cojones', 'hostia', 'puta', 'puto',
+            'mierda', 'zorra', 'maricón', 'basura'
+        ];
+
+        // Palabras que MARCAN para revisión manual
+        this.flaggedWords = [
+            'malo', 'malísimo', 'horrible', 'terrible', 'desastre', 'pesadilla',
+            'mentiroso', 'engaño', 'abuso', 'abusivo', 'denuncia', 'demanda',
+            'acoso', 'discrimina', 'racista', 'machista'
+        ];
+
+        this.replacements = {
+            'cabrón': 'persona desagradable', 'gilipollas': 'individuo poco colaborativo',
+            'hijo de puta': 'persona muy mala', 'joder': 'vaya', 'coño': 'caramba',
+            'puta': 'mala', 'puto': 'malo', 'mierda': 'porquería', 'hostia': 'ostras'
+        };
+
+        // Patrones de datos personales
+        this.personalDataPatterns = {
+            dni: /\b[0-9]{8}[A-Za-z]\b/g,
+            phone: /\b[6-7][0-9]{8}\b/g,
+            email: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g
+        };
+    }
+
+    initializePatterns() {
+        this.criticalRegex = new RegExp(
+            this.criticalWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
+        );
+        this.profanityRegex = new RegExp(
+            this.profanityWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
+        );
+        this.flaggedRegex = new RegExp(
+            this.flaggedWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
+        );
+    }
+
+    analyzeText(text) {
+        const analysis = {
+            originalText: text,
+            cleanText: text,
+            riskLevel: 'low',
+            issues: [],
+            blocked: false,
+            flaggedForReview: false
+        };
+
+        // Detectar contenido crítico (BLOQUEA)
+        const criticalMatches = text.match(this.criticalRegex);
+        if (criticalMatches) {
+            analysis.riskLevel = 'critical';
+            analysis.blocked = true;
+            analysis.issues.push(`Contenido bloqueado: ${criticalMatches.join(', ')}`);
+        }
+
+        // Detectar y limpiar palabrotas
+        const profanityMatches = text.match(this.profanityRegex);
+        if (profanityMatches) {
+            analysis.issues.push(`${profanityMatches.length} palabrotas limpiadas`);
+            let cleanText = analysis.cleanText;
+
+            this.profanityWords.forEach(word => {
+                const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                const replacement = this.replacements[word.toLowerCase()] ||
+                                  word.charAt(0) + '*'.repeat(word.length - 1);
+                cleanText = cleanText.replace(regex, replacement);
+            });
+
+            analysis.cleanText = cleanText;
+            if (profanityMatches.length > 3) analysis.riskLevel = 'medium';
+        }
+
+        // Detectar datos personales
+        if (this.personalDataPatterns.dni.test(text) ||
+            this.personalDataPatterns.phone.test(text) ||
+            this.personalDataPatterns.email.test(text)) {
+            analysis.riskLevel = 'high';
+            analysis.flaggedForReview = true;
+            analysis.issues.push('Datos personales detectados');
+
+            // Limpiar datos personales
+            let cleanText = analysis.cleanText;
+            cleanText = cleanText.replace(this.personalDataPatterns.dni, '[DATOS_ELIMINADOS]');
+            cleanText = cleanText.replace(this.personalDataPatterns.phone, '[TELÉFONO_ELIMINADO]');
+            cleanText = cleanText.replace(this.personalDataPatterns.email, '[EMAIL_ELIMINADO]');
+            analysis.cleanText = cleanText;
+        }
+
+        // Detectar contenido para revisión
+        const flaggedMatches = text.match(this.flaggedRegex);
+        if (flaggedMatches) {
+            analysis.flaggedForReview = true;
+            analysis.issues.push(`Contenido sensible: ${flaggedMatches.length} términos`);
+            if (analysis.riskLevel === 'low') analysis.riskLevel = 'medium';
+        }
+
+        return analysis;
+    }
+}
+
+// Instancia global del sistema
+const moderationSystem = new AutoModerationSystem();
+let lastModerationAnalysis = null;
+// ==========================================
+// SISTEMA DE DOCUMENTOS LEGALES
+// ==========================================
+const legalDocuments = {
+    'privacidad': `
+        <h1>🔒 Política de Privacidad</h1>
+        <div style="background: #dbeafe; border: 1px solid #3b82f6; border-radius: 6px; padding: 16px; margin: 16px 0;">
+            <strong>📅 Actualizado:</strong> Diciembre 2024<br>
+            <strong>📧 Contacto:</strong> info@caserocheck.com
+        </div>
+
+        <h2>1. Responsable</h2>
+        <p><strong>CaseroCheck</strong> - Plataforma digital de reseñas<br>📧 info@caserocheck.com</p>
+
+        <h2>2. Datos que Recopilamos</h2>
+        <ul>
+            <li><strong>Email:</strong> Para verificar reseñas</li>
+            <li><strong>Reseñas:</strong> Tu experiencia de alquiler</li>
+            <li><strong>Datos técnicos:</strong> IP, navegador (seguridad)</li>
+        </ul>
+
+        <h2>3. Para qué los Usamos</h2>
+        <ul>
+            <li>Publicar reseñas verificadas</li>
+            <li>Prevenir fraude y spam</li>
+            <li>Moderar contenido</li>
+            <li>Mejorar el servicio</li>
+        </ul>
+
+        <h2>4. Tus Derechos</h2>
+        <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
+            <strong>Contacta: info@caserocheck.com</strong>
+            <ul>
+                <li>Acceder a tus datos</li>
+                <li>Corregir información</li>
+                <li>Eliminar datos</li>
+                <li>Portabilidad</li>
+                <li>Oposición al tratamiento</li>
+            </ul>
+        </div>
+
+        <h2>5. Seguridad</h2>
+        <p>Conexiones cifradas, moderación automática y acceso restringido.</p>
+    `,
+
+    'terminos': `
+        <h1>📜 Términos de Uso</h1>
+
+        <h2>1. Aceptación</h2>
+        <p>Al usar CaseroCheck, aceptas estos términos.</p>
+
+        <h2>2. Qué NO Puedes Hacer</h2>
+        <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
+            <ul>
+                <li>Publicar información falsa</li>
+                <li>Incluir datos personales de propietarios</li>
+                <li>Usar lenguaje ofensivo</li>
+                <li>Hacer acusaciones graves sin fundamento</li>
+            </ul>
+        </div>
+
+        <h2>3. Qué SÍ Esperamos</h2>
+        <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
+            <ul>
+                <li>Información veraz</li>
+                <li>Email válido</li>
+                <li>Respeto a la comunidad</li>
+                <li>Comentarios constructivos</li>
+            </ul>
+        </div>
+
+        <h2>4. Moderación</h2>
+        <p>Nos reservamos el derecho a moderar o eliminar contenido que viole estos términos.</p>
+
+        <h2>5. Responsabilidad</h2>
+        <div style="background: #fee2e2; padding: 16px; border-radius: 6px;">
+            <strong>Importante:</strong> Las reseñas son opiniones de usuarios. No garantizamos su veracidad absoluta.
+        </div>
+    `,
+
+    'cookies': `
+        <h1>🍪 Política de Cookies</h1>
+
+        <h2>Qué son</h2>
+        <p>Archivos pequeños para mejorar tu experiencia web.</p>
+
+        <h2>Cookies Técnicas (Necesarias)</h2>
+        <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
+            <ul>
+                <li><strong>Sesión:</strong> Mantiene tu navegación</li>
+                <li><strong>Seguridad:</strong> Previene ataques</li>
+                <li><strong>Formularios:</strong> Guarda datos temporalmente</li>
+            </ul>
+        </div>
+
+        <h2>Cookies Analíticas (Opcionales)</h2>
+        <ul>
+            <li>Google Analytics (anónimo)</li>
+            <li>Estadísticas propias básicas</li>
+        </ul>
+
+        <h2>Control</h2>
+        <p>Gestiona desde tu navegador o contacta: info@caserocheck.com</p>
+    `,
+
+    'aviso-legal': `
+        <h1>⚖️ Aviso Legal</h1>
+
+        <h2>Datos</h2>
+        <div style="background: #f0f9ff; padding: 16px; border-radius: 6px;">
+            <strong>CaseroCheck</strong><br>
+            📧 info@caserocheck.com<br>
+            🌍 Madrid, España
+        </div>
+
+        <h2>Objeto</h2>
+        <p>Plataforma de reseñas de alquileres en Madrid.</p>
+
+        <h2>Responsabilidad</h2>
+        <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
+            Las reseñas son opiniones de usuarios. No garantizamos su veracidad absoluta.
+        </div>
+
+        <h2>Legislación</h2>
+        <p>Ley española. Tribunales de Madrid.</p>
+    `
+};
+
+function openLegalModal(section) {
+    const modal = document.getElementById('legalModal');
+    const content = document.getElementById('legalContent');
+
+    content.innerHTML = legalDocuments[section] || '<h1>Documento no encontrado</h1>';
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLegalModal() {
+    const modal = document.getElementById('legalModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Cerrar modal al hacer clic fuera
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('legalModal');
+    if (event.target === modal) {
+        closeLegalModal();
+    }
+});
+
+// Cerrar modal con tecla Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLegalModal();
+    }
+});
+// ==========================================
+        // GOOGLE ANALYTICS TRACKING
+        // ==========================================
+        function trackEvent(action, category = 'User Interaction', label = '') {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    event_category: category,
+                    event_label: label
+                });
+            }
+        }
+
+        // Tracking de formularios
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track envío de reseñas
+            const reviewForm = document.getElementById('reviewForm');
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', function() {
+                    trackEvent('review_submitted', 'Reviews', 'New Review');
+                });
+            }
+
+            // Track búsquedas
+            const searchForm = document.getElementById('searchForm');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function() {
+                    trackEvent('search_performed', 'Search', 'Property Search');
+                });
+            }
+        });
+
+        // Modificar función switchTab existente para tracking
+        const originalSwitchTab = window.switchTab;
+        window.switchTab = function(tabName) {
+            trackEvent('tab_changed', 'Navigation', tabName);
+            if (originalSwitchTab) originalSwitchTab(tabName);
+        };
+
+        // Modificar función openLegalModal existente para tracking
+        const originalOpenLegalModal = window.openLegalModal;
+        window.openLegalModal = function(section) {
+            trackEvent('legal_modal_opened', 'Legal', section);
+            if (originalOpenLegalModal) originalOpenLegalModal(section);
+        };
     </script>
+
+<!-- Footer Legal -->
+        <footer style="background: var(--gray-800); color: var(--white); padding: 40px 20px; margin-top: 60px;">
+            <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <h4 style="color: var(--primary-light); margin-bottom: 12px;">📋 Legal</h4>
+                        <a href="#" onclick="openLegalModal('privacidad')" style="color: var(--white); text-decoration: none; display: block; margin-bottom: 8px;">🔒 Política de Privacidad</a>
+                        <a href="#" onclick="openLegalModal('terminos')" style="color: var(--white); text-decoration: none; display: block; margin-bottom: 8px;">📜 Términos de Uso</a>
+                        <a href="#" onclick="openLegalModal('cookies')" style="color: var(--white); text-decoration: none; display: block; margin-bottom: 8px;">🍪 Política de Cookies</a>
+                        <a href="#" onclick="openLegalModal('aviso-legal')" style="color: var(--white); text-decoration: none; display: block;">⚖️ Aviso Legal</a>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-light); margin-bottom: 12px;">📧 Contacto</h4>
+                        <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                            <strong>Email:</strong> info@caserocheck.com<br>
+                            <strong>Ubicación:</strong> Madrid, España<br>
+                            <strong>Respuesta:</strong> 24-48h laborables
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-light); margin-bottom: 12px;">🛡️ Protección</h4>
+                        <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                            ✅ Reseñas verificadas<br>
+                            🔒 Cumplimiento RGPD<br>
+                            🛡️ Moderación automática<br>
+                            ⚖️ Marco legal completo
+                        </p>
+                    </div>
+                </div>
+                <div style="border-top: 1px solid var(--gray-600); padding-top: 20px; font-size: 0.9rem; color: var(--gray-300);">
+                    <p>© 2024 CaseroCheck. Plataforma de reseñas de alquileres en Madrid.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal Legal -->
+        <div id="legalModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; padding: 20px; overflow-y: auto;">
+            <div style="max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 0; position: relative;">
+                <button onclick="closeLegalModal()" style="position: absolute; top: 20px; right: 20px; background: #ef4444; color: white; border: none; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-weight: bold; z-index: 10001;">✕ Cerrar</button>
+                <div id="legalContent" style="padding: 40px; max-height: 80vh; overflow-y: auto;"></div>
+            </div>
+        </div>
+
 </body>
 </html>

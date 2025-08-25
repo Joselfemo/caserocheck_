@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaseroCheck - Reseñas Reales de Alquileres en Madrid</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%232563eb'/><path d='M20 55L50 25L80 55V75A5 5 0 0175 80H25A5 5 0 0120 75Z' fill='url(%23g)'/><rect x='40' y='60' width='20' height='20' fill='%232563eb'/><rect x='30' y='45' width='8' height='12' fill='%23fbbf24'/><rect x='62' y='45' width='8' height='12' fill='%23fbbf24'/></svg>">
-
+   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%232563eb'/><path d='M20 55L50 25L80 55V75A5 5 0 0175 80H25A5 5 0 0120 75Z' fill='url(%23g)'/><rect x='40' y='60' width='20' height='20' fill='%232563eb'/><rect x='30' y='45' width='8' height='12' fill='%23fbbf24'/><rect x='62' y='45' width='8' height='12' fill='%23fbbf24'/></svg>">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKWYK023X6"></script>
     <script>
@@ -15,36 +14,23 @@
         gtag('config', 'G-BKWYK023X6');
     </script>
 
-    <!-- Meta tags SEO mejorados -->
-    <meta name="description" content="Reseñas reales y verificadas de alquileres en Madrid. Descubre experiencias auténticas de inquilinos, precios reales y evita sorpresas antes de firmar tu contrato.">
-    <meta name="keywords" content="alquiler Madrid, reseñas caseros, experiencias alquiler, propiedades Madrid, inquilinos, pisos Madrid, apartamentos">
-    <meta name="author" content="CaseroCheck">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://caserocheck.es">
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Reseñas reales de alquileres en Madrid. Descubre experiencias de inquilinos y evita sorpresas antes de firmar tu contrato.">
+    <meta name="keywords" content="alquiler Madrid, reseñas caseros, experiencias alquiler, propiedades Madrid, inquilinos">
 
-    <!-- Open Graph mejorado -->
+    <!-- Open Graph para redes sociales -->
     <meta property="og:title" content="CaseroCheck - Reseñas Reales de Alquileres en Madrid">
     <meta property="og:description" content="La primera plataforma de reseñas verificadas de alquileres en Madrid. Información real, decisiones inteligentes.">
     <meta property="og:url" content="https://caserocheck.es">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="CaseroCheck">
-    <meta property="og:locale" content="es_ES">
 
-    <!-- Twitter Cards mejorado -->
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CaseroCheck - Reseñas Reales de Alquileres en Madrid">
     <meta name="twitter:description" content="La primera plataforma de reseñas verificadas de alquileres en Madrid.">
-    <meta name="twitter:site" content="@CaseroCheck">
-
-    <!-- Librerías externas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-
-    <!-- Preload de fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <style>
         * {
             margin: 0;
@@ -69,36 +55,6 @@
             --gray-700: #374151;
             --gray-800: #1f2937;
             --white: #ffffff;
-
-            /* Variables para responsive mejorado */
-            --container-sm: 640px;
-            --container-md: 768px;
-            --container-lg: 1024px;
-            --container-xl: 1280px;
-            --container-2xl: 1536px;
-            --container-3xl: 1920px;
-            --container-4xl: 2560px;
-
-            /* Espaciado escalable */
-            --space-xs: clamp(0.5rem, 1vw, 0.75rem);
-            --space-sm: clamp(0.75rem, 1.5vw, 1rem);
-            --space-md: clamp(1rem, 2vw, 1.5rem);
-            --space-lg: clamp(1.5rem, 3vw, 2rem);
-            --space-xl: clamp(2rem, 4vw, 3rem);
-            --space-2xl: clamp(3rem, 6vw, 4rem);
-            --space-3xl: clamp(4rem, 8vw, 6rem);
-
-            /* Tipografía escalable */
-            --text-xs: clamp(0.75rem, 1vw, 0.875rem);
-            --text-sm: clamp(0.875rem, 1.2vw, 1rem);
-            --text-base: clamp(1rem, 1.4vw, 1.125rem);
-            --text-lg: clamp(1.125rem, 1.6vw, 1.25rem);
-            --text-xl: clamp(1.25rem, 1.8vw, 1.5rem);
-            --text-2xl: clamp(1.5rem, 2.2vw, 2rem);
-            --text-3xl: clamp(1.875rem, 2.8vw, 2.5rem);
-            --text-4xl: clamp(2.25rem, 3.5vw, 3.5rem);
-            --text-5xl: clamp(3rem, 5vw, 4.5rem);
-            --text-6xl: clamp(3.75rem, 6vw, 6rem);
         }
 
         body {
@@ -107,49 +63,42 @@
             min-height: 100vh;
             color: var(--dark);
             line-height: 1.6;
-            font-size: var(--text-base);
         }
 
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes float {
-            0%, 100% {
-                transform: translateY(-50%) scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-55%) scale(1.05);
-                opacity: 0.9;
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-55%) scale(1.05);
+        opacity: 0.9;
+    }
+}
 
         .container {
-            max-width: min(var(--container-2xl), 95vw);
+            max-width: min(1400px, 95vw);
             margin: 0 auto;
             background: var(--white);
-            border-radius: clamp(16px, 2vw, 24px);
+            border-radius: 24px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            margin: var(--space-md);
+            margin: 20px;
             animation: fadeInUp 0.8s ease-out;
         }
 
         .hero-header {
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.7) 0%, rgba(29, 78, 216, 0.75) 50%, rgba(6, 182, 212, 0.7) 100%),
                         url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-            padding: var(--space-3xl) var(--space-xl);
+            padding: 80px 40px 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: clamp(60vh, 70vh, 80vh);
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -176,7 +125,7 @@
             bottom: -2px;
             left: 0;
             right: 0;
-            height: clamp(60px, 10vw, 100px);
+            height: 100px;
             background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
             pointer-events: none;
         }
@@ -184,19 +133,16 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: var(--container-xl);
-            width: 100%;
-            padding: 0 var(--space-md);
         }
 
         .hero-title {
-            font-size: var(--text-6xl);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 900;
             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 30%, #e2e8f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: var(--space-lg);
+            margin-bottom: 24px;
             letter-spacing: -0.05em;
             text-shadow: 0 8px 32px rgba(0,0,0,0.3);
             position: relative;
@@ -204,20 +150,20 @@
         }
 
         .hero-title::before {
-            content: '';
-            position: absolute;
-            left: clamp(-60px, -8vw, -80px);
-            top: 50%;
-            transform: translateY(-50%);
-            width: clamp(40px, 6vw, 65px);
-            height: clamp(40px, 6vw, 65px);
-            background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12.97 2.59a1.5 1.5 0 00-1.94 0l-7.5 6.363A1.5 1.5 0 003 10.097V19.5A1.5 1.5 0 004.5 21h4.75a.75.75 0 00.75-.75V14h4v6.25c0 .414.336.75.75.75H19.5a1.5 1.5 0 001.5-1.5v-9.403c0-.44-.194-.859-.53-1.144l-7.5-6.363z'/%3E%3C/svg%3E") no-repeat center;
-            mask-size: contain;
-            animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 4px 16px rgba(255,255,255,0.4));
-            border-radius: 12px;
-        }
+    content: '';
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12.97 2.59a1.5 1.5 0 00-1.94 0l-7.5 6.363A1.5 1.5 0 003 10.097V19.5A1.5 1.5 0 004.5 21h4.75a.75.75 0 00.75-.75V14h4v6.25c0 .414.336.75.75.75H19.5a1.5 1.5 0 001.5-1.5v-9.403c0-.44-.194-.859-.53-1.144l-7.5-6.363z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 16px rgba(255,255,255,0.4));
+    border-radius: 12px;
+}
 
         .hero-title::after {
             content: '';
@@ -225,16 +171,15 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: clamp(150px, 20vw, 200px);
+            width: 200px;
             height: 4px;
             background: linear-gradient(90deg, transparent 0%, #06b6d4 50%, transparent 100%);
             border-radius: 2px;
         }
-
         .hero-subtitle {
-            font-size: var(--text-xl);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             color: rgba(255,255,255,0.95);
-            margin-bottom: var(--space-md);
+            margin-bottom: 20px;
             font-weight: 600;
             max-width: 800px;
             margin-left: auto;
@@ -243,9 +188,9 @@
         }
 
         .hero-description {
-            font-size: var(--text-lg);
+            font-size: 1.1rem;
             color: rgba(255,255,255,0.9);
-            margin-bottom: var(--space-xl);
+            margin-bottom: 40px;
             font-weight: 400;
             max-width: 700px;
             margin-left: auto;
@@ -255,23 +200,23 @@
 
         .hero-cta {
             display: flex;
-            gap: var(--space-md);
+            gap: 20px;
             justify-content: center;
-            margin-bottom: var(--space-2xl);
+            margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
         .cta-primary, .cta-secondary {
-            padding: var(--space-md) var(--space-xl);
+            padding: 18px 36px;
             border: none;
             border-radius: 16px;
-            font-size: var(--text-lg);
+            font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            min-width: clamp(180px, 25vw, 220px);
+            min-width: 200px;
         }
 
         .cta-primary {
@@ -299,18 +244,15 @@
 
         .hero-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-2xl);
-            max-width: var(--container-xl);
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
         }
 
         .hero-stat {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            padding: var(--space-lg);
+            padding: 24px;
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
@@ -322,115 +264,29 @@
         }
 
         .hero-stat-number {
-            font-size: var(--text-4xl);
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--white);
-            margin-bottom: var(--space-xs);
+            margin-bottom: 8px;
         }
 
         .hero-stat-label {
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             color: rgba(255,255,255,0.8);
             font-weight: 500;
-        }
-
-        /* Responsive mejorado para pantallas grandes */
-        @media (min-width: 1440px) {
-            .container {
-                max-width: var(--container-2xl);
-                margin: var(--space-xl) auto;
-            }
-
-            .hero-stats {
-                grid-template-columns: repeat(4, 1fr);
-                max-width: 1000px;
-            }
-
-            .hero-title::before {
-                left: -100px;
-                width: 80px;
-                height: 80px;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .container {
-                max-width: var(--container-3xl);
-                margin: var(--space-2xl) auto;
-            }
-
-            .hero-content {
-                max-width: 1600px;
-            }
-
-            .hero-stats {
-                max-width: 1200px;
-            }
-        }
-
-        @media (min-width: 2560px) {
-            .container {
-                max-width: 2200px;
-            }
-
-            .hero-content {
-                max-width: 1800px;
-            }
-
-            .hero-stats {
-                max-width: 1400px;
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* Responsive mejorado para móviles */
-        @media (max-width: 640px) {
-            .hero-title::before {
-                display: none;
-            }
-
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-md);
-            }
-
-            .cta-primary, .cta-secondary {
-                min-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-header {
-                padding: var(--space-2xl) var(--space-md);
-            }
-
-            .hero-content {
-                padding: 0;
-            }
-        }
-
-        /* Mejoras para tablets */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .hero-stats {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
 
         .nav-tabs {
             display: flex;
             background: var(--gray-50);
-            padding: var(--space-sm);
+            padding: 12px;
             margin: 0;
             border-bottom: 1px solid var(--gray-200);
-            gap: var(--space-xs);
-            overflow-x: auto;
-            scroll-behavior: smooth;
         }
 
         .nav-tab {
             flex: 1;
-            min-width: max-content;
-            padding: var(--space-md) var(--space-sm);
+            padding: 16px 12px;
             background: transparent;
             border: none;
             border-radius: 12px;
@@ -438,19 +294,18 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             text-align: center;
+            margin: 0 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--space-xs);
-            white-space: nowrap;
+            gap: 8px;
         }
 
         .nav-tab:hover:not(.active) {
             background: var(--gray-100);
             color: var(--gray-700);
-            transform: translateY(-1px);
         }
 
         .nav-tab.active {
@@ -460,11 +315,11 @@
         }
 
         .nav-tab-icon {
-            font-size: var(--text-lg);
+            font-size: 1.1rem;
         }
 
         .main-content {
-            padding: var(--space-xl);
+            padding: 40px;
             min-height: 600px;
         }
 
@@ -479,27 +334,26 @@
 
         .form-section {
             background: var(--gray-50);
-            padding: var(--space-xl);
+            padding: 32px;
             border-radius: 20px;
-            margin-bottom: var(--space-xl);
+            margin-bottom: 32px;
             border: 1px solid var(--gray-200);
         }
 
         .form-section h3 {
-            font-size: var(--text-xl);
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: var(--space-lg);
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: 12px;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: var(--space-lg);
-            max-width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 24px;
         }
 
         .form-group {
@@ -509,27 +363,25 @@
         .form-group label {
             display: block;
             font-weight: 600;
-            margin-bottom: var(--space-xs);
+            margin-bottom: 8px;
             color: var(--dark);
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
         }
 
         .required {
             color: var(--danger);
         }
-
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: var(--space-md) var(--space-md);
+            padding: 14px 16px;
             border: 2px solid var(--gray-200);
             border-radius: 12px;
-            font-size: var(--text-base);
+            font-size: 1rem;
             background: var(--white);
             transition: all 0.3s ease;
             outline: none;
-            font-family: inherit;
         }
 
         .form-group input:focus,
@@ -537,75 +389,62 @@
         .form-group textarea:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            transform: translateY(-1px);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
-            line-height: 1.6;
+            min-height: 100px;
         }
 
         .rating-group {
-            margin-bottom: var(--space-lg);
+            margin-bottom: 24px;
         }
 
         .rating-label {
             display: block;
             font-weight: 600;
-            margin-bottom: var(--space-sm);
+            margin-bottom: 12px;
             color: var(--dark);
-            font-size: var(--text-sm);
-        }
-
-        .rating-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
         }
 
         .rating-stars {
             display: flex;
-            gap: var(--space-xs);
-            margin-bottom: var(--space-xs);
+            gap: 4px;
+            margin-bottom: 8px;
         }
 
         .star {
-            font-size: var(--text-3xl);
+            font-size: 2rem;
             color: var(--gray-300);
             cursor: pointer;
             transition: all 0.2s ease;
             user-select: none;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
         .star:hover,
         .star.active {
             color: #fbbf24;
             transform: scale(1.1);
-            filter: drop-shadow(0 4px 8px rgba(251, 191, 36, 0.4));
         }
 
         .rating-value {
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             color: var(--gray-600);
-            margin-top: var(--space-xs);
-            font-weight: 500;
+            margin-top: 4px;
         }
 
         .btn {
-            padding: var(--space-md) var(--space-lg);
+            padding: 14px 28px;
             border: none;
             border-radius: 12px;
-            font-size: var(--text-base);
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: var(--space-xs);
+            gap: 8px;
             text-decoration: none;
-            font-family: inherit;
         }
 
         .btn-primary {
@@ -620,8 +459,8 @@
         }
 
         .btn-large {
-            padding: var(--space-lg) var(--space-xl);
-            font-size: var(--text-lg);
+            padding: 18px 36px;
+            font-size: 1.1rem;
             width: 100%;
             justify-content: center;
         }
@@ -629,7 +468,7 @@
         .loading {
             display: none;
             text-align: center;
-            padding: var(--space-3xl);
+            padding: 60px;
         }
 
         .loading.show {
@@ -643,7 +482,7 @@
             border-top: 3px solid var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto var(--space-md);
+            margin: 0 auto 20px;
         }
 
         @keyframes spin {
@@ -651,465 +490,44 @@
             100% { transform: rotate(360deg); }
         }
 
-        .char-counter {
-            font-size: var(--text-xs);
-            color: var(--gray-500);
-            margin-top: var(--space-xs);
-            text-align: right;
-        }
-
-        .char-counter.warning {
-            color: var(--warning);
-        }
-
-        .char-counter.danger {
-            color: var(--danger);
-        }
-
-        .moderation-status {
-            margin-top: var(--space-xs);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 8px;
-            font-size: var(--text-xs);
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .status-safe {
-            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-            border: 1px solid #10b981;
-            color: #065f46;
-        }
-
-        .status-warning {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            border: 1px solid #f59e0b;
-            color: #92400e;
-        }
-
-        .status-danger {
-            background: linear-gradient(135deg, #fee2e2, #fecaca);
-            border: 1px solid #ef4444;
-            color: #991b1b;
-        }
-
-        .status-blocked {
-            background: linear-gradient(135deg, #fecaca, #fca5a5);
-            border: 2px solid #dc2626;
-            color: #7f1d1d;
-            font-weight: bold;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .moderation-issues {
-            margin-top: var(--space-xs);
-            font-size: var(--text-xs);
-            opacity: 0.8;
-        }
-
-        .textarea-blocked {
-            border-color: #dc2626 !important;
-            background: #fef2f2 !important;
-        }
-
-        .textarea-warning {
-            border-color: #f59e0b !important;
-            background: #fefbf3 !important;
-        }
-
-        /* Responsive optimizado para formularios */
-        @media (min-width: 1440px) {
-            .main-content {
-                padding: var(--space-2xl) var(--space-3xl);
-            }
-
-            .form-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                gap: var(--space-xl);
-            }
-
-            .rating-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-
-            .form-section {
-                padding: var(--space-2xl);
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .main-content {
-                padding: var(--space-3xl) var(--space-3xl);
-                max-width: var(--container-3xl);
-                margin: 0 auto;
-            }
-
-            .form-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                max-width: 1600px;
-            }
-
-            .rating-grid {
-                grid-template-columns: repeat(3, 1fr);
-                max-width: 1200px;
-            }
-        }
-
-        @media (min-width: 2560px) {
-            .main-content {
-                max-width: 2200px;
-                padding: var(--space-3xl) var(--space-3xl);
-            }
-
-            .form-grid {
-                grid-template-columns: repeat(4, 1fr);
-                max-width: 1800px;
-            }
-
-            .form-section {
-                padding: var(--space-3xl);
-            }
-        }
-
-        /* Responsive para tablets */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .nav-tabs {
-                padding: var(--space-md);
-            }
-
-            .form-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .rating-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Responsive para móviles */
-        @media (max-width: 768px) {
-            .main-content {
-                padding: var(--space-lg);
-            }
-
-            .form-section {
-                padding: var(--space-lg);
-            }
-
-            .nav-tabs {
-                flex-direction: column;
-                gap: var(--space-xs);
-                padding: var(--space-md);
-            }
-
-            .nav-tab {
-                justify-content: center;
-                margin: 0;
-                width: 100%;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .rating-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .star {
-                font-size: var(--text-2xl);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .main-content {
-                padding: var(--space-md);
-            }
-
-            .form-section {
-                padding: var(--space-md);
-                margin-bottom: var(--space-lg);
-            }
-
-            .nav-tabs {
-                padding: var(--space-sm);
-            }
-
-            .nav-tab {
-                padding: var(--space-sm);
-                font-size: var(--text-xs);
-            }
-
-            .nav-tab-icon {
-                font-size: var(--text-base);
-            }
-        }
-
-        /* Mejoras para accesibilidad */
-        @media (prefers-reduced-motion: reduce) {
-            .star,
-            .btn,
-            .nav-tab,
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                transition: none;
-            }
-
-            .hero-header::before {
-                animation: none;
-            }
-        }
-
-        /* Modo oscuro (opcional para futuras versiones) */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --dark: #f9fafb;
-                --white: #1f2937;
-                --gray-50: #374151;
-                --gray-100: #4b5563;
-                --gray-200: #6b7280;
-            }
-        }
-
-        /* Focus visible mejorado para accesibilidad */
-        .nav-tab:focus-visible,
-        .btn:focus-visible,
-        .form-group input:focus-visible,
-        .form-group select:focus-visible,
-        .form-group textarea:focus-visible,
-        .star:focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Mejoras para impresión */
-        @media print {
-            .nav-tabs,
-            .hero-header,
-            .btn {
-                display: none;
-            }
-
-            .container {
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-
-            .form-section {
-                break-inside: avoid;
-            }
-        }
-
-        /* Optimizaciones para pantallas de alta densidad */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-            .star {
-                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
-            }
-        }
-
-        /* Estados de carga mejorados */
-        .form-group.loading input,
-        .form-group.loading select,
-        .form-group.loading textarea {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .form-group.error input,
-        .form-group.error select,
-        .form-group.error textarea {
-            border-color: var(--danger);
-            background-color: #fef2f2;
-        }
-
-        .form-group.success input,
-        .form-group.success select,
-        .form-group.success textarea {
-            border-color: var(--accent);
-            background-color: #f0fdf4;
-        }
-
-        /* Tooltips para ayuda en formularios */
-        .form-group .tooltip {
-            position: relative;
-            display: inline-block;
-            margin-left: var(--space-xs);
-            color: var(--gray-500);
-            cursor: help;
-        }
-
-        .form-group .tooltip:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dark);
-            color: var(--white);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 6px;
-            font-size: var(--text-xs);
-            white-space: nowrap;
-            z-index: 1000;
-        }
-
-        /* Animaciones de transición mejoradas */
-        .tab-content {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        .tab-content.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mejoras visuales para diferentes estados */
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
-        .btn:disabled:hover {
-            background: var(--primary);
-            box-shadow: none;
-        }
-
-        /* Indicadores de progreso */
-        .form-progress {
-            height: 4px;
-            background: var(--gray-200);
-            border-radius: 2px;
-            overflow: hidden;
-            margin-bottom: var(--space-lg);
-        }
-
-        .form-progress-bar {
-            height: 100%;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        /* Estilo para checkboxes personalizados */
-        input[type="checkbox"] {
-            appearance: none;
-            width: 18px;
-            height: 18px;
-            border: 2px solid var(--gray-300);
-            border-radius: 4px;
-            background: var(--white);
-            cursor: pointer;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-
-        input[type="checkbox"]:checked {
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-
-        input[type="checkbox"]:checked::after {
-            content: '✓';
-            position: absolute;
-            top: -2px;
-            left: 2px;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        input[type="checkbox"]:focus {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        .analytics-header,
-        .insights-header,
-        .map-section .map-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .analytics-header h2,
-        .insights-header h2,
-        .map-header h2 {
-            font-size: var(--text-3xl);
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: var(--space-sm);
-        }
-
-        .analytics-header p,
-        .insights-header p,
-        .map-header p {
-            font-size: var(--text-lg);
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         .stats-dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-            margin-bottom: var(--space-2xl);
-            max-width: var(--container-2xl);
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
         }
 
         .stat-card {
             background: var(--white);
-            padding: var(--space-xl);
+            padding: 24px;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--gray-200);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.15);
-        }
-
-        .stat-icon {
-            font-size: var(--text-2xl);
-            margin-bottom: var(--space-sm);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.15);
         }
 
         .stat-number {
-            font-size: var(--text-4xl);
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--primary);
-            margin-bottom: var(--space-xs);
-            line-height: 1;
+            margin-bottom: 8px;
         }
 
         .stat-label {
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             color: var(--gray-600);
             font-weight: 500;
-            margin-bottom: var(--space-sm);
         }
 
         .stat-trend {
-            font-size: var(--text-xs);
-            padding: var(--space-xs) var(--space-sm);
+            font-size: 0.8rem;
+            margin-top: 8px;
+            padding: 4px 8px;
             border-radius: 12px;
             display: inline-block;
             font-weight: 600;
@@ -1125,84 +543,144 @@
             color: #991b1b;
         }
 
-        .charts-section,
-        .ai-charts-section {
+        .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-            max-width: var(--container-2xl);
-            margin-left: auto;
-            margin-right: auto;
+            gap: 24px;
+        }
+
+        .result-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 24px;
+        }
+
+        .result-address {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .result-rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rating-score {
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        .result-body {
+            padding: 24px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--gray-50);
+            border-radius: 8px;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        .detail-value {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .price-analysis {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            padding: 16px;
+            border-radius: 12px;
+            margin: 16px 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .review-text {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 16px;
+            font-style: italic;
+            border-left: 4px solid var(--primary);
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
         }
 
         .chart-container {
             background: var(--white);
-            padding: var(--space-xl);
+            padding: 24px;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-        }
-
-        .chart-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.15);
-        }
-
-        .chart-wide {
-            grid-column: 1 / -1;
         }
 
         .chart-title {
-            font-size: var(--text-xl);
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: var(--space-lg);
+            margin-bottom: 20px;
             color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
         }
 
-        .chart-insights {
-            margin-top: var(--space-lg);
-            padding-top: var(--space-lg);
-            border-top: 1px solid var(--gray-200);
+        .map-container {
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
         }
 
-        .chart-insights p {
-            font-size: var(--text-sm);
-            color: var(--gray-600);
-            margin-bottom: var(--space-xs);
-        }
-
-        .chart-insights strong {
-            color: var(--primary);
+        #map {
+            height: 100%;
+            width: 100%;
         }
 
         .insights-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-            margin-bottom: var(--space-2xl);
-            max-width: var(--container-2xl);
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
         }
 
         .insight-card {
             background: var(--white);
-            padding: var(--space-xl);
+            padding: 24px;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--gray-200);
             position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .insight-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.15);
         }
 
         .insight-card.warning {
@@ -1221,508 +699,89 @@
         }
 
         .insight-icon {
-            font-size: var(--text-3xl);
-            margin-bottom: var(--space-md);
+            font-size: 2rem;
+            margin-bottom: 16px;
         }
 
         .insight-title {
-            font-size: var(--text-lg);
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: var(--space-sm);
+            margin-bottom: 12px;
             color: var(--dark);
-            line-height: 1.3;
         }
 
         .insight-text {
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             color: var(--gray-700);
             line-height: 1.6;
-            margin-bottom: var(--space-md);
-        }
-
-        .insight-action {
-            margin-top: var(--space-md);
-        }
-
-        .btn-insight {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: 8px;
-            font-size: var(--text-xs);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-insight:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateY(-1px);
-        }
-
-        .insight-metrics {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-md);
-            flex-wrap: wrap;
-        }
-
-        .metric {
-            background: rgba(255, 255, 255, 0.7);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 6px;
-            font-size: var(--text-xs);
-            font-weight: 600;
-        }
-
-        .map-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-xl);
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-
-        .map-filters {
-            display: flex;
-            gap: var(--space-md);
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .map-filters select {
-            padding: var(--space-sm) var(--space-md);
-            border: 2px solid var(--gray-200);
-            border-radius: 8px;
-            background: var(--white);
-            font-size: var(--text-sm);
-        }
-
-        .map-legend {
-            display: flex;
-            gap: var(--space-md);
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-            font-size: var(--text-sm);
-        }
-
-        .legend-color {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-        }
-
-        .map-container {
-            height: clamp(400px, 60vh, 600px);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--gray-200);
-            margin-bottom: var(--space-xl);
-        }
-
-        #map {
-            height: 100%;
-            width: 100%;
-        }
-
-        .map-insights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .map-insight-card {
-            background: var(--white);
-            padding: var(--space-lg);
-            border-radius: 12px;
-            border: 1px solid var(--gray-200);
-        }
-
-        .map-insight-card h4 {
-            font-size: var(--text-lg);
-            font-weight: 700;
-            margin-bottom: var(--space-sm);
-            color: var(--primary);
-        }
-
-        .map-insight-card p {
-            font-size: var(--text-sm);
-            color: var(--gray-600);
-            line-height: 1.5;
-        }
-
-        .ai-model-info {
-            display: flex;
-            justify-content: space-around;
-            margin-top: var(--space-lg);
-            padding-top: var(--space-lg);
-            border-top: 1px solid var(--gray-200);
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-
-        .model-stat {
-            text-align: center;
-        }
-
-        .model-label {
-            display: block;
-            font-size: var(--text-xs);
-            color: var(--gray-500);
-            margin-bottom: var(--space-xs);
-        }
-
-        .model-value {
-            font-size: var(--text-lg);
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .ai-risk-analysis {
-            margin-bottom: var(--space-2xl);
-        }
-
-        .ai-risk-analysis h3 {
-            font-size: var(--text-2xl);
-            font-weight: 700;
-            margin-bottom: var(--space-xl);
-            text-align: center;
-            color: var(--dark);
-        }
-
-        .risk-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .risk-district {
-            background: var(--white);
-            padding: var(--space-lg);
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid;
-            transition: all 0.3s ease;
-        }
-
-        .risk-district:hover {
-            transform: translateY(-2px);
-        }
-
-        .risk-low {
-            border-color: var(--accent);
-            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-        }
-
-        .risk-medium {
-            border-color: var(--warning);
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-        }
-
-        .risk-high {
-            border-color: var(--danger);
-            background: linear-gradient(135deg, #fee2e2, #fecaca);
-        }
-
-        .risk-district h4 {
-            font-size: var(--text-lg);
-            font-weight: 700;
-            margin-bottom: var(--space-sm);
-        }
-
-        .risk-level {
-            font-size: var(--text-sm);
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-
-        .risk-score {
-            font-size: var(--text-2xl);
-            font-weight: 900;
-        }
-
-        /* Responsive optimizado para analytics y mapa */
-        @media (min-width: 1440px) {
-            .stats-dashboard {
-                grid-template-columns: repeat(4, 1fr);
-                max-width: 1200px;
-            }
-
-            .charts-section {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 1400px;
-            }
-
-            .insights-section {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 1200px;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .charts-section,
-            .ai-charts-section {
-                max-width: 1600px;
-            }
-
-            .insights-section {
-                grid-template-columns: repeat(3, 1fr);
-                max-width: 1400px;
-            }
-        }
-
-        @media (min-width: 2560px) {
-            .stats-dashboard {
-                max-width: 1600px;
-            }
-
-            .charts-section,
-            .ai-charts-section {
-                max-width: 1800px;
-            }
-
-            .insights-section {
-                max-width: 1600px;
-            }
-
-            .map-container {
-                height: 700px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .stats-dashboard {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-md);
-            }
-
-            .charts-section,
-            .ai-charts-section {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-
-            .insights-section {
-                grid-template-columns: 1fr;
-            }
-
-            .map-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .map-filters {
-                justify-content: center;
-            }
-
-            .map-legend {
-                justify-content: center;
-            }
-
-            .risk-matrix {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .ai-model-info {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .stat-card {
-                padding: var(--space-lg);
-            }
-
-            .chart-container {
-                padding: var(--space-lg);
-            }
-
-            .insight-card {
-                padding: var(--space-lg);
-            }
-
-            .risk-matrix {
-                grid-template-columns: 1fr;
-            }
-
-            .map-container {
-                height: 350px;
-            }
-        }
-
-        .results-grid {
-            display: grid;
-            gap: var(--space-xl);
-            max-width: var(--container-2xl);
-            margin: 0 auto;
-        }
-
-        .result-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-        }
-
-        .result-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.15);
-        }
-
-        .result-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
-            padding: var(--space-xl);
-            position: relative;
-        }
-
-        .result-header::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-        }
-
-        .result-address {
-            font-size: var(--text-xl);
-            font-weight: 700;
-            margin-bottom: var(--space-sm);
-            line-height: 1.2;
-        }
-
-        .result-rating {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            flex-wrap: wrap;
-        }
-
-        .rating-score {
-            font-size: var(--text-xl);
-            font-weight: 900;
-            background: rgba(255,255,255,0.2);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 8px;
-        }
-
-        .result-body {
-            padding: var(--space-xl);
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--space-sm) var(--space-md);
-            background: var(--gray-50);
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .detail-item:hover {
-            background: var(--gray-100);
-            transform: translateY(-1px);
-        }
-
-        .detail-label {
-            font-weight: 500;
-            color: var(--gray-600);
-            font-size: var(--text-sm);
-        }
-
-        .detail-value {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: var(--text-sm);
-        }
-
-        .price-analysis {
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            padding: var(--space-md);
-            border-radius: 12px;
-            margin: var(--space-md) 0;
-            border-left: 4px solid var(--accent);
-            font-size: var(--text-sm);
-            font-weight: 500;
-        }
-
-        .review-text {
-            background: var(--gray-50);
-            padding: var(--space-lg);
-            border-radius: 12px;
-            margin-top: var(--space-md);
-            font-style: italic;
-            border-left: 4px solid var(--primary);
-            line-height: 1.6;
-            font-size: var(--text-sm);
         }
 
         .no-results {
             text-align: center;
-            padding: var(--space-3xl) var(--space-lg);
+            padding: 80px 20px;
             color: var(--gray-600);
         }
 
         .no-results-icon {
-            font-size: var(--text-6xl);
-            margin-bottom: var(--space-lg);
+            font-size: 4rem;
+            margin-bottom: 20px;
             opacity: 0.6;
-        }
-
-        .no-results h3 {
-            font-size: var(--text-2xl);
-            font-weight: 700;
-            margin-bottom: var(--space-md);
-            color: var(--dark);
-        }
-
-        .no-results p {
-            font-size: var(--text-lg);
-            max-width: 400px;
-            margin: 0 auto;
         }
 
         .error {
             background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
             color: var(--danger);
-            padding: var(--space-lg);
+            padding: 20px;
             border-radius: 12px;
             text-align: center;
             border: 1px solid #fca5a5;
-            margin: var(--space-lg) 0;
         }
 
         .success {
             background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
             color: #065f46;
-            padding: var(--space-lg);
+            padding: 20px;
             border-radius: 12px;
             text-align: center;
             border: 1px solid #6ee7b7;
-            margin: var(--space-lg) 0;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 24px;
+            }
+
+            .form-section {
+                padding: 24px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                gap: 8px;
+                padding: 16px;
+            }
+
+            .nav-tab {
+                justify-content: center;
+                margin: 0;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
         }
 
         .animate-on-scroll {
@@ -1735,242 +794,128 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* ESTILOS PARA MODERACIÓN AUTOMÁTICA */
+.moderation-status {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
 
-        .animate-on-scroll:nth-child(1) { transition-delay: 0s; }
-        .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
-        .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
-        .animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
-        .animate-on-scroll:nth-child(5) { transition-delay: 0.4s; }
+.status-safe {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    border: 1px solid #10b981;
+    color: #065f46;
+}
 
-        canvas {
-            max-height: 400px;
-            border-radius: 8px;
-        }
+.status-warning {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 1px solid #f59e0b;
+    color: #92400e;
+}
 
-        .result-card[data-rating="5"] .result-header {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        }
+.status-danger {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border: 1px solid #ef4444;
+    color: #991b1b;
+}
 
-        .result-card[data-rating="4"] .result-header {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-        }
+.status-blocked {
+    background: linear-gradient(135deg, #fecaca, #fca5a5);
+    border: 2px solid #dc2626;
+    color: #7f1d1d;
+    font-weight: bold;
+    animation: pulse 2s ease-in-out infinite;
+}
 
-        .result-card[data-rating="3"] .result-header {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        }
+.moderation-issues {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
 
-        .result-card[data-rating="2"] .result-header,
-        .result-card[data-rating="1"] .result-header {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-        }
+.textarea-blocked {
+    border-color: #dc2626 !important;
+    background: #fef2f2 !important;
+}
 
-        .trending-up::after {
-            content: ' 📈';
-        }
+.textarea-warning {
+    border-color: #f59e0b !important;
+    background: #fefbf3 !important;
+}
 
-        .trending-down::after {
-            content: ' 📉';
-        }
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+/* Responsive mejorado para el icono */
+@media (max-width: 768px) {
+    .hero-title::before {
+        left: -50px;
+        width: 40px;
+        height: 40px;
+    }
+}
 
-        .verified::after {
-            content: ' ✅';
-        }
+@media (max-width: 480px) {
+    .hero-title::before {
+        display: none;
+    }
 
-        .warning-flag::after {
-            content: ' ⚠️';
-        }
+    .hero-title {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+}
+        /* Breakpoints modernos para móviles grandes */
+@media (min-width: 414px) and (max-width: 600px) {
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
 
-        [data-tooltip] {
-            position: relative;
-            cursor: help;
-        }
+    .nav-tab {
+        font-size: 0.85rem;
+    }
+}
 
-        [data-tooltip]:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dark);
-            color: var(--white);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 6px;
-            font-size: var(--text-xs);
-            white-space: nowrap;
-            z-index: 1000;
-            font-weight: normal;
-        }
+/* Breakpoint para pantallas grandes */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1600px;
+    }
 
-        [data-tooltip]:hover::before {
-            content: '';
-            position: absolute;
-            bottom: 115%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 5px solid transparent;
-            border-top-color: var(--dark);
-            z-index: 1000;
-        }
+    .main-content {
+        padding: 40px 60px;
+    }
 
-        .btn-load-more {
-            background: var(--secondary);
-            color: var(--white);
-            margin: var(--space-xl) auto;
-            display: block;
-            padding: var(--space-md) var(--space-2xl);
-            border-radius: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
+    .hero-header {
+        padding: 80px 60px 100px;
+    }
 
-        .btn-load-more:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
-        }
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 800px;
+        margin: 50px auto 0;
+    }
+}
 
-        .advanced-filters {
-            background: var(--gray-50);
-            padding: var(--space-lg);
-            border-radius: 12px;
-            margin-bottom: var(--space-xl);
-            border: 1px solid var(--gray-200);
-        }
+/* Breakpoint para monitores extra grandes */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1700px;
+    }
 
-        .filter-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-md);
-            align-items: end;
-        }
-
-        .filter-toggle {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: 8px;
-            font-size: var(--text-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .filter-toggle:hover {
-            background: var(--primary-dark);
-        }
-
-        .filter-toggle.active {
-            background: var(--accent);
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-sm);
-            margin: var(--space-2xl) 0;
-        }
-
-        .pagination-btn {
-            padding: var(--space-sm) var(--space-md);
-            border: 1px solid var(--gray-300);
-            background: var(--white);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .pagination-btn:hover {
-            background: var(--gray-50);
-        }
-
-        .pagination-btn.active {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-        }
-
-        .pagination-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .live-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            background: var(--accent);
-            color: var(--white);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 12px;
-            font-size: var(--text-xs);
-            font-weight: 600;
-        }
-
-        .live-indicator::before {
-            content: '●';
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        /* Responsive adicional para resultados */
-        @media (min-width: 1440px) {
-            .results-grid {
-                max-width: 1400px;
-            }
-
-            .details-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .results-grid {
-                max-width: 1600px;
-            }
-
-            .details-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .details-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-sm);
-            }
-
-            .result-header {
-                padding: var(--space-lg);
-            }
-
-            .result-body {
-                padding: var(--space-lg);
-            }
-
-            .detail-item {
-                padding: var(--space-xs) var(--space-sm);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .result-rating {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--space-xs);
-            }
-        }
+    .main-content {
+        padding: 40px 80px;
+    }
+}
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Hero Header Optimizado -->
+        <!-- Hero Header -->
         <div class="hero-header">
             <div class="hero-content">
                 <h1 class="hero-title">CaseroCheck</h1>
@@ -1999,14 +944,10 @@
                         <div class="hero-stat-number" id="districts">21</div>
                         <div class="hero-stat-label">Distritos</div>
                     </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number" id="totalProperties">150+</div>
-                        <div class="hero-stat-label">Propiedades</div>
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- Navegación Optimizada -->
+        <!-- Navegación -->
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="switchTab('search')">
                 <span class="nav-tab-icon">🔍</span>
@@ -2030,9 +971,9 @@
             </button>
         </div>
 
-        <!-- Contenido Principal Optimizado -->
+        <!-- Contenido Principal -->
         <div class="main-content">
-            <!-- Tab: Búsqueda Optimizada -->
+            <!-- Tab: Búsqueda -->
             <div id="search-tab" class="tab-content active">
                 <div class="form-section animate-on-scroll">
                     <h3>🔍 Buscar Reseñas de Propiedades</h3>
@@ -2116,8 +1057,7 @@
 
                 <div id="searchResults"></div>
             </div>
-
-            <!-- Tab: Escribir Reseña Optimizada -->
+            <!-- Tab: Escribir Reseña -->
             <div id="write-tab" class="tab-content">
                 <form id="reviewForm">
                     <!-- Información del Piso -->
@@ -2243,8 +1183,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Calificaciones Optimizadas -->
+                    <!-- Calificaciones -->
                     <div class="form-section animate-on-scroll">
                         <h3>⭐ Califica tu Experiencia</h3>
 
@@ -2261,71 +1200,69 @@
                             <input type="hidden" id="calificacionGlobal" name="calificacionGlobal" required>
                         </div>
 
-                        <div class="rating-grid">
-                            <div class="rating-group">
-                                <label class="rating-label">Estado del Piso</label>
-                                <div class="rating-stars" data-rating="estadoPiso">
-                                    <span class="star" data-value="1">⭐</span>
-                                    <span class="star" data-value="2">⭐</span>
-                                    <span class="star" data-value="3">⭐</span>
-                                    <span class="star" data-value="4">⭐</span>
-                                    <span class="star" data-value="5">⭐</span>
-                                </div>
-                                <div class="rating-value" id="estadoPiso-value">Opcional</div>
-                                <input type="hidden" id="estadoPiso" name="estadoPiso">
+                        <div class="rating-group">
+                            <label class="rating-label">Estado del Piso</label>
+                            <div class="rating-stars" data-rating="estadoPiso">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
                             </div>
+                            <div class="rating-value" id="estadoPiso-value">Opcional</div>
+                            <input type="hidden" id="estadoPiso" name="estadoPiso">
+                        </div>
 
-                            <div class="rating-group">
-                                <label class="rating-label">Limpieza</label>
-                                <div class="rating-stars" data-rating="limpieza">
-                                    <span class="star" data-value="1">⭐</span>
-                                    <span class="star" data-value="2">⭐</span>
-                                    <span class="star" data-value="3">⭐</span>
-                                    <span class="star" data-value="4">⭐</span>
-                                    <span class="star" data-value="5">⭐</span>
-                                </div>
-                                <div class="rating-value" id="limpieza-value">Opcional</div>
-                                <input type="hidden" id="limpieza" name="limpieza">
+                        <div class="rating-group">
+                            <label class="rating-label">Limpieza</label>
+                            <div class="rating-stars" data-rating="limpieza">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
                             </div>
+                            <div class="rating-value" id="limpieza-value">Opcional</div>
+                            <input type="hidden" id="limpieza" name="limpieza">
+                        </div>
 
-                            <div class="rating-group">
-                                <label class="rating-label">Ubicación</label>
-                                <div class="rating-stars" data-rating="ubicacion">
-                                    <span class="star" data-value="1">⭐</span>
-                                    <span class="star" data-value="2">⭐</span>
-                                    <span class="star" data-value="3">⭐</span>
-                                    <span class="star" data-value="4">⭐</span>
-                                    <span class="star" data-value="5">⭐</span>
-                                </div>
-                                <div class="rating-value" id="ubicacion-value">Opcional</div>
-                                <input type="hidden" id="ubicacion" name="ubicacion">
+                        <div class="rating-group">
+                            <label class="rating-label">Ubicación</label>
+                            <div class="rating-stars" data-rating="ubicacion">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
                             </div>
+                            <div class="rating-value" id="ubicacion-value">Opcional</div>
+                            <input type="hidden" id="ubicacion" name="ubicacion">
+                        </div>
 
-                            <div class="rating-group">
-                                <label class="rating-label">Calidad-Precio</label>
-                                <div class="rating-stars" data-rating="calidadPrecio">
-                                    <span class="star" data-value="1">⭐</span>
-                                    <span class="star" data-value="2">⭐</span>
-                                    <span class="star" data-value="3">⭐</span>
-                                    <span class="star" data-value="4">⭐</span>
-                                    <span class="star" data-value="5">⭐</span>
-                                </div>
-                                <div class="rating-value" id="calidadPrecio-value">Opcional</div>
-                                <input type="hidden" id="calidadPrecio" name="calidadPrecio">
+                        <div class="rating-group">
+                            <label class="rating-label">Calidad-Precio</label>
+                            <div class="rating-stars" data-rating="calidadPrecio">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
                             </div>
+                            <div class="rating-value" id="calidadPrecio-value">Opcional</div>
+                            <input type="hidden" id="calidadPrecio" name="calidadPrecio">
+                        </div>
 
-                            <div class="rating-group">
-                                <label class="rating-label">Comunicación Casero</label>
-                                <div class="rating-stars" data-rating="comunicacionCasero">
-                                    <span class="star" data-value="1">⭐</span>
-                                    <span class="star" data-value="2">⭐</span>
-                                    <span class="star" data-value="3">⭐</span>
-                                    <span class="star" data-value="4">⭐</span>
-                                    <span class="star" data-value="5">⭐</span>
-                                </div>
-                                <div class="rating-value" id="comunicacionCasero-value">Opcional</div>
-                                <input type="hidden" id="comunicacionCasero" name="comunicacionCasero">
+                        <div class="rating-group">
+                            <label class="rating-label">Comunicación Casero</label>
+                            <div class="rating-stars" data-rating="comunicacionCasero">
+                                <span class="star" data-value="1">⭐</span>
+                                <span class="star" data-value="2">⭐</span>
+                                <span class="star" data-value="3">⭐</span>
+                                <span class="star" data-value="4">⭐</span>
+                                <span class="star" data-value="5">⭐</span>
                             </div>
+                            <div class="rating-value" id="comunicacionCasero-value">Opcional</div>
+                            <input type="hidden" id="comunicacionCasero" name="comunicacionCasero">
                         </div>
                     </div>
 
@@ -2391,19 +1328,17 @@
                                 <small style="color: var(--gray-600); font-size: 0.8rem;">Solo para confirmar tu reseña. No lo usaremos para spam.</small>
                             </div>
                         </div>
-
                         <div class="form-group" style="margin-top: 20px;">
-                            <div style="display: flex; align-items: flex-start; gap: 10px; max-width: 100%;">
-                                <input type="checkbox" id="acceptTerms" name="acceptTerms" required style="margin-top: 2px; width: 18px; height: 18px; flex-shrink: 0;">
-                                <label for="acceptTerms" style="font-size: 0.9rem; line-height: 1.4; cursor: pointer; margin: 0; flex: 1;">
-                                    He leído y acepto la
-                                    <a href="#" onclick="openLegalModal('privacidad')" style="color: var(--primary); text-decoration: underline;">Política de Privacidad</a>,
-                                    los <a href="#" onclick="openLegalModal('terminos')" style="color: var(--primary); text-decoration: underline;">Términos de Uso</a>
-                                    y la <a href="#" onclick="openLegalModal('cookies')" style="color: var(--primary); text-decoration: underline;">Política de Cookies</a> <span style="color: var(--danger);">*</span>
-                                </label>
-                            </div>
-                        </div>
-
+    <div style="display: flex; align-items: flex-start; gap: 10px; max-width: 100%;">
+        <input type="checkbox" id="acceptTerms" name="acceptTerms" required style="margin-top: 2px; width: 18px; height: 18px; flex-shrink: 0;">
+        <label for="acceptTerms" style="font-size: 0.9rem; line-height: 1.4; cursor: pointer; margin: 0; flex: 1;">
+            He leído y acepto la
+            <a href="#" onclick="openLegalModal('privacidad')" style="color: var(--primary); text-decoration: underline;">Política de Privacidad</a>,
+            los <a href="#" onclick="openLegalModal('terminos')" style="color: var(--primary); text-decoration: underline;">Términos de Uso</a>
+            y la <a href="#" onclick="openLegalModal('cookies')" style="color: var(--primary); text-decoration: underline;">Política de Cookies</a> <span style="color: var(--danger);">*</span>
+        </label>
+    </div>
+</div>
                         <button type="submit" class="btn btn-primary btn-large" style="margin-top: 24px;">
                             📤 Enviar Reseña
                         </button>
@@ -2413,63 +1348,16 @@
                 <div id="formResponse"></div>
             </div>
 
-            <!-- Tab: Analytics Optimizado -->
+            <!-- Tab: Analytics -->
             <div id="analytics-tab" class="tab-content">
-                <div class="analytics-header animate-on-scroll">
-                    <h2>📊 Estadísticas del Mercado</h2>
-                    <p>Análisis en tiempo real del mercado de alquileres en Madrid</p>
-                </div>
-
-                <div class="stats-dashboard animate-on-scroll">
-                    <div class="stat-card">
-                        <div class="stat-icon">📈</div>
-                        <div class="stat-number" id="totalReviewsAnalytics">0</div>
-                        <div class="stat-label">Reseñas Verificadas</div>
-                        <div class="stat-trend up">↗ +12% este mes</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">💰</div>
-                        <div class="stat-number" id="avgPriceAnalytics">€1,245</div>
-                        <div class="stat-label">Precio Promedio</div>
-                        <div class="stat-trend down">↘ -2% vs mes anterior</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">⭐</div>
-                        <div class="stat-number" id="avgRatingAnalytics">4.2</div>
-                        <div class="stat-label">Satisfacción Media</div>
-                        <div class="stat-trend up">↗ Mejorando</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🏠</div>
-                        <div class="stat-number" id="activeProperties">287</div>
-                        <div class="stat-label">Propiedades Activas</div>
-                        <div class="stat-trend up">↗ +5% crecimiento</div>
-                    </div>
-                </div>
-
                 <div class="charts-section animate-on-scroll">
                     <div class="chart-container">
                         <h3 class="chart-title">📈 Evolución de Precios</h3>
                         <canvas id="priceChart" width="400" height="200"></canvas>
-                        <div class="chart-insights">
-                            <p><strong>Tendencia:</strong> Estabilización tras pico de verano</p>
-                            <p><strong>Proyección:</strong> Descenso moderado Q1 2025</p>
-                        </div>
                     </div>
                     <div class="chart-container">
                         <h3 class="chart-title">⭐ Ratings por Distrito</h3>
                         <canvas id="ratingChart" width="400" height="200"></canvas>
-                        <div class="chart-insights">
-                            <p><strong>Líder:</strong> Salamanca (4.6/5)</p>
-                            <p><strong>Mayor crecimiento:</strong> Tetuán (+0.3)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="charts-section animate-on-scroll">
-                    <div class="chart-container chart-wide">
-                        <h3 class="chart-title">📊 Distribución de Precios por Distrito</h3>
-                        <canvas id="priceDistributionChart" width="800" height="300"></canvas>
                     </div>
                 </div>
 
@@ -2477,298 +1365,69 @@
                     <div class="insight-card success">
                         <div class="insight-icon">💰</div>
                         <div class="insight-title">Mejor Relación Calidad-Precio</div>
-                        <div class="insight-text">Tetuán y Usera ofrecen los mejores precios con ratings altos. Precio medio: €950/mes con 4.3/5 de satisfacción.</div>
-                        <div class="insight-action">
-                            <button class="btn-insight" onclick="searchByDistrict('Tetuán')">Ver propiedades en Tetuán</button>
-                        </div>
+                        <div class="insight-text">Usera y Carabanchel ofrecen los mejores precios con ratings decentes (4.2/5 promedio)</div>
                     </div>
                     <div class="insight-card warning">
                         <div class="insight-icon">⚠️</div>
                         <div class="insight-title">Red Flag: Centro</div>
-                        <div class="insight-text">85% de diferencias entre precio anunciado vs real. Promedio: €180 más caro de lo anunciado. Revisar ofertas con cuidado.</div>
-                        <div class="insight-action">
-                            <button class="btn-insight" onclick="showPriceAlerts()">Ver alertas de precios</button>
-                        </div>
+                        <div class="insight-text">85% de diferencias entre precio anunciado vs real. Promedio: €180 más caro</div>
                     </div>
                     <div class="insight-card info">
                         <div class="insight-icon">🔥</div>
                         <div class="insight-title">Trending: Malasaña</div>
-                        <div class="insight-text">Precios subiendo 12% este trimestre. Alta demanda de jóvenes profesionales. Mercado muy competitivo.</div>
-                        <div class="insight-action">
-                            <button class="btn-insight" onclick="searchByDistrict('Malasaña')">Explorar Malasaña</button>
-                        </div>
-                    </div>
-                    <div class="insight-card success">
-                        <div class="insight-icon">📊</div>
-                        <div class="insight-title">Análisis IA: Devolución Fianzas</div>
-                        <div class="insight-text">Salamanca y Chamberí: 95% devuelven fianza completa en <15 días. Retiro: 90% en <30 días. Evitar: Centro y Lavapiés.</div>
-                        <div class="insight-action">
-                            <button class="btn-insight" onclick="showDepositAnalysis()">Ver análisis completo</button>
-                        </div>
+                        <div class="insight-text">Precios subiendo 12% este trimestre. Demanda alta, poca oferta.</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab: Mapa Optimizado -->
+            <!-- Tab: Mapa -->
             <div id="map-tab" class="tab-content">
-                <div class="map-section animate-on-scroll">
-                    <div class="map-header">
-                        <h2>🗺️ Mapa Interactivo de Madrid</h2>
-                        <p>Explora reseñas por ubicación y descubre patrones por zona</p>
-                    </div>
-
-                    <div class="map-controls">
-                        <div class="map-filters">
-                            <select id="mapDistrictFilter" onchange="filterMapByDistrict(this.value)">
-                                <option value="">Todos los distritos</option>
-                                <option value="Centro">Centro</option>
-                                <option value="Salamanca">Salamanca</option>
-                                <option value="Chamberí">Chamberí</option>
-                                <option value="Retiro">Retiro</option>
-                                <option value="Malasaña">Malasaña</option>
-                            </select>
-
-                            <select id="mapRatingFilter" onchange="filterMapByRating(this.value)">
-                                <option value="">Todos los ratings</option>
-                                <option value="5">5 estrellas</option>
-                                <option value="4">4+ estrellas</option>
-                                <option value="3">3+ estrellas</option>
-                                <option value="2">2+ estrellas</option>
-                            </select>
-
-                            <button class="btn btn-primary" onclick="resetMapFilters()">Resetear filtros</button>
-                        </div>
-
-                        <div class="map-legend">
-                            <div class="legend-item">
-                                <span class="legend-color" style="background: #10b981;"></span>
-                                <span>Excelente (4.5+)</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-color" style="background: #f59e0b;"></span>
-                                <span>Bueno (3.5-4.4)</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-color" style="background: #ef4444;"></span>
-                                <span>Regular (<3.5)</span>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="animate-on-scroll">
                     <div class="map-container">
                         <div id="map"></div>
                     </div>
-
-                    <div class="map-insights">
-                        <div class="map-insight-card">
-                            <h4>🎯 Zonas Calientes</h4>
-                            <p>Salamanca y Chamberí concentran las mejores valoraciones</p>
-                        </div>
-                        <div class="map-insight-card">
-                            <h4>💡 Oportunidades</h4>
-                            <p>Carabanchel y Usera: buena calidad a precios competitivos</p>
-                        </div>
-                        <div class="map-insight-card">
-                            <h4>⚠️ Precaución</h4>
-                            <p>Centro: revisar condiciones y precios reales vs anunciados</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Tab: Insights IA Optimizado -->
+            <!-- Tab: Insights -->
             <div id="insights-tab" class="tab-content">
-                <div class="insights-header animate-on-scroll">
-                    <h2>💡 Análisis IA Avanzado</h2>
-                    <p>Predicciones y patrones detectados por inteligencia artificial</p>
-                </div>
-
-                <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: var(--space-lg); border-radius: 12px; margin-bottom: var(--space-xl); border-left: 4px solid #065f46;" class="animate-on-scroll">
-                    🚀 <strong>IA en Tiempo Real:</strong> Análisis avanzado con datos reales. Predicciones de precios, detección de zonas emergentes y patrones de comportamiento que optimizan tu búsqueda de alquiler en Madrid.
-                </div>
-
+                <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 16px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #065f46;">
+        🚀 <strong>Próximamente:</strong> Análisis IA revolucionario con datos reales. Una vez alcancemos masa crítica de reseñas, desbloquearemos predicciones de precios, detección de zonas emergentes y patrones de comportamiento que cambiarán cómo buscas alquiler en Madrid.
+    </div>
                 <div class="insights-section animate-on-scroll">
                     <div class="insight-card success">
                         <div class="insight-icon">⚡</div>
-                        <div class="insight-title">Predicción: Devolución de Fianza Rápida</div>
-                        <div class="insight-text">
-                            <strong>Algoritmo detecta:</strong> Salamanca y Chamberí tienen 95% probabilidad de devolución completa en <15 días.
-                            <br><strong>Patrón identificado:</strong> Caseros con >10 propiedades devuelven más rápido.
-                        </div>
-                        <div class="insight-metrics">
-                            <span class="metric">Precisión: 94%</span>
-                            <span class="metric">Datos: 847 casos</span>
-                        </div>
+                        <div class="insight-title">Devolución de Fianza Rápida</div>
+                        <div class="insight-text">Salamanca y Chamberí: 95% devuelven fianza en <15 días</div>
                     </div>
-
                     <div class="insight-card warning">
                         <div class="insight-icon">🚨</div>
-                        <div class="insight-title">Alerta IA: Zonas de Riesgo Emergente</div>
-                        <div class="insight-text">
-                            <strong>Algoritmo detecta:</strong> Lavapiés muestra 40% de problemas vs 15% media Madrid.
-                            <br><strong>Factores de riesgo:</strong> Tiempo respuesta >48h, diferencias precio >€150.
-                        </div>
-                        <div class="insight-metrics">
-                            <span class="metric">Confianza: 89%</span>
-                            <span class="metric">Tendencia: ↗</span>
-                        </div>
+                        <div class="insight-title">Zonas de Riesgo</div>
+                        <div class="insight-text">Lavapiés: 40% reportan problemas con caseros. Tiempo respuesta: >48h</div>
                     </div>
-
                     <div class="insight-card info">
                         <div class="insight-icon">📊</div>
-                        <div class="insight-title">IA Predictiva: Mercado Q1 2025</div>
-                        <div class="insight-text">
-                            <strong>Predicción precios:</strong> Retiro -2%, Centro +1%, Malasaña +3%.
-                            <br><strong>Confianza del modelo:</strong> 78% basado en 24 meses de datos históricos.
-                        </div>
-                        <div class="insight-metrics">
-                            <span class="metric">Horizonte: 3 meses</span>
-                            <span class="metric">Actualización: Diaria</span>
-                        </div>
+                        <div class="insight-title">Predicción IA</div>
+                        <div class="insight-text">Pisos en Retiro: 78% probabilidad de mantener precio estable próximos 6 meses</div>
                     </div>
-
                     <div class="insight-card success">
                         <div class="insight-icon">🎯</div>
-                        <div class="insight-title">Sweet Spot IA: Tetuán</div>
-                        <div class="insight-text">
-                            <strong>Algoritmo optimiza:</strong> Balance perfecto precio/calidad detectado en Tetuán.
-                            <br><strong>Métricas:</strong> Rating 4.4/5, precio 18% bajo promedio, crecimiento estable.
-                        </div>
-                        <div class="insight-metrics">
-                            <span class="metric">Score IA: 9.2/10</span>
-                            <span class="metric">Recomendación: Alta</span>
-                        </div>
+                        <div class="insight-title">Sweet Spot</div>
+                        <div class="insight-text">Tetuán: Balance perfecto precio/calidad. Rating 4.4/5, precio 18% bajo promedio</div>
                     </div>
                 </div>
 
-                <div class="ai-charts-section animate-on-scroll">
-                    <div class="chart-container chart-wide">
-                        <h3 class="chart-title">🎯 Predictor de Precios IA - Próximos 6 Meses</h3>
-                        <canvas id="predictionChart" width="800" height="300"></canvas>
-                        <div class="ai-model-info">
-                            <div class="model-stat">
-                                <span class="model-label">Precisión del modelo:</span>
-                                <span class="model-value">87.3%</span>
-                            </div>
-                            <div class="model-stat">
-                                <span class="model-label">Datos de entrenamiento:</span>
-                                <span class="model-value">15,847 propiedades</span>
-                            </div>
-                            <div class="model-stat">
-                                <span class="model-label">Última actualización:</span>
-                                <span class="model-value">Hace 2 horas</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ai-risk-analysis animate-on-scroll">
-                    <h3>🛡️ Análisis de Riesgo por IA</h3>
-                    <div class="risk-matrix">
-                        <div class="risk-district risk-low">
-                            <h4>Salamanca</h4>
-                            <div class="risk-level">Riesgo Bajo</div>
-                            <div class="risk-score">2.1/10</div>
-                        </div>
-                        <div class="risk-district risk-low">
-                            <h4>Chamberí</h4>
-                            <div class="risk-level">Riesgo Bajo</div>
-                            <div class="risk-score">2.4/10</div>
-                        </div>
-                        <div class="risk-district risk-medium">
-                            <h4>Centro</h4>
-                            <div class="risk-level">Riesgo Medio</div>
-                            <div class="risk-score">5.7/10</div>
-                        </div>
-                        <div class="risk-district risk-high">
-                            <h4>Lavapiés</h4>
-                            <div class="risk-level">Riesgo Alto</div>
-                            <div class="risk-score">7.8/10</div>
-                        </div>
-                    </div>
+                <div class="chart-container animate-on-scroll">
+                    <h3 class="chart-title">🎯 Predictor de Precios IA</h3>
+                    <canvas id="predictionChart" width="800" height="300"></canvas>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Footer Legal Optimizado -->
-    <footer style="background: var(--gray-800); color: var(--white); padding: var(--space-2xl) var(--space-lg); margin-top: var(--space-3xl);">
-        <div style="max-width: var(--container-2xl); margin: 0 auto;">
-            <!-- Header del Footer -->
-            <div style="text-align: center; margin-bottom: var(--space-2xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--gray-600);">
-                <h3 style="font-size: var(--text-2xl); font-weight: 800; color: var(--primary-light); margin-bottom: var(--space-sm);">
-                    🏠 CaseroCheck
-                </h3>
-                <p style="font-size: var(--text-lg); color: var(--gray-300); max-width: 600px; margin: 0 auto;">
-                    La plataforma más confiable para reseñas de alquileres en Madrid
-                </p>
-            </div>
-
-            <!-- Contenido del Footer -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-2xl); margin-bottom: var(--space-2xl);">
-                <div>
-                    <h4 style="color: var(--primary-light); margin-bottom: var(--space-md); font-size: var(--text-lg); font-weight: 700;">📋 Información Legal</h4>
-                    <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
-                        <a href="#" onclick="openLegalModal('privacidad')" style="color: var(--gray-300); text-decoration: none; transition: color 0.2s ease; font-size: var(--text-sm);">🔒 Política de Privacidad</a>
-                        <a href="#" onclick="openLegalModal('terminos')" style="color: var(--gray-300); text-decoration: none; transition: color 0.2s ease; font-size: var(--text-sm);">📜 Términos de Uso</a>
-                        <a href="#" onclick="openLegalModal('cookies')" style="color: var(--gray-300); text-decoration: none; transition: color 0.2s ease; font-size: var(--text-sm);">🍪 Política de Cookies</a>
-                        <a href="#" onclick="openLegalModal('aviso-legal')" style="color: var(--gray-300); text-decoration: none; transition: color 0.2s ease; font-size: var(--text-sm);">⚖️ Aviso Legal</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 style="color: var(--primary-light); margin-bottom: var(--space-md); font-size: var(--text-lg); font-weight: 700;">📧 Contacto</h4>
-                    <div style="font-size: var(--text-sm); line-height: 1.6; color: var(--gray-300);">
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong>Email:</strong> info@caserocheck.es</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong>Ubicación:</strong> Madrid, España</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong>Respuesta:</strong> 24-48h laborables</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong>Soporte:</strong> Lun-Vie 9:00-18:00</p>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 style="color: var(--primary-light); margin-bottom: var(--space-md); font-size: var(--text-lg); font-weight: 700;">🛡️ Protección y Calidad</h4>
-                    <div style="font-size: var(--text-sm); line-height: 1.6; color: var(--gray-300);">
-                        <p style="margin: 0 0 var(--space-xs) 0;">✅ Reseñas verificadas y moderadas</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;">🔒 Cumplimiento total RGPD</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;">🛡️ Moderación automática IA</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;">⚖️ Marco legal completo</p>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 style="color: var(--primary-light); margin-bottom: var(--space-md); font-size: var(--text-lg); font-weight: 700;">📊 Estadísticas</h4>
-                    <div style="font-size: var(--text-sm); line-height: 1.6; color: var(--gray-300);">
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong id="footerTotalReviews">0</strong> reseñas verificadas</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong>21</strong> distritos cubiertos</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong>4.2/5</strong> satisfacción media</p>
-                        <p style="margin: 0 0 var(--space-xs) 0;"><strong>95%</strong> precisión IA</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div style="border-top: 1px solid var(--gray-600); padding-top: var(--space-lg); text-align: center;">
-                <p style="font-size: var(--text-sm); color: var(--gray-400); margin: 0;">
-                    © 2024 CaseroCheck. Plataforma de reseñas de alquileres en Madrid.
-                    <span class="live-indicator" style="margin-left: var(--space-sm);">En vivo</span>
-                </p>
-                <p style="font-size: var(--text-xs); color: var(--gray-500); margin: var(--space-sm) 0 0 0;">
-                    Hecho con ❤️ para la comunidad de inquilinos de Madrid
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal Legal Optimizado -->
-    <div id="legalModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; padding: var(--space-lg); overflow-y: auto; backdrop-filter: blur(10px);">
-        <div style="max-width: 900px; margin: 0 auto; background: white; border-radius: 16px; padding: 0; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
-            <button onclick="closeLegalModal()" style="position: absolute; top: var(--space-lg); right: var(--space-lg); background: #ef4444; color: white; border: none; border-radius: 8px; padding: var(--space-sm) var(--space-md); cursor: pointer; font-weight: bold; z-index: 10001; transition: all 0.2s ease;" onmouseover="this.style.background='#dc2626'" onmouseout="this.style.background='#ef4444'">✕ Cerrar</button>
-            <div id="legalContent" style="padding: var(--space-2xl); max-height: 80vh; overflow-y: auto; line-height: 1.6;"></div>
-        </div>
-    </div>
-
-    <script>
+<script>
+        // ==========================================
+        // CONFIGURACIÓN COMPLETA CASEROCHECK v2.0
+        // ==========================================
         const CONFIG = {
             SHEET_ID: '1hsiAtQCmagED_5iDbhT8xHxHRZ5AYpi1bz0LTBO1DaQ',
             API_KEY: 'AIzaSyDLP_UxlbG8OHIwAYvfbps4PkcZmzjkLJw',
@@ -2778,7 +1437,7 @@
             OFFLINE_CACHE_TIMEOUT: 30 * 60 * 1000 // 30 minutos
         };
 
-        // Variables globales optimizadas
+        // Variables globales mejoradas
         let allData = [];
         let map = null;
         let charts = {};
@@ -2787,7 +1446,6 @@
             data: null,
             isLoading: false
         };
-        let lastModerationAnalysis = null;
 
         // Configuración de columnas
         const COLUMNS = {
@@ -2803,127 +1461,10 @@
             VERIFICADO: 27, ESTADO_MODERACION: 28, NOTAS_ADMIN: 29
         };
 
-        // Sistema de moderación automática
-        class AutoModerationSystem {
-            constructor() {
-                this.initializeDictionaries();
-                this.initializePatterns();
-            }
-
-            initializeDictionaries() {
-                this.criticalWords = [
-                    'estafador', 'estafa', 'ladrón', 'robar', 'robo', 'chorizo', 'criminal',
-                    'delincuente', 'timador', 'fraude', 'rata', 'sinvergüenza',
-                    'dinero negro', 'sin declarar', 'evadir', 'blanqueo', 'soborno',
-                    'mafioso', 'chantaje', 'amenaza', 'extorsión', 'ilegal'
-                ];
-
-                this.profanityWords = [
-                    'cabrón', 'cabron', 'hijo de puta', 'hdp', 'gilipollas', 'gilipolla',
-                    'imbecil', 'imbécil', 'idiota', 'estúpido', 'subnormal', 'retrasado',
-                    'joder', 'jodido', 'coño', 'cojones', 'hostia', 'puta', 'puto',
-                    'mierda', 'zorra', 'maricón', 'basura'
-                ];
-
-                this.flaggedWords = [
-                    'malo', 'malísimo', 'horrible', 'terrible', 'desastre', 'pesadilla',
-                    'mentiroso', 'engaño', 'abuso', 'abusivo', 'denuncia', 'demanda',
-                    'acoso', 'discrimina', 'racista', 'machista'
-                ];
-
-                this.replacements = {
-                    'cabrón': 'persona desagradable', 'gilipollas': 'individuo poco colaborativo',
-                    'hijo de puta': 'persona muy mala', 'joder': 'vaya', 'coño': 'caramba',
-                    'puta': 'mala', 'puto': 'malo', 'mierda': 'porquería', 'hostia': 'ostras'
-                };
-
-                this.personalDataPatterns = {
-                    dni: /\b[0-9]{8}[A-Za-z]\b/g,
-                    phone: /\b[6-7][0-9]{8}\b/g,
-                    email: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g
-                };
-            }
-
-            initializePatterns() {
-                this.criticalRegex = new RegExp(
-                    this.criticalWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
-                );
-                this.profanityRegex = new RegExp(
-                    this.profanityWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
-                );
-                this.flaggedRegex = new RegExp(
-                    this.flaggedWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
-                );
-            }
-
-            analyzeText(text) {
-                const analysis = {
-                    originalText: text,
-                    cleanText: text,
-                    riskLevel: 'low',
-                    issues: [],
-                    blocked: false,
-                    flaggedForReview: false
-                };
-
-                // Detectar contenido crítico (BLOQUEA)
-                const criticalMatches = text.match(this.criticalRegex);
-                if (criticalMatches) {
-                    analysis.riskLevel = 'critical';
-                    analysis.blocked = true;
-                    analysis.issues.push(`Contenido bloqueado: ${criticalMatches.join(', ')}`);
-                    return analysis;
-                }
-
-                // Detectar y limpiar palabrotas
-                const profanityMatches = text.match(this.profanityRegex);
-                if (profanityMatches) {
-                    analysis.issues.push(`${profanityMatches.length} palabrotas limpiadas`);
-                    let cleanText = analysis.cleanText;
-
-                    this.profanityWords.forEach(word => {
-                        const regex = new RegExp(`\\b${word}\\b`, 'gi');
-                        const replacement = this.replacements[word.toLowerCase()] || word.charAt(0) + '*'.repeat(word.length - 1);
-                        cleanText = cleanText.replace(regex, replacement);
-                    });
-
-                    analysis.cleanText = cleanText;
-                    if (profanityMatches.length > 3) analysis.riskLevel = 'medium';
-                }
-
-                // Detectar datos personales
-                if (this.personalDataPatterns.dni.test(text) ||
-                    this.personalDataPatterns.phone.test(text) ||
-                    this.personalDataPatterns.email.test(text)) {
-                    analysis.riskLevel = 'high';
-                    analysis.flaggedForReview = true;
-                    analysis.issues.push('Datos personales detectados');
-
-                    // Limpiar datos personales
-                    let cleanText = analysis.cleanText;
-                    cleanText = cleanText.replace(this.personalDataPatterns.dni, '[DATOS_ELIMINADOS]');
-                    cleanText = cleanText.replace(this.personalDataPatterns.phone, '[TELÉFONO_ELIMINADO]');
-                    cleanText = cleanText.replace(this.personalDataPatterns.email, '[EMAIL_ELIMINADO]');
-                    analysis.cleanText = cleanText;
-                }
-
-                // Detectar contenido para revisión
-                const flaggedMatches = text.match(this.flaggedRegex);
-                if (flaggedMatches) {
-                    analysis.flaggedForReview = true;
-                    analysis.issues.push(`Contenido sensible: ${flaggedMatches.length} términos`);
-                    if (analysis.riskLevel === 'low') analysis.riskLevel = 'medium';
-                }
-
-                return analysis;
-            }
-        }
-
-        // Clase principal con todas las correcciones
+        // Clase principal
         class CaseroCheck {
             constructor() {
                 this.mapLoaded = false;
-                this.moderationSystem = new AutoModerationSystem();
                 this.loadData();
                 this.initializeCharts();
                 this.initializeMap();
@@ -2931,17 +1472,18 @@
                 this.initializeRatingSystem();
                 this.initializeForm();
                 this.initializeModerationSystem();
-                this.initializeAnalytics();
             }
 
             async loadData() {
-                console.log('🚀 CaseroCheck v3.0 - Sistema Optimizado Iniciando...');
+                console.log('🚀 CaseroCheck v2.0 - Sistema Real Iniciando...');
 
+                // Evitar múltiples cargas simultáneas
                 if (dataCache.isLoading) {
                     console.log('⏳ Carga ya en proceso...');
                     return;
                 }
 
+                // Verificar caché válido
                 if (this.isCacheValid()) {
                     console.log('📋 Usando datos en caché válidos');
                     allData = dataCache.data;
@@ -2963,9 +1505,13 @@
                             console.log('✅ Datos reales cargados:', data.values.length, 'filas');
                             allData = this.processData(data.values);
 
+                            // Actualizar caché
                             dataCache.data = allData;
                             dataCache.lastUpdate = Date.now();
+
+                            // Guardar en localStorage para acceso offline
                             this.saveToLocalStorage(allData);
+
                             this.updateHeroStats();
                             console.log('📊 Sistema real activo con', allData.length, 'reseñas');
                             dataCache.isLoading = false;
@@ -2977,6 +1523,7 @@
                 } catch (error) {
                     console.log('⚠️ Error conectando con Google Sheets:', error.message);
 
+                    // Intentar cargar desde localStorage
                     if (this.loadFromLocalStorage()) {
                         dataCache.isLoading = false;
                         return;
@@ -2988,6 +1535,7 @@
                 dataCache.isLoading = false;
             }
 
+            // Funciones auxiliares del caché
             isCacheValid() {
                 return dataCache.data &&
                        dataCache.lastUpdate &&
@@ -2999,7 +1547,7 @@
                     const cacheData = {
                         data: data,
                         timestamp: Date.now(),
-                        version: '3.0'
+                        version: '2.0'
                     };
                     localStorage.setItem('caserocheck_cache', JSON.stringify(cacheData));
                     console.log('💾 Datos guardados en caché local');
@@ -3015,7 +1563,7 @@
                         const parsedCache = JSON.parse(cached);
                         const age = Date.now() - parsedCache.timestamp;
 
-                        if (age < CONFIG.OFFLINE_CACHE_TIMEOUT && parsedCache.version === '3.0') {
+                        if (age < CONFIG.OFFLINE_CACHE_TIMEOUT && parsedCache.version === '2.0') {
                             allData = parsedCache.data;
                             dataCache.data = allData;
                             dataCache.lastUpdate = parsedCache.timestamp;
@@ -3060,7 +1608,7 @@
                     recomendarias: row[COLUMNS.RECOMENDARIAS] || '',
                     verificado: row[COLUMNS.VERIFICADO] || '',
                     estadoModeracion: row[COLUMNS.ESTADO_MODERACION] || ''
-                })).filter(item => item.direccion && item.calificacionGlobal >= 0);
+                })).filter(item => item.direccion && item.calificacionGlobal > 0);
             }
 
             generateDemoData() {
@@ -3127,23 +1675,13 @@
                 const totalReviews = allData.length;
                 const avgRating = allData.length > 0 ?
                     allData.reduce((sum, item) => sum + item.calificacionGlobal, 0) / allData.length : 0;
+
+                // Calcular número de distritos únicos
                 const uniqueDistricts = [...new Set(allData.map(item => item.distrito))].length;
 
                 document.getElementById('totalReviews').textContent = totalReviews;
                 document.getElementById('avgRating').textContent = Math.round(avgRating * 10) / 10;
                 document.getElementById('districts').textContent = uniqueDistricts;
-
-                const analyticsElements = {
-                    'totalReviewsAnalytics': totalReviews,
-                    'avgRatingAnalytics': Math.round(avgRating * 10) / 10,
-                    'avgPriceAnalytics': `€${Math.round(allData.reduce((sum, item) => sum + item.precioPagado, 0) / allData.length) || 1245}`,
-                    'activeProperties': allData.length + Math.floor(Math.random() * 50) + 200
-                };
-
-                Object.entries(analyticsElements).forEach(([id, value]) => {
-                    const element = document.getElementById(id);
-                    if (element) element.textContent = value;
-                });
 
                 console.log(`📊 Stats actualizadas: ${totalReviews} reseñas, ${avgRating.toFixed(1)} rating, ${uniqueDistricts} distritos`);
             }
@@ -3241,27 +1779,9 @@
                         });
                     }
 
-                    const ctx3 = document.getElementById('priceDistributionChart');
+                    const ctx3 = document.getElementById('predictionChart');
                     if (ctx3) {
-                        charts.priceDistribution = new Chart(ctx3, {
-                            type: 'doughnut',
-                            data: {
-                                labels: ['<€800', '€800-1200', '€1200-1600', '>€1600'],
-                                datasets: [{
-                                    data: [15, 35, 35, 15],
-                                    backgroundColor: ['#10b981', '#06b6d4', '#f59e0b', '#ef4444']
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                plugins: { legend: { position: 'bottom' } }
-                            }
-                        });
-                    }
-
-                    const ctx4 = document.getElementById('predictionChart');
-                    if (ctx4) {
-                        charts.prediction = new Chart(ctx4, {
+                        charts.prediction = new Chart(ctx3, {
                             type: 'line',
                             data: {
                                 labels: ['Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
@@ -3286,7 +1806,10 @@
             }
 
             initializeMap() {
+                // No cargar el mapa inmediatamente
                 this.mapLoaded = false;
+
+                // Crear observer para cargar cuando la pestaña sea visible
                 const mapTabButton = document.querySelector('.nav-tab[onclick*="map"]');
                 if (mapTabButton) {
                     mapTabButton.addEventListener('click', () => {
@@ -3296,11 +1819,11 @@
                     });
                 }
             }
-
             loadMapLazy() {
                 const mapContainer = document.getElementById('map');
                 if (!mapContainer) return;
 
+                // Mostrar loading
                 mapContainer.innerHTML = `
                     <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: var(--gray-50); border-radius: 16px;">
                         <div style="text-align: center; color: var(--gray-600);">
@@ -3310,9 +1833,11 @@
                     </div>
                 `;
 
+                // Cargar mapa después de un pequeño delay
                 setTimeout(() => {
                     try {
                         mapContainer.innerHTML = '';
+
                         map = L.map('map').setView([40.4168, -3.7038], 11);
 
                         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -3320,7 +1845,9 @@
                             maxZoom: 18
                         }).addTo(map);
 
+                        // Usar datos reales procesados
                         const locations = this.processMapData();
+
                         locations.forEach(loc => {
                             const color = loc.rating >= 4.5 ? '#10b981' : loc.rating >= 4.0 ? '#f59e0b' : '#ef4444';
 
@@ -3344,18 +1871,77 @@
                         console.log('✅ Mapa cargado exitosamente con datos reales');
 
                     } catch (error) {
-                        console.error('❌ Error conectando con Google Sheets:', error.message);
-
-                        if (this.loadFromLocalStorage()) {
-                            dataCache.isLoading = false;
-                            return;
-                        }
+                        console.error('❌ Error cargando mapa:', error);
+                        mapContainer.innerHTML = `
+                            <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: var(--gray-50); border-radius: 16px; color: var(--gray-600);">
+                                <div style="text-align: center;">
+                                    <p style="font-size: 2rem; margin-bottom: 16px;">🗺️</p>
+                                    <p><strong>Error cargando el mapa</strong></p>
+                                    <p style="font-size: 0.9rem;">Intenta recargar la página</p>
+                                </div>
+                            </div>
+                        `;
                     }
+                }, 200);
+            }
 
-                    console.log('💡 Fallback a datos demo');
-                    this.generateDemoData();
-                    dataCache.isLoading = false;
-                }, 1000);
+            processMapData() {
+                // Procesar datos reales por distrito
+                const districts = {};
+
+                allData.forEach(item => {
+                    if (!districts[item.distrito]) {
+                        districts[item.distrito] = {
+                            ratings: [],
+                            prices: [],
+                            count: 0
+                        };
+                    }
+                    districts[item.distrito].ratings.push(item.calificacionGlobal);
+                    districts[item.distrito].prices.push(item.precioPagado);
+                    districts[item.distrito].count++;
+                });
+
+                // Coordenadas aproximadas de distritos de Madrid
+                const coordinates = {
+                    'Centro': [40.4168, -3.7038],
+                    'Salamanca': [40.4240, -3.6882],
+                    'Chamberí': [40.4378, -3.7044],
+                    'Retiro': [40.4030, -3.6753],
+                    'Usera': [40.3791, -3.6996],
+                    'Carabanchel': [40.3891, -3.7296],
+                    'Tetuán': [40.4550, -3.6983],
+                    'Arganzuela': [40.3983, -3.6947],
+                    'Latina': [40.3833, -3.7500],
+                    'Moncloa-Aravaca': [40.4378, -3.7294],
+                    'Fuencarral-El Pardo': [40.5000, -3.7000],
+                    'Hortaleza': [40.4667, -3.6500],
+                    'Ciudad Lineal': [40.4500, -3.6167],
+                    'Villaverde': [40.3500, -3.7000],
+                    'Puente de Vallecas': [40.3833, -3.6500],
+                    'Moratalaz': [40.4083, -3.6417],
+                    'Villa de Vallecas': [40.3667, -3.6000],
+                    'Vicálvaro': [40.4000, -3.6000],
+                    'San Blas-Canillejas': [40.4333, -3.6000],
+                    'Barajas': [40.4667, -3.5833],
+                    'Malasaña': [40.4250, -3.7020]
+                };
+
+                return Object.keys(districts).map(distrito => {
+                    const data = districts[distrito];
+                    const avgRating = data.ratings.reduce((a, b) => a + b, 0) / data.ratings.length;
+                    const avgPrice = data.prices.reduce((a, b) => a + b, 0) / data.prices.length;
+                    const coords = coordinates[distrito] || [40.4168, -3.7038];
+
+                    return {
+                        distrito,
+                        lat: coords[0],
+                        lng: coords[1],
+                        rating: Math.round(avgRating * 10) / 10,
+                        precio: Math.round(avgPrice),
+                        count: data.count
+                    };
+                }).filter(item => item.count > 0);
             }
 
             initializeAnimations() {
@@ -3426,99 +2012,88 @@
                     this.submitReview(new FormData(form));
                 });
             }
-
             initializeModerationSystem() {
-                const textarea = document.getElementById('resenaDetallada');
-                const statusDiv = document.getElementById('moderationStatus');
-                const charCounter = document.getElementById('charCounter');
-                let debounceTimer;
+    const textarea = document.getElementById('resenaDetallada');
+    const statusDiv = document.getElementById('moderationStatus');
+    const charCounter = document.getElementById('charCounter');
+    let debounceTimer;
 
-                const updateModerationUI = (analysis) => {
-                    if (!analysis) {
-                        statusDiv.style.display = 'none';
-                        textarea.classList.remove('textarea-blocked', 'textarea-warning');
-                        return;
-                    }
+    // Función para actualizar la UI
+    function updateModerationUI(analysis) {
+        if (!analysis) {
+            statusDiv.style.display = 'none';
+            textarea.classList.remove('textarea-blocked', 'textarea-warning');
+            return;
+        }
 
-                    statusDiv.style.display = 'block';
-                    textarea.classList.remove('textarea-blocked', 'textarea-warning');
+        statusDiv.style.display = 'block';
+        textarea.classList.remove('textarea-blocked', 'textarea-warning');
 
-                    let statusClass, statusIcon, statusText;
+        let statusClass, statusIcon, statusText;
 
-                    switch(analysis.riskLevel) {
-                        case 'critical':
-                            statusClass = 'status-blocked';
-                            statusIcon = '🚨';
-                            statusText = 'CONTENIDO BLOQUEADO - No se puede enviar';
-                            textarea.classList.add('textarea-blocked');
-                            break;
-                        case 'high':
-                            statusClass = 'status-danger';
-                            statusIcon = '⚠️';
-                            statusText = 'REVISIÓN MANUAL REQUERIDA';
-                            textarea.classList.add('textarea-warning');
-                            break;
-                        case 'medium':
-                            statusClass = 'status-warning';
-                            statusIcon = '🔍';
-                            statusText = 'Contenido marcado para revisión';
-                            textarea.classList.add('textarea-warning');
-                            break;
-                        default:
-                            statusClass = 'status-safe';
-                            statusIcon = '✅';
-                            statusText = 'Contenido verificado y seguro';
-                    }
+        switch(analysis.riskLevel) {
+            case 'critical':
+                statusClass = 'status-blocked';
+                statusIcon = '🚨';
+                statusText = 'CONTENIDO BLOQUEADO - No se puede enviar';
+                textarea.classList.add('textarea-blocked');
+                break;
+            case 'high':
+                statusClass = 'status-danger';
+                statusIcon = '⚠️';
+                statusText = 'REVISIÓN MANUAL REQUERIDA';
+                textarea.classList.add('textarea-warning');
+                break;
+            case 'medium':
+                statusClass = 'status-warning';
+                statusIcon = '🔍';
+                statusText = 'Contenido marcado para revisión';
+                textarea.classList.add('textarea-warning');
+                break;
+            default:
+                statusClass = 'status-safe';
+                statusIcon = '✅';
+                statusText = 'Contenido verificado y seguro';
+        }
 
-                    statusDiv.className = `moderation-status ${statusClass}`;
-                    statusDiv.innerHTML = `
-                        <div>${statusIcon} <strong>${statusText}</strong></div>
-                        ${analysis.issues.length > 0 ? `
-                            <div class="moderation-issues">
-                                ${analysis.issues.join(' • ')}
-                            </div>
-                        ` : ''}
-                    `;
-                };
+        statusDiv.className = `moderation-status ${statusClass}`;
+        statusDiv.innerHTML = `
+            <div>${statusIcon} <strong>${statusText}</strong></div>
+            ${analysis.issues.length > 0 ? `
+                <div class="moderation-issues">
+                    ${analysis.issues.join(' • ')}
+                </div>
+            ` : ''}
+        `;
+    }
 
-                textarea.addEventListener('input', () => {
-                    const text = textarea.value;
-                    const count = text.length;
+    // Event listener para analizar texto
+    textarea.addEventListener('input', () => {
+        const text = textarea.value;
+        const count = text.length;
 
-                    charCounter.textContent = `${count}/800 caracteres`;
-                    charCounter.className = count > 600 ? 'char-counter warning' :
-                                           count > 750 ? 'char-counter danger' : 'char-counter';
+        // Actualizar contador
+        charCounter.textContent = `${count}/800 caracteres`;
+        charCounter.className = count > 600 ? 'char-counter warning' :
+                               count > 750 ? 'char-counter danger' : 'char-counter';
 
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(() => {
-                        if (text.trim()) {
-                            lastModerationAnalysis = this.moderationSystem.analyzeText(text);
-                            updateModerationUI(lastModerationAnalysis);
-                        } else {
-                            lastModerationAnalysis = null;
-                            updateModerationUI(null);
-                        }
-                    }, 500);
-                });
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            if (text.trim()) {
+                lastModerationAnalysis = moderationSystem.analyzeText(text);
+                updateModerationUI(lastModerationAnalysis);
+            } else {
+                lastModerationAnalysis = null;
+                updateModerationUI(null);
             }
+        }, 500);
+    });
+}
 
-            initializeAnalytics() {
-                if (typeof gtag !== 'undefined') {
-                    document.querySelectorAll('.nav-tab').forEach(tab => {
-                        tab.addEventListener('click', () => {
-                            const tabName = tab.textContent.trim();
-                            gtag('event', 'tab_switch', {
-                                'tab_name': tabName,
-                                'event_category': 'navigation'
-                            });
-                        });
-                    });
-                }
-            }
-
-            async submitReview(form) {
+            async submitReview(formData) {
                 const responseDiv = document.getElementById('formResponse');
 
+                // VALIDACIÓN DE MODERACIÓN
                 if (lastModerationAnalysis && lastModerationAnalysis.blocked) {
                     responseDiv.innerHTML = `
                         <div class="error">
@@ -3530,10 +2105,11 @@
                     return;
                 }
 
+                // Si hay texto limpio, usarlo
                 if (lastModerationAnalysis && lastModerationAnalysis.cleanText) {
-                    form.set('resenaDetallada', lastModerationAnalysis.cleanText);
-                    form.set('moderationStatus', lastModerationAnalysis.riskLevel);
-                    form.set('moderationIssues', lastModerationAnalysis.issues.join(', '));
+                    formData.set('resenaDetallada', lastModerationAnalysis.cleanText);
+                    formData.set('moderationStatus', lastModerationAnalysis.riskLevel);
+                    formData.set('moderationIssues', lastModerationAnalysis.issues.join(', '));
                 }
 
                 try {
@@ -3545,7 +2121,7 @@
                     `;
 
                     const reviewData = {};
-                    for (let [key, value] of form.entries()) {
+                    for (let [key, value] of formData.entries()) {
                         reviewData[key] = value;
                     }
 
@@ -3566,14 +2142,6 @@
                     document.getElementById('reviewForm').reset();
                     this.resetRatings();
 
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'review_submitted', {
-                            'distrito': reviewData.distrito,
-                            'rating': reviewData.calificacionGlobal,
-                            'event_category': 'engagement'
-                        });
-                    }
-
                 } catch (error) {
                     console.error('Error enviando reseña:', error);
                     responseDiv.innerHTML = `
@@ -3583,6 +2151,80 @@
                         </div>
                     `;
                 }
+            }
+
+            async sendToGoogleSheets(data) {
+                try {
+                    console.log('📤 Enviando a Google Sheets via Apps Script...', data);
+
+                    // Preparar FormData
+                    const formData = new FormData();
+
+                    // Mapear campos del formulario a nombres esperados por Apps Script
+                    const fieldMapping = {
+                        'direccionCompleta': 'direccion',
+                        'precioPagado': 'precioPagado',
+                        'precioAnunciado': 'precioAnunciado',
+                        'distrito': 'distrito',
+                        'codigoPostal': 'codigoPostal',
+                        'tipoPropiedad': 'tipoPropiedad',
+                        'metros': 'metros',
+                        'habitaciones': 'habitaciones',
+                        'banos': 'banos',
+                        'amueblado': 'amueblado',
+                        'duracionAlquiler': 'duracionAlquiler',
+                        'calificacionGlobal': 'calificacionGlobal',
+                        'estadoPiso': 'estadoPiso',
+                        'limpieza': 'limpieza',
+                        'ubicacion': 'ubicacion',
+                        'calidadPrecio': 'calidadPrecio',
+                        'comunicacionCasero': 'comunicacionCasero',
+                        'tiempoRespuesta': 'tiempoRespuesta',
+                        'problemasReportados': 'problemasReportados',
+                        'devolucionFianza': 'devolucionFianza',
+                        'resenaDetallada': 'resenaDetallada',
+                        'recomendarias': 'recomendarias',
+                        'email': 'email'
+                    };
+
+                    // Agregar todos los campos al FormData
+                    Object.keys(data).forEach(key => {
+                        const mappedKey = fieldMapping[key] || key;
+                        if (data[key] !== undefined && data[key] !== null && data[key] !== '') {
+                            formData.append(mappedKey, String(data[key]));
+                        }
+                    });
+
+                    // Enviar a Apps Script
+                    const response = await fetch(CONFIG.APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors' // Requerido para Apps Script
+                    });
+
+                    console.log('✅ Datos enviados correctamente a Google Sheets');
+
+                    // Invalidar caché para forzar recarga
+                    dataCache.lastUpdate = null;
+                    localStorage.removeItem('caserocheck_cache');
+
+                    // Recargar datos después de 3 segundos
+                    setTimeout(() => {
+                        this.loadData();
+                    }, 3000);
+
+                    return { success: true };
+
+                } catch (error) {
+                    console.error('❌ Error enviando a Google Sheets:', error);
+                    throw error;
+                }
+            }
+
+            async sendNotificationEmail(data) {
+                // Los emails se envían automáticamente desde Apps Script
+                console.log('📧 Emails se enviarán automáticamente desde Apps Script');
+                return Promise.resolve();
             }
 
             resetRatings() {
@@ -3599,135 +2241,13 @@
             }
         }
 
-        // Documentos legales
-        const legalDocuments = {
-            'privacidad': `
-                <h1>🔒 Política de Privacidad</h1>
-                <div style="background: #dbeafe; border: 1px solid #3b82f6; border-radius: 6px; padding: 16px; margin: 16px 0;">
-                    <strong>📅 Actualizado:</strong> Diciembre 2024<br>
-                    <strong>📧 Contacto:</strong> info@caserocheck.es
-                </div>
-
-                <h2>1. Responsable</h2>
-                <p><strong>CaseroCheck</strong> - Plataforma digital de reseñas<br>📧 info@caserocheck.es</p>
-
-                <h2>2. Datos que Recopilamos</h2>
-                <ul>
-                    <li><strong>Email:</strong> Para verificar reseñas</li>
-                    <li><strong>Reseñas:</strong> Tu experiencia de alquiler</li>
-                    <li><strong>Datos técnicos:</strong> IP, navegador (seguridad)</li>
-                </ul>
-
-                <h2>3. Para qué los Usamos</h2>
-                <ul>
-                    <li>Publicar reseñas verificadas</li>
-                    <li>Prevenir fraude y spam</li>
-                    <li>Moderar contenido</li>
-                    <li>Mejorar el servicio</li>
-                </ul>
-
-                <h2>4. Tus Derechos</h2>
-                <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
-                    <strong>Contacta: info@caserocheck.es</strong>
-                    <ul>
-                        <li>Acceder a tus datos</li>
-                        <li>Corregir información</li>
-                        <li>Eliminar datos</li>
-                        <li>Portabilidad</li>
-                        <li>Oposición al tratamiento</li>
-                    </ul>
-                </div>
-
-                <h2>5. Seguridad</h2>
-                <p>Conexiones cifradas, moderación automática y acceso restringido.</p>
-            `,
-            'terminos': `
-                <h1>📜 Términos de Uso</h1>
-
-                <h2>1. Aceptación</h2>
-                <p>Al usar CaseroCheck, aceptas estos términos.</p>
-
-                <h2>2. Qué NO Puedes Hacer</h2>
-                <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
-                    <ul>
-                        <li>Publicar información falsa</li>
-                        <li>Incluir datos personales de propietarios</li>
-                        <li>Usar lenguaje ofensivo</li>
-                        <li>Hacer acusaciones graves sin fundamento</li>
-                    </ul>
-                </div>
-
-                <h2>3. Qué SÍ Esperamos</h2>
-                <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
-                    <ul>
-                        <li>Información veraz</li>
-                        <li>Email válido</li>
-                        <li>Respeto a la comunidad</li>
-                        <li>Comentarios constructivos</li>
-                    </ul>
-                </div>
-
-                <h2>4. Moderación</h2>
-                <p>Nos reservamos el derecho a moderar o eliminar contenido que viole estos términos.</p>
-
-                <h2>5. Responsabilidad</h2>
-                <div style="background: #fee2e2; padding: 16px; border-radius: 6px;">
-                    <strong>Importante:</strong> Las reseñas son opiniones de usuarios. No garantizamos su veracidad absoluta.
-                </div>
-            `,
-            'cookies': `
-                <h1>🍪 Política de Cookies</h1>
-
-                <h2>Qué son</h2>
-                <p>Archivos pequeños para mejorar tu experiencia web.</p>
-
-                <h2>Cookies Técnicas (Necesarias)</h2>
-                <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
-                    <ul>
-                        <li><strong>Sesión:</strong> Mantiene tu navegación</li>
-                        <li><strong>Seguridad:</strong> Previene ataques</li>
-                        <li><strong>Formularios:</strong> Guarda datos temporalmente</li>
-                    </ul>
-                </div>
-
-                <h2>Cookies Analíticas (Opcionales)</h2>
-                <ul>
-                    <li>Google Analytics (anónimo)</li>
-                    <li>Estadísticas propias básicas</li>
-                </ul>
-
-                <h2>Control</h2>
-                <p>Gestiona desde tu navegador o contacta: info@caserocheck.es</p>
-            `,
-            'aviso-legal': `
-                <h1>⚖️ Aviso Legal</h1>
-
-                <h2>Datos</h2>
-                <div style="background: #f0f9ff; padding: 16px; border-radius: 6px;">
-                    <strong>CaseroCheck</strong><br>
-                    📧 info@caserocheck.es<br>
-                    🌍 Madrid, España
-                </div>
-
-                <h2>Objeto</h2>
-                <p>Plataforma de reseñas de alquileres en Madrid.</p>
-
-                <h2>Responsabilidad</h2>
-                <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
-                    Las reseñas son opiniones de usuarios. No garantizamos su veracidad absoluta.
-                </div>
-
-                <h2>Legislación</h2>
-                <p>Ley española. Tribunales de Madrid.</p>
-            `
-        };
-
         // Funciones globales
         function switchTab(tabName) {
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
 
+            // Activar la pestaña correcta
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 if (tab.onclick && tab.onclick.toString().includes(tabName)) {
                     tab.classList.add('active');
@@ -3741,7 +2261,10 @@
         }
 
         function switchTabAndScroll(tabName) {
+            // Cambiar tab
             switchTab(tabName);
+
+            // Hacer scroll suave a la sección de navegación
             setTimeout(() => {
                 document.querySelector('.nav-tabs').scrollIntoView({
                     behavior: 'smooth',
@@ -3801,10 +2324,8 @@
                                    priceDiff < 0 ? `€${Math.abs(priceDiff)} extra vs anunciado` :
                                    'Precio igual al anunciado';
 
-                const ratingClass = Math.round(item.calificacionGlobal);
-
                 html += `
-                    <div class="result-card" data-rating="${ratingClass}">
+                    <div class="result-card animate-on-scroll">
                         <div class="result-header">
                             <div class="result-address">${item.direccion}</div>
                             <div class="result-rating">
@@ -3891,88 +2412,431 @@
 
             html += '</div>';
             container.innerHTML = html;
-        }
 
-        function filterMapByDistrict(distrito) {
-            // Lógica para filtrar marcadores en el mapa
-        }
-
-        function filterMapByRating(rating) {
-            // Lógica para filtrar por rating
-        }
-
-        function resetMapFilters() {
-            // Lógica para reset
-        }
-
-        function searchByDistrict(distrito) {
-            document.getElementById('distrito').value = distrito;
-            document.getElementById('searchForm').dispatchEvent(new Event('submit'));
-            switchTabAndScroll('search');
-        }
-
-        function showPriceAlerts() {
-            alert('Alerta de precios');
-        }
-
-        function showDepositAnalysis() {
-            alert('Análisis de fianzas');
-        }
-
-        function openLegalModal(section) {
-            document.getElementById('legalContent').innerHTML = legalDocuments[section];
-            document.getElementById('legalModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLegalModal() {
-            document.getElementById('legalModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.querySelectorAll('#searchResults .animate-on-scroll').forEach(el => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                });
+                observer.observe(el);
+            });
         }
 
         // Inicialización
-        const app = new CaseroCheck();
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = new CaseroCheck();
 
-        document.getElementById('searchForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+            document.getElementById('searchForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
 
-            const filters = {
-                direccion: document.getElementById('direccion').value,
-                distrito: document.getElementById('distrito').value,
-                precioMin: document.getElementById('precioMin').value ? parseInt(document.getElementById('precioMin').value) : null,
-                precioMax: document.getElementById('precioMax').value ? parseInt(document.getElementById('precioMax').value) : null,
-                habitaciones: document.getElementById('habitaciones').value ? parseInt(document.getElementById('habitaciones').value) : null,
-                tipoPropiedad: document.getElementById('tipoPropiedad').value
-            };
+                const filters = {
+                    direccion: document.getElementById('direccion').value,
+                    distrito: document.getElementById('distrito').value,
+                    precioMin: document.getElementById('precioMin').value ? parseInt(document.getElementById('precioMin').value) : null,
+                    precioMax: document.getElementById('precioMax').value ? parseInt(document.getElementById('precioMax').value) : null,
+                    habitaciones: document.getElementById('habitaciones').value ? parseInt(document.getElementById('habitaciones').value) : null,
+                    tipoPropiedad: document.getElementById('tipoPropiedad').value
+                };
 
-            document.getElementById('loading').classList.add('show');
-            document.getElementById('searchResults').innerHTML = '';
+                document.getElementById('loading').classList.add('show');
+                document.getElementById('searchResults').innerHTML = '';
 
-            try {
-                const results = await app.search(filters);
-                displayResults(results);
-            } catch (error) {
-                document.getElementById('searchResults').innerHTML = `
-                    <div class="error">
-                        <h3>⚠️ Error en la búsqueda</h3>
-                        <p>No se pudieron cargar los resultados. Inténtalo de nuevo.</p>
-                    </div>
-                `;
-            } finally {
-                document.getElementById('loading').classList.remove('show');
+                try {
+                    const results = await app.search(filters);
+                    displayResults(results);
+                } catch (error) {
+                    document.getElementById('searchResults').innerHTML = `
+                        <div class="error">
+                            <h3>⚠️ Error en la búsqueda</h3>
+                            <p>No se pudieron cargar los resultados. Inténtalo de nuevo.</p>
+                        </div>
+                    `;
+                } finally {
+                    document.getElementById('loading').classList.remove('show');
+                }
+            });
+
+            document.getElementById('searchResults').innerHTML = `
+                <div class="no-results">
+                    <div class="no-results-icon">🚀</div>
+                    <h3>¡Bienvenido a CaseroCheck!</h3>
+                    <p>Usa los filtros para encontrar información detallada sobre alquileres en Madrid.</p>
+                </div>
+            `;
+        });
+        // ==========================================
+// SISTEMA DE MODERACIÓN AUTOMÁTICA
+// ==========================================
+class AutoModerationSystem {
+    constructor() {
+        this.initializeDictionaries();
+        this.initializePatterns();
+    }
+
+    initializeDictionaries() {
+        // Palabras que BLOQUEAN la reseña completamente
+        this.criticalWords = [
+            'estafador', 'estafa', 'ladrón', 'robar', 'robo', 'chorizo', 'criminal',
+            'delincuente', 'timador', 'fraude', 'rata', 'sinvergüenza',
+            'dinero negro', 'sin declarar', 'evadir', 'blanqueo', 'soborno',
+            'mafioso', 'chantaje', 'amenaza', 'extorsión', 'ilegal'
+        ];
+
+        // Palabrotas que se REEMPLAZAN automáticamente
+        this.profanityWords = [
+            'cabrón', 'cabron', 'hijo de puta', 'hdp', 'gilipollas', 'gilipolla',
+            'imbecil', 'imbécil', 'idiota', 'estúpido', 'subnormal', 'retrasado',
+            'joder', 'jodido', 'coño', 'cojones', 'hostia', 'puta', 'puto',
+            'mierda', 'zorra', 'maricón', 'basura'
+        ];
+
+        // Palabras que MARCAN para revisión manual
+        this.flaggedWords = [
+            'malo', 'malísimo', 'horrible', 'terrible', 'desastre', 'pesadilla',
+            'mentiroso', 'engaño', 'abuso', 'abusivo', 'denuncia', 'demanda',
+            'acoso', 'discrimina', 'racista', 'machista'
+        ];
+
+        this.replacements = {
+            'cabrón': 'persona desagradable', 'gilipollas': 'individuo poco colaborativo',
+            'hijo de puta': 'persona muy mala', 'joder': 'vaya', 'coño': 'caramba',
+            'puta': 'mala', 'puto': 'malo', 'mierda': 'porquería', 'hostia': 'ostras'
+        };
+
+        // Patrones de datos personales
+        this.personalDataPatterns = {
+            dni: /\b[0-9]{8}[A-Za-z]\b/g,
+            phone: /\b[6-7][0-9]{8}\b/g,
+            email: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g
+        };
+    }
+
+    initializePatterns() {
+        this.criticalRegex = new RegExp(
+            this.criticalWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
+        );
+        this.profanityRegex = new RegExp(
+            this.profanityWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
+        );
+        this.flaggedRegex = new RegExp(
+            this.flaggedWords.map(word => `\\b${word}\\b`).join('|'), 'gi'
+        );
+    }
+
+    analyzeText(text) {
+        const analysis = {
+            originalText: text,
+            cleanText: text,
+            riskLevel: 'low',
+            issues: [],
+            blocked: false,
+            flaggedForReview: false
+        };
+
+        // Detectar contenido crítico (BLOQUEA)
+        const criticalMatches = text.match(this.criticalRegex);
+        if (criticalMatches) {
+            analysis.riskLevel = 'critical';
+            analysis.blocked = true;
+            analysis.issues.push(`Contenido bloqueado: ${criticalMatches.join(', ')}`);
+        }
+
+        // Detectar y limpiar palabrotas
+        const profanityMatches = text.match(this.profanityRegex);
+        if (profanityMatches) {
+            analysis.issues.push(`${profanityMatches.length} palabrotas limpiadas`);
+            let cleanText = analysis.cleanText;
+
+            this.profanityWords.forEach(word => {
+                const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                const replacement = this.replacements[word.toLowerCase()] ||
+                                  word.charAt(0) + '*'.repeat(word.length - 1);
+                cleanText = cleanText.replace(regex, replacement);
+            });
+
+            analysis.cleanText = cleanText;
+            if (profanityMatches.length > 3) analysis.riskLevel = 'medium';
+        }
+
+        // Detectar datos personales
+        if (this.personalDataPatterns.dni.test(text) ||
+            this.personalDataPatterns.phone.test(text) ||
+            this.personalDataPatterns.email.test(text)) {
+            analysis.riskLevel = 'high';
+            analysis.flaggedForReview = true;
+            analysis.issues.push('Datos personales detectados');
+
+            // Limpiar datos personales
+            let cleanText = analysis.cleanText;
+            cleanText = cleanText.replace(this.personalDataPatterns.dni, '[DATOS_ELIMINADOS]');
+            cleanText = cleanText.replace(this.personalDataPatterns.phone, '[TELÉFONO_ELIMINADO]');
+            cleanText = cleanText.replace(this.personalDataPatterns.email, '[EMAIL_ELIMINADO]');
+            analysis.cleanText = cleanText;
+        }
+
+        // Detectar contenido para revisión
+        const flaggedMatches = text.match(this.flaggedRegex);
+        if (flaggedMatches) {
+            analysis.flaggedForReview = true;
+            analysis.issues.push(`Contenido sensible: ${flaggedMatches.length} términos`);
+            if (analysis.riskLevel === 'low') analysis.riskLevel = 'medium';
+        }
+
+        return analysis;
+    }
+}
+
+// Instancia global del sistema
+const moderationSystem = new AutoModerationSystem();
+let lastModerationAnalysis = null;
+// ==========================================
+// SISTEMA DE DOCUMENTOS LEGALES
+// ==========================================
+const legalDocuments = {
+    'privacidad': `
+        <h1>🔒 Política de Privacidad</h1>
+        <div style="background: #dbeafe; border: 1px solid #3b82f6; border-radius: 6px; padding: 16px; margin: 16px 0;">
+            <strong>📅 Actualizado:</strong> Diciembre 2024<br>
+            <strong>📧 Contacto:</strong> info@caserocheck.com
+        </div>
+
+        <h2>1. Responsable</h2>
+        <p><strong>CaseroCheck</strong> - Plataforma digital de reseñas<br>📧 info@caserocheck.com</p>
+
+        <h2>2. Datos que Recopilamos</h2>
+        <ul>
+            <li><strong>Email:</strong> Para verificar reseñas</li>
+            <li><strong>Reseñas:</strong> Tu experiencia de alquiler</li>
+            <li><strong>Datos técnicos:</strong> IP, navegador (seguridad)</li>
+        </ul>
+
+        <h2>3. Para qué los Usamos</h2>
+        <ul>
+            <li>Publicar reseñas verificadas</li>
+            <li>Prevenir fraude y spam</li>
+            <li>Moderar contenido</li>
+            <li>Mejorar el servicio</li>
+        </ul>
+
+        <h2>4. Tus Derechos</h2>
+        <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
+            <strong>Contacta: info@caserocheck.com</strong>
+            <ul>
+                <li>Acceder a tus datos</li>
+                <li>Corregir información</li>
+                <li>Eliminar datos</li>
+                <li>Portabilidad</li>
+                <li>Oposición al tratamiento</li>
+            </ul>
+        </div>
+
+        <h2>5. Seguridad</h2>
+        <p>Conexiones cifradas, moderación automática y acceso restringido.</p>
+    `,
+
+    'terminos': `
+        <h1>📜 Términos de Uso</h1>
+
+        <h2>1. Aceptación</h2>
+        <p>Al usar CaseroCheck, aceptas estos términos.</p>
+
+        <h2>2. Qué NO Puedes Hacer</h2>
+        <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
+            <ul>
+                <li>Publicar información falsa</li>
+                <li>Incluir datos personales de propietarios</li>
+                <li>Usar lenguaje ofensivo</li>
+                <li>Hacer acusaciones graves sin fundamento</li>
+            </ul>
+        </div>
+
+        <h2>3. Qué SÍ Esperamos</h2>
+        <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
+            <ul>
+                <li>Información veraz</li>
+                <li>Email válido</li>
+                <li>Respeto a la comunidad</li>
+                <li>Comentarios constructivos</li>
+            </ul>
+        </div>
+
+        <h2>4. Moderación</h2>
+        <p>Nos reservamos el derecho a moderar o eliminar contenido que viole estos términos.</p>
+
+        <h2>5. Responsabilidad</h2>
+        <div style="background: #fee2e2; padding: 16px; border-radius: 6px;">
+            <strong>Importante:</strong> Las reseñas son opiniones de usuarios. No garantizamos su veracidad absoluta.
+        </div>
+    `,
+
+    'cookies': `
+        <h1>🍪 Política de Cookies</h1>
+
+        <h2>Qué son</h2>
+        <p>Archivos pequeños para mejorar tu experiencia web.</p>
+
+        <h2>Cookies Técnicas (Necesarias)</h2>
+        <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
+            <ul>
+                <li><strong>Sesión:</strong> Mantiene tu navegación</li>
+                <li><strong>Seguridad:</strong> Previene ataques</li>
+                <li><strong>Formularios:</strong> Guarda datos temporalmente</li>
+            </ul>
+        </div>
+
+        <h2>Cookies Analíticas (Opcionales)</h2>
+        <ul>
+            <li>Google Analytics (anónimo)</li>
+            <li>Estadísticas propias básicas</li>
+        </ul>
+
+        <h2>Control</h2>
+        <p>Gestiona desde tu navegador o contacta: info@caserocheck.com</p>
+    `,
+
+    'aviso-legal': `
+        <h1>⚖️ Aviso Legal</h1>
+
+        <h2>Datos</h2>
+        <div style="background: #f0f9ff; padding: 16px; border-radius: 6px;">
+            <strong>CaseroCheck</strong><br>
+            📧 info@caserocheck.com<br>
+            🌍 Madrid, España
+        </div>
+
+        <h2>Objeto</h2>
+        <p>Plataforma de reseñas de alquileres en Madrid.</p>
+
+        <h2>Responsabilidad</h2>
+        <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
+            Las reseñas son opiniones de usuarios. No garantizamos su veracidad absoluta.
+        </div>
+
+        <h2>Legislación</h2>
+        <p>Ley española. Tribunales de Madrid.</p>
+    `
+};
+
+function openLegalModal(section) {
+    const modal = document.getElementById('legalModal');
+    const content = document.getElementById('legalContent');
+
+    content.innerHTML = legalDocuments[section] || '<h1>Documento no encontrado</h1>';
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLegalModal() {
+    const modal = document.getElementById('legalModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Cerrar modal al hacer clic fuera
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('legalModal');
+    if (event.target === modal) {
+        closeLegalModal();
+    }
+});
+
+// Cerrar modal con tecla Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLegalModal();
+    }
+});
+// ==========================================
+        // GOOGLE ANALYTICS TRACKING
+        // ==========================================
+        function trackEvent(action, category = 'User Interaction', label = '') {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    event_category: category,
+                    event_label: label
+                });
+            }
+        }
+
+        // Tracking de formularios
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track envío de reseñas
+            const reviewForm = document.getElementById('reviewForm');
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', function() {
+                    trackEvent('review_submitted', 'Reviews', 'New Review');
+                });
+            }
+
+            // Track búsquedas
+            const searchForm = document.getElementById('searchForm');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function() {
+                    trackEvent('search_performed', 'Search', 'Property Search');
+                });
             }
         });
 
-        document.getElementById('searchResults').innerHTML = `
-            <div class="no-results">
-                <div class="no-results-icon">🚀</div>
-                <h3>¡Bienvenido a CaseroCheck v3.0!</h3>
-                <p>Usa los filtros para encontrar información detallada sobre alquileres en Madrid.</p>
-                <p style="margin-top: 16px; font-size: 0.9rem; color: var(--gray-600);">
-                    <strong>Nuevo:</strong> Sistema IA optimizado • Moderación automática • Responsive 4K
-                </p>
-            </div>
-        `;
+        // Modificar función switchTab existente para tracking
+        const originalSwitchTab = window.switchTab;
+        window.switchTab = function(tabName) {
+            trackEvent('tab_changed', 'Navigation', tabName);
+            if (originalSwitchTab) originalSwitchTab(tabName);
+        };
+
+        // Modificar función openLegalModal existente para tracking
+        const originalOpenLegalModal = window.openLegalModal;
+        window.openLegalModal = function(section) {
+            trackEvent('legal_modal_opened', 'Legal', section);
+            if (originalOpenLegalModal) originalOpenLegalModal(section);
+        };
     </script>
+
+<!-- Footer Legal -->
+        <footer style="background: var(--gray-800); color: var(--white); padding: 40px 20px; margin-top: 60px;">
+            <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <h4 style="color: var(--primary-light); margin-bottom: 12px;">📋 Legal</h4>
+                        <a href="#" onclick="openLegalModal('privacidad')" style="color: var(--white); text-decoration: none; display: block; margin-bottom: 8px;">🔒 Política de Privacidad</a>
+                        <a href="#" onclick="openLegalModal('terminos')" style="color: var(--white); text-decoration: none; display: block; margin-bottom: 8px;">📜 Términos de Uso</a>
+                        <a href="#" onclick="openLegalModal('cookies')" style="color: var(--white); text-decoration: none; display: block; margin-bottom: 8px;">🍪 Política de Cookies</a>
+                        <a href="#" onclick="openLegalModal('aviso-legal')" style="color: var(--white); text-decoration: none; display: block;">⚖️ Aviso Legal</a>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-light); margin-bottom: 12px;">📧 Contacto</h4>
+                        <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                            <strong>Email:</strong> info@caserocheck.com<br>
+                            <strong>Ubicación:</strong> Madrid, España<br>
+                            <strong>Respuesta:</strong> 24-48h laborables
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-light); margin-bottom: 12px;">🛡️ Protección</h4>
+                        <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                            ✅ Reseñas verificadas<br>
+                            🔒 Cumplimiento RGPD<br>
+                            🛡️ Moderación automática<br>
+                            ⚖️ Marco legal completo
+                        </p>
+                    </div>
+                </div>
+                <div style="border-top: 1px solid var(--gray-600); padding-top: 20px; font-size: 0.9rem; color: var(--gray-300);">
+                    <p>© 2024 CaseroCheck. Plataforma de reseñas de alquileres en Madrid.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal Legal -->
+        <div id="legalModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; padding: 20px; overflow-y: auto;">
+            <div style="max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 0; position: relative;">
+                <button onclick="closeLegalModal()" style="position: absolute; top: 20px; right: 20px; background: #ef4444; color: white; border: none; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-weight: bold; z-index: 10001;">✕ Cerrar</button>
+                <div id="legalContent" style="padding: 40px; max-height: 80vh; overflow-y: auto;"></div>
+            </div>
+        </div>
+
 </body>
 </html>
