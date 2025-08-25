@@ -910,7 +910,81 @@
     .main-content {
         padding: 40px 80px;
     }
-}
+}/* ✅ FIX PARA PANTALLAS GRANDES - AÑADIR ANTES DE </style> */
+
+        /* Arreglar margin del container */
+        .container {
+            margin: 20px auto !important; /* Sobrescribe la declaración duplicada */
+        }
+
+        /* Pantallas grandes 1440px+ */
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1600px;
+            }
+
+            .form-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .stats-dashboard {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 1000px;
+                margin: 0 auto 32px;
+            }
+
+            .main-content {
+                padding: 40px 60px;
+            }
+        }
+
+        /* Pantallas extra grandes 1920px+ */
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 1800px;
+            }
+
+            .hero-title {
+                font-size: clamp(4.5rem, 5vw, 7rem);
+            }
+
+            .main-content {
+                padding: 50px 80px;
+            }
+        }
+
+        /* Monitores 4K 2560px+ */
+        @media (min-width: 2560px) {
+            .container {
+                max-width: 2200px;
+            }
+
+            .hero-title::before {
+                left: clamp(-80px, -4vw, -120px);
+                font-size: clamp(3.5rem, 4vw, 5rem);
+            }
+        }
+
+        /* Límites para grids en pantallas muy grandes */
+        @media (min-width: 1920px) {
+            .charts-section {
+                max-width: 1400px;
+                margin: 0 auto 32px;
+            }
+
+            .insights-section {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 1600px;
+                margin: 0 auto 32px;
+            }
+
+            .hero-stats {
+                max-width: 1000px;
+                margin: 50px auto 0;
+            }
+        }
     </style>
 </head>
 <body>
