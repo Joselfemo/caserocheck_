@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaseroCheck - Reseñas Reales de Alquileres en Madrid y Málaga</title>
+    <title>CaseroCheck - Reseñas Reales de Alquileres en Madrid</title>
    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%232563eb'/><path d='M20 55L50 25L80 55V75A5 5 0 0175 80H25A5 5 0 0120 75Z' fill='url(%23g)'/><rect x='40' y='60' width='20' height='20' fill='%232563eb'/><rect x='30' y='45' width='8' height='12' fill='%23fbbf24'/><rect x='62' y='45' width='8' height='12' fill='%23fbbf24'/></svg>">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKWYK023X6"></script>
@@ -992,7 +992,7 @@
         <div class="hero-header">
             <div class="hero-content">
                 <h1 class="hero-title">CaseroCheck</h1>
-                <p class="hero-subtitle">🏙️ <strong>La primera plataforma de reseñas reales</strong> para alquileres en Madrid y Málaga</p>
+                <p class="hero-subtitle">🏙️ <strong>La primera plataforma de reseñas reales</strong> para alquileres en Madrid</p>
                 <p class="hero-description">Descubre experiencias auténticas de inquilinos como tú. Conoce la verdad sobre precios, caseros y propiedades antes de firmar tu contrato. <strong>Información real, decisiones inteligentes.</strong></p>
 
                 <div class="hero-cta">
@@ -1055,14 +1055,7 @@
                             <label for="direccion">📍 Dirección o Calle</label>
                             <input type="text" id="direccion" placeholder="Gran Vía, Calle Mayor...">
                         </div>
-<div class="form-group">
-    <label for="ciudadBusqueda">🏙️ Ciudad</label>
-    <select id="ciudadBusqueda">
-        <option value="">Todas las ciudades</option>
-        <option value="Madrid">Madrid</option>
-        <option value="Málaga">Málaga</option>
-    </select>
-</div>
+
                         <div class="form-group">
                             <label for="distrito">🏘️ Distrito</label>
                             <select id="distrito">
@@ -1153,14 +1146,7 @@
                                 <label for="codigoPostal">Código Postal <span class="required">*</span></label>
                                 <input type="text" id="codigoPostal" name="codigoPostal" required placeholder="28001">
                             </div>
-                            <div class="form-group">
-                                <label for="ciudad">Ciudad <span class="required">*</span></label>
-                                <select id="ciudad" name="ciudad" required>
-                                    <option value="">Selecciona ciudad</option>
-                                    <option value="Madrid">Madrid</option>
-                                    <option value="Málaga">Málaga</option>
-                                </select>
-                            </div>
+
                             <div class="form-group">
                                 <label for="distritoForm">Distrito <span class="required">*</span></label>
                                 <select id="distritoForm" name="distrito" required>
@@ -1523,21 +1509,6 @@
             CACHE_TIMEOUT: 5 * 60 * 1000, // 5 minutos
             OFFLINE_CACHE_TIMEOUT: 30 * 60 * 1000 // 30 minutos
         };
-        // Distritos por ciudad
-const DISTRITOS = {
-    'Madrid': [
-        'Centro', 'Arganzuela', 'Retiro', 'Salamanca', 'Chamartín',
-        'Tetuán', 'Chamberí', 'Fuencarral-El Pardo', 'Moncloa-Aravaca',
-        'Latina', 'Carabanchel', 'Usera', 'Puente de Vallecas',
-        'Moratalaz', 'Ciudad Lineal', 'Hortaleza', 'Villaverde',
-        'Villa de Vallecas', 'Vicálvaro', 'San Blas-Canillejas', 'Barajas'
-    ],
-    'Málaga': [
-        'Centro', 'Este', 'Ciudad Jardín', 'Bailén-Miraflores',
-        'Palma-Palmilla', 'Cruz de Humilladero', 'Carretera de Cádiz',
-        'Churriana', 'Campanillas', 'Puerto de la Torre', 'Teatinos'
-    ]
-};
 
         // Variables globales mejoradas
         let allData = [];
@@ -1714,11 +1685,7 @@ const DISTRITOS = {
             }
 
             generateDemoData() {
-                const distritos = [
-    'Centro - Madrid', 'Salamanca - Madrid', 'Chamberí - Madrid',
-    'Retiro - Madrid', 'Usera - Madrid', 'Carabanchel - Madrid',
-    'Centro - Málaga', 'Teatinos - Málaga', 'Carretera de Cádiz - Málaga'
-];
+                const distritos = ['Centro', 'Salamanca', 'Chamberí', 'Malasaña', 'Retiro', 'Usera', 'Carabanchel', 'Tetuán'];
                 const direcciones = [
                     'Gran Vía 45', 'Calle Fuencarral 23', 'Plaza Mayor 12', 'Calle Alcalá 67',
                     'Paseo del Prado 89', 'Calle Serrano 34', 'Avenida de América 56', 'Calle Malasaña 78',
@@ -1801,9 +1768,6 @@ const DISTRITOS = {
                             }
                             if (filters.distrito && item.distrito !== filters.distrito) {
                                 return false;
-                            if (filters.ciudad && !item.distrito.includes(filters.ciudad)) {
-    return false;
-}
                             }
                             if (filters.precioMin && item.precioPagado < filters.precioMin) {
                                 return false;
@@ -2236,12 +2200,7 @@ const DISTRITOS = {
 
                     reviewData.timestamp = new Date().toISOString();
                     reviewData.id = 'review_' + Date.now();
-// Combinar ciudad y distrito
-const ciudad = reviewData.ciudad;
-const distrito = reviewData.distrito;
-if (ciudad && distrito) {
-    reviewData.distrito = `${distrito} - ${ciudad}`;
-}
+
                     await this.sendToGoogleSheets(reviewData);
                     await this.sendNotificationEmail(reviewData);
 
@@ -2354,27 +2313,7 @@ if (ciudad && distrito) {
                 });
             }
         }
-// Inicializar selector de ciudad
-document.addEventListener('DOMContentLoaded', () => {
-    const ciudadSelect = document.getElementById('ciudad');
-    const distritoSelect = document.getElementById('distritoForm');
 
-    if (ciudadSelect && distritoSelect) {
-        ciudadSelect.addEventListener('change', function() {
-            const ciudad = this.value;
-
-            // Limpiar distritos
-            distritoSelect.innerHTML = '<option value="">Selecciona distrito</option>';
-
-            // Añadir distritos de la ciudad seleccionada
-            if (ciudad && DISTRITOS[ciudad]) {
-                DISTRITOS[ciudad].forEach(distrito => {
-                    distritoSelect.innerHTML += `<option value="${distrito}">${distrito}</option>`;
-                });
-            }
-        });
-    }
-});
         // Funciones globales
         function switchTab(tabName) {
             document.querySelectorAll('.nav-tab').forEach(tab => {
@@ -2567,9 +2506,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
 
                 const filters = {
-    direccion: document.getElementById('direccion').value,
-    distrito: document.getElementById('distrito').value,
-    ciudad: document.getElementById('ciudadBusqueda').value,
+                    direccion: document.getElementById('direccion').value,
+                    distrito: document.getElementById('distrito').value,
                     precioMin: document.getElementById('precioMin').value ? parseInt(document.getElementById('precioMin').value) : null,
                     precioMax: document.getElementById('precioMax').value ? parseInt(document.getElementById('precioMax').value) : null,
                     habitaciones: document.getElementById('habitaciones').value ? parseInt(document.getElementById('habitaciones').value) : null,
