@@ -1392,6 +1392,10 @@
                                 <label for="email">Email <span class="required">*</span></label>
                                 <input type="email" id="email" name="email" required placeholder="tu@email.com">
                                 <small style="color: var(--gray-600); font-size: 0.8rem;">Solo para confirmar tu reseña. No lo usaremos para spam.</small>
+                                <div class="legal-warning" style="background: #fef3c7; padding: 16px; border-left: 4px solid #f59e0b; margin: 16px 0; border-radius: 8px;">
+    <div class="legal-warning" style="background: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin: 16px 0; border-radius: 8px;">
+    <strong>Información importante:</strong> Comparte tu experiencia de forma honesta y constructiva. Evita incluir nombres personales del propietario o hacer acusaciones sin fundamento. Las reseñas son tu opinión personal y ayudan a otros inquilinos.
+</div>
                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 20px;">
@@ -2642,7 +2646,9 @@ class AutoModerationSystem {
             'estafador', 'estafa', 'ladrón', 'robar', 'robo', 'chorizo', 'criminal',
             'delincuente', 'timador', 'fraude', 'rata', 'sinvergüenza',
             'dinero negro', 'sin declarar', 'evadir', 'blanqueo', 'soborno',
-            'mafioso', 'chantaje', 'amenaza', 'extorsión', 'ilegal'
+            'mafioso', 'chantaje', 'amenaza', 'extorsión', 'ilegal','demanda', 'denuncia', 'abogado', 'juicio', 'tribunal',
+    'sin contrato', 'en negro', 'evasión', 'fraude fiscal',
+    'denuncié', 'policía', 'guardia civil', 'delito', 'juzgado'
         ];
 
         // Palabrotas que se REEMPLAZAN automáticamente
@@ -2798,39 +2804,35 @@ const legalDocuments = {
     `,
 
     'terminos': `
-        <h1>📜 Términos de Uso</h1>
+    <h1>📜 Términos de Uso</h1>
 
-        <h2>1. Aceptación</h2>
-        <p>Al usar CaseroCheck, aceptas estos términos.</p>
+    <h2>1. Aceptación</h2>
+    <p>Al usar CaseroCheck, aceptas estos términos y te comprometes a cumplir la legislación española.</p>
 
-        <h2>2. Qué NO Puedes Hacer</h2>
-        <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
-            <ul>
-                <li>Publicar información falsa</li>
-                <li>Incluir datos personales de propietarios</li>
-                <li>Usar lenguaje ofensivo</li>
-                <li>Hacer acusaciones graves sin fundamento</li>
-            </ul>
-        </div>
+    <h2>2. Qué NO Puedes Hacer</h2>
+    <div style="background: #fee2e2; padding: 16px; border-radius: 6px; border-left: 4px solid #ef4444;">
+        <strong>PROHIBIDO TERMINANTEMENTE:</strong>
+        <ul>
+            <li>Acusaciones de actividades ilegales sin sentencia firme</li>
+            <li>Datos personales del propietario (nombre, teléfono, DNI)</li>
+            <li>Afirmaciones sobre situación fiscal o contractual sin pruebas</li>
+            <li>Contenido difamatorio que pueda dañar la reputación</li>
+            <li>Información falsa o maliciosa</li>
+        </ul>
+    </div>
 
-        <h2>3. Qué SÍ Esperamos</h2>
-        <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
-            <ul>
-                <li>Información veraz</li>
-                <li>Email válido</li>
-                <li>Respeto a la comunidad</li>
-                <li>Comentarios constructivos</li>
-            </ul>
-        </div>
+    <h2>3. Responsabilidad Legal</h2>
+    <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
+        <strong>IMPORTANTE:</strong> Eres legalmente responsable del contenido que publiques.
+        Las infracciones pueden conllevar responsabilidades penales y civiles según el Código Penal español.
+    </div>
 
-        <h2>4. Moderación</h2>
-        <p>Nos reservamos el derecho a moderar o eliminar contenido que viole estos términos.</p>
+    <h2>4. Moderación y Retirada</h2>
+    <p>Nos reservamos el derecho a moderar, editar o eliminar contenido que viole estos términos o la legislación vigente.</p>
 
-        <h2>5. Responsabilidad</h2>
-        <div style="background: #fee2e2; padding: 16px; border-radius: 6px;">
-            <strong>Importante:</strong> Las reseñas son opiniones de usuarios. No garantizamos su veracidad absoluta.
-        </div>
-    `,
+    <h2>5. Sistema de Reclamaciones</h2>
+    <p>Los propietarios pueden solicitar la retirada de reseñas falsas o difamatorias aportando documentación acreditativa.</p>
+`,
 
     'cookies': `
         <h1>🍪 Política de Cookies</h1>
