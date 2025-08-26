@@ -1427,23 +1427,32 @@
                     </div>
                 </div>
 
-                <div class="insights-section animate-on-scroll">
-                    <div class="insight-card success">
-                        <div class="insight-icon">💰</div>
-                        <div class="insight-title">Mejor Relación Calidad-Precio</div>
-                        <div class="insight-text">Usera y Carabanchel ofrecen los mejores precios con ratings decentes (4.2/5 promedio)</div>
-                    </div>
-                    <div class="insight-card warning">
-                        <div class="insight-icon">⚠️</div>
-                        <div class="insight-title">Red Flag: Centro</div>
-                        <div class="insight-text">85% de diferencias entre precio anunciado vs real. Promedio: €180 más caro</div>
-                    </div>
-                    <div class="insight-card info">
-                        <div class="insight-icon">🔥</div>
-                        <div class="insight-title">Trending: Malasaña</div>
-                        <div class="insight-text">Precios subiendo 12% este trimestre. Demanda alta, poca oferta.</div>
-                    </div>
-                </div>
+                <div style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; padding: 16px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #d97706; text-align: center;">
+    <strong>📊 DATOS DEMO</strong> - Estas estadísticas son ejemplos. Una vez tengamos reseñas reales de Madrid y Málaga, mostraremos análisis precisos basados en experiencias verificadas.
+</div>
+
+<div class="insights-section animate-on-scroll">
+    <div class="insight-card success">
+        <div class="insight-icon">💰</div>
+        <div class="insight-title">Málaga: Mejor Relación Calidad-Precio</div>
+        <div class="insight-text">Teatinos y Carretera de Cádiz: €650-700/mes con ratings 4.3+/5. Mucho más asequible que Madrid centro.</div>
+    </div>
+    <div class="insight-card warning">
+        <div class="insight-icon">⚠️</div>
+        <div class="insight-title">Madrid Centro: Precios Premium</div>
+        <div class="insight-text">€1300+ promedio vs €850 Málaga Centro. Diferencia del 53% por ciudad similar.</div>
+    </div>
+    <div class="insight-card info">
+        <div class="insight-icon">🏖️</div>
+        <div class="insight-title">Ventaja Málaga: Costa + Precio</div>
+        <div class="insight-text">Misma calidad habitacional, 15 min de playa, precios 40% más bajos que Madrid.</div>
+    </div>
+    <div class="insight-card success">
+        <div class="insight-icon">🎯</div>
+        <div class="insight-title">Sweet Spot: Teatinos (Málaga)</div>
+        <div class="insight-text">Mejor rating (4.6/5), precio bajo (€700), cerca universidad. Ideal estudiantes.</div>
+    </div>
+</div>
             </div>
 
             <!-- Tab: Mapa -->
@@ -1456,10 +1465,10 @@
             </div>
 
             <!-- Tab: Insights -->
-            <div id="insights-tab" class="tab-content">
-                <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 16px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #065f46;">
-        🚀 <strong>Próximamente:</strong> Análisis IA revolucionario con datos reales. Una vez alcancemos masa crítica de reseñas, desbloquearemos predicciones de precios, detección de zonas emergentes y patrones de comportamiento que cambiarán cómo buscas alquiler en Madrid.
-    </div>
+            <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 16px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #065f46;">
+    🚀 <strong>Próximamente:</strong> Análisis IA comparativo Madrid vs Málaga. Predicciones de precios, zonas emergentes, y el primer "Índice de Felicidad del Inquilino" que considerará precio, calidad de vida y proximidad a la costa. <br><br>
+    💡 <strong>Preview:</strong> ¿Sabías que con lo que pagas por un estudio en Madrid Centro puedes tener un piso de 2 habitaciones a 10 min de la playa en Málaga?
+</div>
                 <div class="insights-section animate-on-scroll">
                     <div class="insight-card success">
                         <div class="insight-icon">⚡</div>
@@ -1693,68 +1702,67 @@ const DISTRITOS = {
             }
 
             generateDemoData() {
-                const distritos = [
-    'Centro - Madrid', 'Salamanca - Madrid', 'Chamberí - Madrid',
-    'Retiro - Madrid', 'Usera - Madrid', 'Carabanchel - Madrid',
-    'Centro - Málaga', 'Teatinos - Málaga', 'Carretera de Cádiz - Málaga'
-];
-                const direcciones = [
-                    'Gran Vía 45', 'Calle Fuencarral 23', 'Plaza Mayor 12', 'Calle Alcalá 67',
-                    'Paseo del Prado 89', 'Calle Serrano 34', 'Avenida de América 56', 'Calle Malasaña 78',
-                    'Plaza de España 23', 'Calle Princesa 45', 'Avenida Menéndez Pelayo 67', 'Calle Atocha 89'
-                ];
-                const tipos = ['Piso', 'Estudio', 'Ático', 'Loft'];
+    const datosDemo = [
+        // Madrid - Datos más altos
+        { distrito: 'Centro - Madrid', precioBase: 1300, rating: 3.8 },
+        { distrito: 'Salamanca - Madrid', precioBase: 1500, rating: 4.5 },
+        { distrito: 'Chamberí - Madrid', precioBase: 1200, rating: 4.3 },
+        { distrito: 'Retiro - Madrid', precioBase: 1250, rating: 4.1 },
+        { distrito: 'Usera - Madrid', precioBase: 750, rating: 4.2 },
+        { distrito: 'Carabanchel - Madrid', precioBase: 800, rating: 4.0 },
 
-                allData = [];
-                for (let i = 0; i < 42; i++) {
-                    const distrito = distritos[Math.floor(Math.random() * distritos.length)];
-                    let precioBase = 900;
+        // Málaga - Datos más bajos pero buenos ratings
+        { distrito: 'Centro - Málaga', precioBase: 850, rating: 4.4 },
+        { distrito: 'Teatinos - Málaga', precioBase: 700, rating: 4.6 },
+        { distrito: 'Carretera de Cádiz - Málaga', precioBase: 650, rating: 4.3 },
+        { distrito: 'Este - Málaga', precioBase: 600, rating: 4.2 },
+        { distrito: 'Churriana - Málaga', precioBase: 550, rating: 4.1 }
+    ];
 
-                    switch(distrito) {
-                        case 'Centro': precioBase = 1300; break;
-                        case 'Salamanca': precioBase = 1500; break;
-                        case 'Chamberí': precioBase = 1200; break;
-                        case 'Malasaña': precioBase = 1100; break;
-                        case 'Retiro': precioBase = 1250; break;
-                        case 'Usera': precioBase = 750; break;
-                        case 'Carabanchel': precioBase = 800; break;
-                        case 'Tetuán': precioBase = 950; break;
-                    }
+    const direcciones = [
+        // Madrid
+        'Gran Vía 45', 'Calle Fuencarral 23', 'Plaza Mayor 12', 'Calle Alcalá 67',
+        'Paseo del Prado 89', 'Calle Serrano 34', 'Avenida de América 56',
+        // Málaga
+        'Calle Larios 15', 'Alameda Principal 8', 'Calle Nueva 22', 'Avenida Andalucía 45'
+    ];
+    const tipos = ['Piso', 'Estudio', 'Ático', 'Loft'];
 
-                    const precio = precioBase + Math.random() * 300 - 150;
-                    const rating = distrito === 'Salamanca' ? 4.2 + Math.random() * 0.8 :
-                                  distrito === 'Centro' ? 3.5 + Math.random() * 1.0 :
-                                  3.8 + Math.random() * 1.2;
+    allData = [];
+    for (let i = 0; i < 60; i++) { // Más datos demo
+        const datoDemo = datosDemo[Math.floor(Math.random() * datosDemo.length)];
+        const precio = datoDemo.precioBase + Math.random() * 200 - 100;
+        const rating = datoDemo.rating + Math.random() * 0.6 - 0.3;
 
-                    allData.push({
-                        id: `demo-${i}`,
-                        fecha: new Date(2024, Math.floor(Math.random() * 6) + 6, Math.floor(Math.random() * 28) + 1).toLocaleDateString('es-ES'),
-                        direccion: direcciones[Math.floor(Math.random() * direcciones.length)],
-                        distrito: distrito,
-                        precioPagado: Math.round(precio),
-                        precioAnunciado: Math.round(precio + Math.random() * 200 - 50),
-                        tipoPropiedad: tipos[Math.floor(Math.random() * tipos.length)],
-                        metros: Math.round(50 + Math.random() * 100),
-                        habitaciones: 1 + Math.floor(Math.random() * 3),
-                        banos: 1 + Math.floor(Math.random() * 2),
-                        amueblado: Math.random() > 0.4 ? 'Sí' : 'No',
-                        calificacionGlobal: Math.round(rating * 10) / 10,
-                        estadoPiso: Math.round((3 + Math.random() * 2) * 10) / 10,
-                        limpieza: Math.round((3.5 + Math.random() * 1.5) * 10) / 10,
-                        ubicacion: Math.round((3.5 + Math.random() * 1.5) * 10) / 10,
-                        calidadPrecio: Math.round((2.5 + Math.random() * 2.5) * 10) / 10,
-                        comunicacionCasero: Math.round((3 + Math.random() * 2) * 10) / 10,
-                        devolucionFianza: Math.random() > 0.3 ? 'Sí, completa' : 'Sí, parcial',
-                        resenaDetallada: `Alquiler en ${distrito}. ${Math.random() > 0.5 ? 'Experiencia positiva en general.' : 'Algunas cosas a mejorar pero aceptable.'} ${Math.random() > 0.7 ? 'Recomiendo especialmente la zona.' : ''}`,
-                        recomendarias: Math.random() > 0.25 ? 'Sí' : 'No',
-                        verificado: 'Sí',
-                        estadoModeracion: 'Aprobada'
-                    });
-                }
+        allData.push({
+            id: `demo-${i}`,
+            fecha: new Date(2024, Math.floor(Math.random() * 6) + 6, Math.floor(Math.random() * 28) + 1).toLocaleDateString('es-ES'),
+            direccion: direcciones[Math.floor(Math.random() * direcciones.length)],
+            distrito: datoDemo.distrito,
+            precioPagado: Math.round(precio),
+            precioAnunciado: Math.round(precio + Math.random() * 150 - 25),
+            tipoPropiedad: tipos[Math.floor(Math.random() * tipos.length)],
+            metros: Math.round(50 + Math.random() * 80),
+            habitaciones: 1 + Math.floor(Math.random() * 3),
+            banos: 1 + Math.floor(Math.random() * 2),
+            amueblado: Math.random() > 0.4 ? 'Sí' : 'No',
+            calificacionGlobal: Math.round(rating * 10) / 10,
+            estadoPiso: Math.round((3 + Math.random() * 2) * 10) / 10,
+            limpieza: Math.round((3.5 + Math.random() * 1.5) * 10) / 10,
+            ubicacion: Math.round((3.5 + Math.random() * 1.5) * 10) / 10,
+            calidadPrecio: Math.round((2.5 + Math.random() * 2.5) * 10) / 10,
+            comunicacionCasero: Math.round((3 + Math.random() * 2) * 10) / 10,
+            devolucionFianza: Math.random() > 0.3 ? 'Sí, completa' : 'Sí, parcial',
+            resenaDetallada: `Alquiler en ${datoDemo.distrito.split(' - ')[1]}. ${Math.random() > 0.5 ? 'Experiencia positiva en general.' : 'Algunas cosas a mejorar pero aceptable.'} ${Math.random() > 0.7 ? 'Recomiendo especialmente la zona.' : ''}`,
+            recomendarias: Math.random() > 0.25 ? 'Sí' : 'No',
+            verificado: 'Sí',
+            estadoModeracion: 'Aprobada'
+        });
+    }
 
-                console.log(`✅ ${allData.length} propiedades demo cargadas`);
-                this.updateHeroStats();
-            }
+    console.log(`✅ ${allData.length} propiedades demo cargadas (Madrid + Málaga)`);
+    this.updateHeroStats();
+}
 
             updateHeroStats() {
                 const totalReviews = allData.length;
@@ -1850,21 +1858,29 @@ const DISTRITOS = {
                     const ctx2 = document.getElementById('ratingChart');
                     if (ctx2) {
                         charts.rating = new Chart(ctx2, {
-                            type: 'bar',
-                            data: {
-                                labels: ['Centro', 'Salamanca', 'Chamberí', 'Retiro', 'Usera'],
-                                datasets: [{
-                                    label: 'Rating Promedio',
-                                    data: [3.8, 4.5, 4.3, 4.1, 4.2],
-                                    backgroundColor: ['#ef4444', '#10b981', '#06b6d4', '#f59e0b', '#8b5cf6']
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                plugins: { legend: { display: false } },
-                                scales: { y: { beginAtZero: true, max: 5 } }
-                            }
-                        });
+    type: 'bar',
+    data: {
+        labels: ['Madrid Centro', 'Salamanca', 'Málaga Centro', 'Teatinos', 'Chamberí'],
+        datasets: [{
+            label: 'Rating Promedio',
+            data: [3.8, 4.5, 4.4, 4.6, 4.3],
+            backgroundColor: ['#ef4444', '#10b981', '#06b6d4', '#10b981', '#f59e0b']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: '📊 Datos demo - Próximamente con reseñas reales',
+                font: { size: 12 },
+                color: '#666'
+            }
+        },
+        scales: { y: { beginAtZero: true, max: 5 } }
+    }
+});
                     }
 
                     const ctx3 = document.getElementById('predictionChart');
